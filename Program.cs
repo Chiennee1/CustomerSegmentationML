@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using CsvHelper.Configuration.Attributes;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using System;
@@ -8,6 +9,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using ClosedXML.Excel;
 
 namespace CustomerSegmentationML
 {
@@ -46,15 +48,19 @@ namespace CustomerSegmentationML
         public int CustomerID { get; set; }
         public string Gender { get; set; }
         public int Age { get; set; }
+
+        [Name("Annual Income (k$)")]
         public int AnnualIncome { get; set; }
-        public int SpendingScore { get; set; }
+
+        [Name("Spending Score (1-100)")]
+        public int SpendingScore { get; set; } 
     }
 
     class Program
     {
         private static MLContext _mlContext;
         private static ITransformer _model;
-        private static string _dataPath = "Data/Mall_Customers.csv";
+        private static string _dataPath = "D:\\StudyPython\\PhanCumkhachHang\\CustomerSegmentationML\\Data\\Mall_Customers.csv";
         private static string _modelPath = "CustomerSegmentationModel.zip";
 
         static void Main(string[] args)
@@ -78,118 +84,60 @@ namespace CustomerSegmentationML
                     return;
                 }
 
-                // Bước 1: Đọc và xử lý dữ liệu
-                var data = LoadData();
 
-                // Bước 2: Hiển thị thông tin dataset
-                DisplayDatasetInfo(data);
+                // Bước 1: Đọc và phân chia dữ liệu
+                var (trainData, testData) = LoadDataSplit();
+                DisplayDatasetInfo(trainData);
+                DisplayDatasetInfo(testData);
+                // Bước 2: Huấn luyện mô hình
+                TrainModel(trainData);
 
-                // Bước 3: Huấn luyện mô hình
-                TrainModel(data);
+                while (true)
+                {
+                    Console.WriteLine("\nChọn chức năng:");
+                    Console.WriteLine("1. Xem mẫu dữ liệu trong file CSV");
+                    Console.WriteLine("2. Kiểm tra mô hình trên dữ liệu TRAIN");
+                    Console.WriteLine("3. Kiểm tra mô hình trên dữ liệu TEST");
+                    Console.WriteLine("4. Xem mô hình đã lưu");
+                    Console.WriteLine("5. Thêm khách hàng mới và phân cụm");
+                    Console.WriteLine("6. Xem chi tiết kết quả phân tích");
+                    Console.WriteLine("7. Xem báo cáo tóm tắt");
+                    Console.WriteLine("8. Dự đoán phân cụm cho một số khách hàng trong bộ TEST");
+                    Console.WriteLine("9. Xuất báo cáo phân khúc ra file TXT");
+                    Console.WriteLine("10. Xuất báo cáo phân khúc ra file Excel");
+                    Console.WriteLine("11. Thoát");
+                    Console.Write("Lựa chọn: ");
+                    var choice = Console.ReadLine();
+                    if (choice == "1")
+                        ShowSampleCSVData();
+                    else if (choice == "5")
+                        AddAndPredictNewCustomer();
+                    else if (choice == "2")
+                        TestModelOnTrain(trainData);
+                    else if (choice == "3")
+                        TestModelOnTest(testData);
+                    else if (choice == "4")
+                        ViewSavedModel();
+                    else if (choice == "6")
+                        ViewAnalysisDetails();
+                    else if (choice == "7")
+                        ViewSummaryReport();
+                    else if (choice == "7")
+                        PredictSample(testData);
+                    else if (choice == "8")
+                        ExportSegmentReportToTxt();
+                    else if (choice == "10")
+                        ExportToExcel();
+                    else if (choice == "11")
+                        break;
 
-                while (true)
-                {
-                    Console.WriteLine("\nChọn chức năng:");
-                    Console.WriteLine("1. Thêm khách hàng mới và phân cụm");
-                    Console.WriteLine("2. Kiểm tra chi tiết mô hình và báo cáo");
-                    Console.WriteLine("3. Thoát");
-                    Console.Write("Lựa chọn: ");
-                    var choice = Console.ReadLine();
-                    if (choice == "1")
-                        AddAndPredictNewCustomer();
-                    else if (choice == "2")
-                        CheckModelDetails();
-                    else if (choice == "3")
-                        break;
                     else
                         Console.WriteLine("Lựa chọn không hợp lệ!");
                 }
-                while (true)
-                {
-                    Console.WriteLine("\nChọn chức năng:");
-                    Console.WriteLine("1. Thêm khách hàng mới và phân cụm");
-                    Console.WriteLine("2. Kiểm tra chi tiết mô hình và báo cáo");
-                    Console.WriteLine("3. Thoát");
-                    Console.Write("Lựa chọn: ");
-                    var choice = Console.ReadLine();
-                    if (choice == "1")
-                        AddAndPredictNewCustomer();
-                    else if (choice == "2")
-                        CheckModelDetails();
-                    else if (choice == "3")
-                        break;
-                    else
-                        Console.WriteLine("Lựa chọn không hợp lệ!");
-                }
-                while (true)
-                {
-                    Console.WriteLine("\nChọn chức năng:");
-                    Console.WriteLine("1. Thêm khách hàng mới và phân cụm");
-                    Console.WriteLine("2. Kiểm tra chi tiết mô hình và báo cáo");
-                    Console.WriteLine("3. Thoát");
-                    Console.Write("Lựa chọn: ");
-                    var choice = Console.ReadLine();
-                    if (choice == "1")
-                        AddAndPredictNewCustomer();
-                    else if (choice == "2")
-                        CheckModelDetails();
-                    else if (choice == "3")
-                        break;
-                    else
-                        Console.WriteLine("Lựa chọn không hợp lệ!");
-                }
-                while (true)
-                {
-                    Console.WriteLine("\nChọn chức năng:");
-                    Console.WriteLine("1. Thêm khách hàng mới và phân cụm");
-                    Console.WriteLine("2. Kiểm tra chi tiết mô hình và báo cáo");
-                    Console.WriteLine("3. Thoát");
-                    Console.Write("Lựa chọn: ");
-                    var choice = Console.ReadLine();
-                    if (choice == "1")
-                        AddAndPredictNewCustomer();
-                    else if (choice == "2")
-                        CheckModelDetails();
-                    else if (choice == "3")
-                        break;
-                    else
-                        Console.WriteLine("Lựa chọn không hợp lệ!");
-                }
-                while (true)
-                {
-                    Console.WriteLine("\nChọn chức năng:");
-                    Console.WriteLine("1. Thêm khách hàng mới và phân cụm");
-                    Console.WriteLine("2. Kiểm tra chi tiết mô hình và báo cáo");
-                    Console.WriteLine("3. Thoát");
-                    Console.Write("Lựa chọn: ");
-                    var choice = Console.ReadLine();
-                    if (choice == "1")
-                        AddAndPredictNewCustomer();
-                    else if (choice == "2")
-                        CheckModelDetails();
-                    else if (choice == "3")
-                        break;
-                    else
-                        Console.WriteLine("Lựa chọn không hợp lệ!");
-                }
-                while (true)
-                {
-                    Console.WriteLine("\nChọn chức năng:");
-                    Console.WriteLine("1. Thêm khách hàng mới và phân cụm");
-                    Console.WriteLine("2. Kiểm tra chi tiết mô hình và báo cáo");
-                    Console.WriteLine("3. Thoát");
-                    Console.Write("Lựa chọn: ");
-                    var choice = Console.ReadLine();
-                    if (choice == "1")
-                        AddAndPredictNewCustomer();
-                    else if (choice == "2")
-                        CheckModelDetails();
-                    else if (choice == "3")
-                        break;
-                    else
-                        Console.WriteLine("Lựa chọn không hợp lệ!");
-                }
-                }
+
+                TestModelOnTrain(trainData);
+                TestModelOnTest(testData);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Lỗi: {ex.Message}");
@@ -198,35 +146,50 @@ namespace CustomerSegmentationML
             }
         }
 
-        static IDataView LoadData()
+        static (IDataView trainData, IDataView testData) LoadDataSplit(float testFraction = 0.2f)
+{
+    Console.WriteLine("Đọc dữ liệu từ file CSV...");
+
+    var customerList = new List<CustomerData>();
+
+    var reader = new StringReader(File.ReadAllText(_dataPath));
+    var csvConfig = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
+    {
+        MissingFieldFound = null
+    };
+    var csv = new CsvReader(reader, csvConfig);
+
+    var records = csv.GetRecords<CustomerCSV>()
+        .Where(r => r.SpendingScore != 0)
+        .ToList();
+
+    foreach (var record in records)
+    {
+        customerList.Add(new CustomerData
         {
-            Console.WriteLine("Đọc dữ liệu từ file CSV...");
+            CustomerID = record.CustomerID,
+            Gender = record.Gender == "Male" ? 1 : 0,
+            Age = record.Age,
+            AnnualIncome = record.AnnualIncome,
+            SpendingScore = record.SpendingScore
+        });
+    }
 
-            // Đọc CSV và chuyển đổi
-            var customerList = new List<CustomerData>();
+    // Shuffle dữ liệu để chia ngẫu nhiên
+    var rnd = new Random(0);
+    var shuffled = customerList.OrderBy(x => rnd.Next()).ToList();
 
-            var reader = new StringReader(File.ReadAllText(_dataPath));
-            var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+    int testCount = (int)(shuffled.Count * testFraction);
+    var testList = shuffled.Take(testCount).ToList();
+    var trainList = shuffled.Skip(testCount).ToList();
 
-            var records = csv.GetRecords<CustomerCSV>().ToList();
+    var trainData = _mlContext.Data.LoadFromEnumerable(trainList);
+    var testData = _mlContext.Data.LoadFromEnumerable(testList);
 
-            foreach (var record in records)
-            {
-                customerList.Add(new CustomerData
-                {
-                    CustomerID = record.CustomerID,
-                    Gender = record.Gender == "Male" ? 1 : 0,
-                    Age = record.Age,
-                    AnnualIncome = record.AnnualIncome,
-                    SpendingScore = record.SpendingScore
-                });
-            }
+    Console.WriteLine($"Train: {trainList.Count} - Test: {testList.Count}");
 
-            Console.WriteLine($"Đã đọc {customerList.Count} khách hàng từ dataset thực tế.");
-
-            // Chuyển đổi thành IDataView
-            return _mlContext.Data.LoadFromEnumerable(customerList);
-        }
+    return (trainData, testData);
+}
 
         static void DisplayDatasetInfo(IDataView dataView)
         {
@@ -274,23 +237,18 @@ namespace CustomerSegmentationML
             Console.WriteLine("(Davies Bouldin Index càng thấp càng tốt - các cluster tách biệt rõ ràng)");
         }
 
-        static void PredictSample()
+       
+        static void PredictSample(IDataView testData)
         {
-            Console.WriteLine("\n=== DỰ ĐOÁN CHO KHÁCH HÀNG MẪU ===");
+            Console.WriteLine("\n=== DỰ ĐOÁN PHÂN CỤM CHO KHÁCH HÀNG TRONG BỘ TEST ===");
 
             var predictionEngine = _mlContext.Model.CreatePredictionEngine<CustomerData, CustomerPrediction>(_model);
 
-            // Khách hàng mẫu dựa trên dữ liệu thực tế
-            var sampleCustomers = new[]
-            {
-                new CustomerData { CustomerID = 999, Gender = 0, Age = 25, AnnualIncome = 70, SpendingScore = 80 }, // Nữ trẻ, thu nhập trung bình, chi tiêu cao
-                new CustomerData { CustomerID = 998, Gender = 1, Age = 45, AnnualIncome = 120, SpendingScore = 30 }, // Nam trung niên, thu nhập cao, chi tiêu thấp
-                new CustomerData { CustomerID = 997, Gender = 0, Age = 35, AnnualIncome = 50, SpendingScore = 50 }, // Nữ trung niên, thu nhập và chi tiêu trung bình
-                new CustomerData { CustomerID = 996, Gender = 1, Age = 22, AnnualIncome = 30, SpendingScore = 90 }, // Nam trẻ, thu nhập thấp, chi tiêu cao
-                new CustomerData { CustomerID = 995, Gender = 0, Age = 55, AnnualIncome = 100, SpendingScore = 85 } // Nữ trung niên, thu nhập cao, chi tiêu cao
-            };
+            // Lấy danh sách khách hàng từ bộ test
+            var testCustomers = _mlContext.Data.CreateEnumerable<CustomerData>(testData, reuseRowObject: false).ToList();
 
-            foreach (var customer in sampleCustomers)
+            // Dự đoán cho 5 khách hàng đầu tiên trong bộ test
+            foreach (var customer in testCustomers.Take(5))
             {
                 var prediction = predictionEngine.Predict(customer);
                 string genderText = customer.Gender == 1 ? "Nam" : "Nữ";
@@ -332,7 +290,8 @@ namespace CustomerSegmentationML
                 Console.WriteLine($"   ├─ Tuổi: {customers.Min(c => c.Age)}-{customers.Max(c => c.Age)} (TB: {customers.Average(c => c.Age):F1})");
                 Console.WriteLine($"   ├─ Thu nhập: {customers.Min(c => c.AnnualIncome)}-{customers.Max(c => c.AnnualIncome)}k$ (TB: {customers.Average(c => c.AnnualIncome):F1}k$)");
                 Console.WriteLine($"   ├─ Điểm chi tiêu: {customers.Min(c => c.SpendingScore)}-{customers.Max(c => c.SpendingScore)} (TB: {customers.Average(c => c.SpendingScore):F1})");
-                Console.WriteLine($"   ├─ Giới tính: Nam {customers.Count(c => c.Gender == 1)} ({customers.Count(c => c.Gender == 1) * 100.0 / customers.Count:F1}%), Nữ {customers.Count(c => c.Gender == 0)} ({customers.Count(c => c.Gender == 0) * 100.0 / customers.Count:F1}%)");
+                Console.WriteLine($"   ├─ Giới tính: Nam {customers.Count(c => c.Gender == 1)} ({customers.Count(c => c.Gender == 1) * 100.0 / customers.Count:F1}%), Nữ {customers.Count(c => c.Gender == 0)} " +
+                    $"({customers.Count(c => c.Gender == 0) * 100.0 / customers.Count:F1}%)");
 
                 // Đặc điểm segment
                 var avgIncome = customers.Average(c => c.AnnualIncome);
@@ -476,12 +435,168 @@ namespace CustomerSegmentationML
             Console.WriteLine("Đã thêm khách hàng mới vào file dữ liệu.");
         }
 
-        static void CheckModelDetails()
+        static void CheckModelDetails(IDataView dataView)
         {
-            var data = LoadData();
-            AnalyzeSegments(data);
-            SaveResults(data);
+            AnalyzeSegments(dataView);
+            SaveResults(dataView);
             Console.WriteLine("Đã cập nhật báo cáo chi tiết và file kết quả.");
         }
+
+        static void ViewSavedModel()
+        {
+            if (!File.Exists(_modelPath))
+            {
+                Console.WriteLine($"Không tìm thấy file mô hình: {_modelPath}");
+                return;
+            }
+
+            // Nạp lại mô hình từ file zip
+            var loadedModel = _mlContext.Model.Load(_modelPath, out var inputSchema);
+
+            Console.WriteLine("=== THÔNG TIN MÔ HÌNH ĐÃ LƯU ===");
+            Console.WriteLine($"Đường dẫn: {_modelPath}");
+            Console.WriteLine($"Schema đầu vào:");
+            foreach (var col in inputSchema)
+            {
+                Console.WriteLine($" - {col.Name}: {col.Type}");
+            }
+            Console.WriteLine("Bạn có thể dùng mô hình này để dự đoán hoặc phân tích lại dữ liệu.");
+        }
+
+        static void ViewAnalysisDetails()
+        {
+            string resultPath = "Results/customer_segments.csv";
+            if (!File.Exists(resultPath))
+            {
+                Console.WriteLine("Chưa có file kết quả phân tích. Hãy chạy phân tích trước.");
+                return;
+            }
+
+            Console.WriteLine("=== KẾT QUẢ PHÂN TÍCH CHI TIẾT ===");
+            var lines = File.ReadAllLines(resultPath);
+            for (int i = 0; i < Math.Min(10, lines.Length); i++)
+            {
+                Console.WriteLine(lines[i]);
+            }
+            if (lines.Length > 10)
+                Console.WriteLine($"... (Tổng cộng {lines.Length - 1} khách hàng)");
+        }
+
+        static void ViewSummaryReport()
+        {
+            string reportPath = "Results/analysis_report.txt";
+            if (!File.Exists(reportPath))
+            {
+                Console.WriteLine("Chưa có báo cáo tóm tắt. Hãy chạy phân tích trước.");
+                return;
+            }
+
+            Console.WriteLine("=== BÁO CÁO TÓM TẮT ===");
+            string report = File.ReadAllText(reportPath);
+            Console.WriteLine(report);
+        }
+
+        static void TestModelOnTrain(IDataView trainData)
+        {
+            Console.WriteLine("\n=== ĐÁNH GIÁ MÔ HÌNH TRÊN DỮ LIỆU TRAIN ===");
+            EvaluateModel(trainData);
+            AnalyzeSegments(trainData);
+        }
+
+        static void TestModelOnTest(IDataView testData)
+        {
+            Console.WriteLine("\n=== ĐÁNH GIÁ MÔ HÌNH TRÊN DỮ LIỆU TEST ===");
+            EvaluateModel(testData);
+            AnalyzeSegments(testData);
+        }
+
+        static void ExportSegmentReportToTxt()
+        {
+            string resultPath = "Results/customer_segments.csv";
+            string segmentReportPath = "Results/segment_report.txt";
+            if (!File.Exists(resultPath))
+            {
+                Console.WriteLine("Chưa có file kết quả phân tích. Hãy chạy phân tích trước.");
+                return;
+            }
+
+            var lines = File.ReadAllLines(resultPath);
+            var segments = new Dictionary<string, List<string>>();
+
+            // Bỏ dòng tiêu đề
+            for (int i = 1; i < lines.Length; i++)
+            {
+                var cols = lines[i].Split(',');
+                var segment = cols[5]; // PredictedSegment
+                if (!segments.ContainsKey(segment))
+                    segments[segment] = new List<string>();
+                segments[segment].Add(lines[i]);
+            }
+
+            var sb = new StringBuilder();
+            sb.AppendLine("BÁO CÁO PHÂN KHÚC KHÁCH HÀNG");
+            sb.AppendLine("============================");
+            foreach (var kv in segments)
+            {
+                sb.AppendLine($"Phân khúc {kv.Key}: {kv.Value.Count} khách hàng");
+                foreach (var line in kv.Value.Take(5)) // Hiển thị 5 khách hàng đầu
+                    sb.AppendLine("  " + line);
+                sb.AppendLine();
+            }
+
+            File.WriteAllText(segmentReportPath, sb.ToString());
+            Console.WriteLine($"✅ Đã xuất báo cáo phân khúc: {segmentReportPath}");
+        }
+
+        // Xuất báo cáo phân khúc ra file Excel
+        static void ExportToExcel()
+        {
+            string csvPath = "Results/customer_segments.csv";
+            string excelPath = "Results/customer_segments.xlsx";
+            if (!File.Exists(csvPath))
+            {
+                Console.WriteLine("Chưa có file kết quả phân tích.");
+                return;
+            }
+
+            var lines = File.ReadAllLines(csvPath);
+            var wb = new XLWorkbook();
+            var ws = wb.Worksheets.Add("Segments");
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                var cols = lines[i].Split(',');
+                for (int j = 0; j < cols.Length; j++)
+                    ws.Cell(i + 1, j + 1).Value = cols[j];
+            }
+
+            wb.SaveAs(excelPath);
+            Console.WriteLine($"✅ Đã xuất file Excel: {excelPath}");
+        }
+
+        static void ShowSampleCSVData(int sampleCount = 10)
+{
+    if (!File.Exists(_dataPath))
+    {
+        Console.WriteLine($"Không tìm thấy file dữ liệu: {_dataPath}");
+        return;
+    }
+
+    Console.WriteLine("\n=== MỘT SỐ DÒNG DỮ LIỆU TỪ FILE CSV ===");
+    using (var reader = new StreamReader(_dataPath))
+    {
+        int lineNum = 0;
+        string line;
+        while ((line = reader.ReadLine()) != null && lineNum < sampleCount + 1)
+        {
+            Console.WriteLine(line);
+            lineNum++;
+        }
+        if (lineNum <= 1)
+            Console.WriteLine("File không có dữ liệu!");
+        else if (reader.ReadLine() != null)
+            Console.WriteLine("... (Dữ liệu còn nữa, chỉ hiển thị một phần)");
+    }
+}
     }
 }
