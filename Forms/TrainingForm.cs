@@ -101,7 +101,7 @@ namespace CustomerSegmentationML.Forms
         {
             return await Task.Run(() =>
             {
-                var dataHelper = new DataHelper();
+                var dataHelper = new CustomerSegmentationML.Utils.DataHelper()  ;
                 return dataHelper.LoadAndSplitEnhancedData(_dataPath, 0.2f);
             });
         }
@@ -129,11 +129,16 @@ namespace CustomerSegmentationML.Forms
 
         private async Task RunSingleAlgorithm(IDataView trainData, IDataView testData)
         {
-            IClusteringAlgorithm algorithm = cmbAlgorithm.SelectedItem.ToString() switch
+                IClusteringAlgorithm algorithm;
+            switch (cmbAlgorithm.SelectedItem.ToString())
             {
-                "K-Means" => new KMeansClusterer(),
-                _ => new KMeansClusterer() // Default fallback
-            };
+                case "K-Means":
+                    algorithm = new KMeansClusterer();
+                    break;
+                default:
+                    algorithm = new KMeansClusterer(); // Default fallback
+                    break;
+            }
 
             var progress = new Progress<string>(msg => UpdateStatus(msg));
 
