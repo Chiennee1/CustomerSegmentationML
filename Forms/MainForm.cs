@@ -6,9 +6,6 @@ using System.Windows.Forms.DataVisualization.Charting;
 using CustomerSegmentationML.ML.DataPreprocessing;
 using CustomerSegmentationML.ML.AutoML;
 using CustomerSegmentationML.Utils;
-using CustomerSegmentationML.Forms.Dialogs; 
-using CustomerSegmentationML.Forms.Results;
-using CustomerSegmentationML.Forms.Prediction;
 
 namespace CustomerSegmentationML.Forms
 {
@@ -80,26 +77,36 @@ namespace CustomerSegmentationML.Forms
                     {
                         await Task.Run(() =>
                         {
-                            progress.Report("Đang tạo Enhanced Dataset...");
+                            ((IProgress<string>)progress).Report("Đang tạo Enhanced Dataset...");
                             DatasetGenerator.GenerateEnhancedDataset("Data/Enhanced_Customers.csv", dialog.CustomerCount);
 
-                            progress.Report("Đang tạo Vietnam E-commerce Data...");
+                            ((IProgress<string>)progress).Report("Đang tạo Vietnam E-commerce Data...");
                             DatasetGenerator.GenerateVietnamEcommerceData("Data/Vietnam_Ecommerce.csv");
-                        });
+                        }).ConfigureAwait(false);
 
-                        CheckDataFiles();
-                        UpdateStatus("Tạo dữ liệu thành công!");
-                        MessageBox.Show("Đã tạo thành công dữ liệu mới!", "Thành công",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // UI updates must be on UI thread
+                        this.Invoke(new Action(() =>
+                        {
+                            CheckDataFiles();
+                            UpdateStatus("Tạo dữ liệu thành công!");
+                            MessageBox.Show("Đã tạo thành công dữ liệu mới!", "Thành công",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }));
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Lỗi tạo dữ liệu: {ex.Message}", "Lỗi",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show($"Lỗi tạo dữ liệu: {ex.Message}", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
                     }
                     finally
                     {
-                        btnGenerateData.Enabled = true;
+                        this.Invoke(new Action(() =>
+                        {
+                            btnGenerateData.Enabled = true;
+                        }));
                     }
                 }
             }
@@ -200,6 +207,21 @@ FEATURES:
 
             MessageBox.Show(helpText, "Hướng dẫn sử dụng",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void grpDataset_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -117,14 +117,19 @@ namespace CustomerSegmentationML.ML.DataPreprocessing
 
         private static string GenerateProfessionByEducation(string education)
         {
-            return education switch
+            switch (education)
             {
-                "High School" => new[] { "Student", "Marketing", "Entertainment" }[_random.Next(3)],
-                "Bachelor" => new[] { "Healthcare", "Engineer", "Marketing", "Entertainment" }[_random.Next(4)],
-                "Master" => new[] { "Engineer", "Healthcare", "Lawyer", "Marketing" }[_random.Next(4)],
-                "PhD" => new[] { "Doctor", "Engineer", "Lawyer" }[_random.Next(3)],
-                _ => "Student"
-            };
+                case "High School":
+                    return new[] { "Student", "Marketing", "Entertainment" }[_random.Next(3)];
+                case "Bachelor":
+                    return new[] { "Healthcare", "Engineer", "Marketing", "Entertainment" }[_random.Next(4)];
+                case "Master":
+                    return new[] { "Engineer", "Healthcare", "Lawyer", "Marketing" }[_random.Next(4)];
+                case "PhD":
+                    return new[] { "Doctor", "Engineer", "Lawyer" }[_random.Next(3)];
+                default:
+                    return "Student";
+            }
         }
 
         // Generate Vietnam-specific e-commerce dataset

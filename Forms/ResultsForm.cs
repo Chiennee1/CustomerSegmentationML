@@ -1,5 +1,4 @@
-using System;
-using System.Windows.Forms;
+ï»¿using System.Windows.Forms;
 
 namespace CustomerSegmentationML.Forms
 {
@@ -7,20 +6,21 @@ namespace CustomerSegmentationML.Forms
     {
         public ResultsForm()
         {
-            InitializeComponent();
-            InitializeUI();
+            InitializeComponent1();
         }
 
-        private void InitializeComponent()
+        private void InitializeComponent1()
         {
-            this.Text = "K?t qu? phân tích";
-            this.Size = new System.Drawing.Size(900, 600);
-        }
-
-        private void InitializeUI()
-        {
+            this.Text = "K?t qu? phÃ¢n tÃ­ch";
+            this.Size = new System.Drawing.Size(800, 600);
             this.StartPosition = FormStartPosition.CenterParent;
-            // TODO: Thêm các control hi?n th? k?t qu?, bi?u ??, b?ng phân tích segment
+
+            var label = new Label();
+            label.Text = "Chá»©c nÄƒng Ä‘ang phÃ¡t triá»ƒn...";
+            label.AutoSize = true;
+            label.Location = new System.Drawing.Point(20, 20);
+
+            this.Controls.Add(label);
         }
     }
 }

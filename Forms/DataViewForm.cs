@@ -1,65 +1,58 @@
-using System;
-using System.Data;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Data;
 
 namespace CustomerSegmentationML.Forms
 {
     public partial class DataViewForm : Form
     {
-        private string _csvPath;
-        private DataGridView _dataGridView;
+        private string _filePath;
+        private DataGridView dataGridView;
 
-        public DataViewForm(string csvPath)
+        public DataViewForm(string filePath)
         {
-            _csvPath = csvPath;
-            InitializeComponent();
-            InitializeUI();
-            LoadCsvData();
+            _filePath = filePath;
+            dataGridView = new DataGridView();
+            dataGridView.Dock = DockStyle.Fill;
+            Controls.Add(dataGridView);
+
+            // Load data after form is shown to ensure controls are ready
+            this.Shown += (s, e) => LoadData();
         }
 
-        private void InitializeUI()
+        private void LoadData()
         {
-            this.Text = $"Xem d? li?u - {Path.GetFileName(_csvPath)}";
-            this.Size = new System.Drawing.Size(900, 600);
-            this.StartPosition = FormStartPosition.CenterParent;
+            try
+            {
+                var lines = File.ReadAllLines(_filePath);
+                if (lines.Length == 0) return;
 
-            _dataGridView = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                ReadOnly = true,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            };
-            this.Controls.Add(_dataGridView);
-        }
+                var headers = lines[0].Split(',');
+                var dt = new DataTable();
 
-        private void LoadCsvData()
-        {
-            if (!File.Exists(_csvPath))
-            {
-                MessageBox.Show($"Kh�ng t�m th?y file: {_csvPath}", "L?i", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            var dt = new DataTable();
-            using (var reader = new StreamReader(_csvPath))
-            {
-                string headerLine = reader.ReadLine();
-                if (headerLine == null) return;
-                var headers = headerLine.Split(',');
-                foreach (var h in headers)
-                    dt.Columns.Add(h);
-                int rowCount = 0;
-                while (!reader.EndOfStream && rowCount < 100)
+                foreach (var header in headers)
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
-                    dt.Rows.Add(values);
-                    rowCount++;
+                    dt.Columns.Add(header.Trim());
                 }
+
+                for (int i = 1; i < Math.Min(lines.Length, 1000); i++)
+                {
+                    var values = lines[i].Split(',');
+                    dt.Rows.Add(values);
+                }
+
+                dataGridView.DataSource = dt;
             }
-            _dataGridView.DataSource = dt;
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi đọc dữ liệu: {ex.Message}", "Lỗi");
+            }
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

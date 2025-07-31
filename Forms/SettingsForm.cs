@@ -1,4 +1,3 @@
-using System;
 using System.Windows.Forms;
 
 namespace CustomerSegmentationML.Forms
@@ -8,21 +7,20 @@ namespace CustomerSegmentationML.Forms
         public SettingsForm()
         {
             InitializeComponent();
-            InitializeUI();
         }
 
         private void InitializeComponent()
         {
-            this.Text = "Cài ??t h? th?ng";
-            this.Size = new System.Drawing.Size(500, 350);
-        }
-
-        private void InitializeUI()
-        {
-            this.Text = "Cài ??t h? th?ng - Settings";
-            this.Size = new System.Drawing.Size(500, 350);
+            this.Text = "Cài ??t";
+            this.Size = new System.Drawing.Size(500, 400);
             this.StartPosition = FormStartPosition.CenterParent;
-            // TODO: Thêm các control ch?n file d? li?u, thu?t toán, c?u hình h? th?ng
+
+            var label = new Label();
+            label.Text = "Cài ??t h? th?ng ?ang ???c phát tri?n...";
+            label.AutoSize = true;
+            label.Location = new System.Drawing.Point(20, 20);
+
+            this.Controls.Add(label);
         }
     }
 }

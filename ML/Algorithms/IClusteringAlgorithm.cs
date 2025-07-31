@@ -19,17 +19,6 @@ namespace CustomerSegmentationML.ML.Algorithms
         void LoadModel(string path);
     }
 
-    public class ClusteringResult
-    {
-        public ITransformer Model { get; set; }
-        public ClusteringMetrics TrainingMetrics { get; set; }
-        public Dictionary<uint, SegmentAnalysis> Segments { get; set; }
-        public string AlgorithmName { get; set; }
-        public Dictionary<string, object> Parameters { get; set; }
-        public DateTime TrainingTime { get; set; }
-        public TimeSpan TrainingDuration { get; set; }
-    }
-
     public class ClusteringMetrics
     {
         public double AverageDistance { get; set; }
