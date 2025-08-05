@@ -24,7 +24,15 @@ namespace CustomerSegmentationML.Forms
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // PredictionForm
+            // 
+            this.ClientSize = new System.Drawing.Size(278, 244);
+            this.Name = "PredictionForm";
+            this.Load += new System.EventHandler(this.PredictionForm_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
