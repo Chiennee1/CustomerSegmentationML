@@ -6,6 +6,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 using CustomerSegmentationML.ML.DataPreprocessing;
 using CustomerSegmentationML.ML.AutoML;
 using CustomerSegmentationML.Utils;
+using System.Drawing;
+using System.Collections.Generic;
+using CustomerSegmentationML.ML.Algorithms;
 
 namespace CustomerSegmentationML.Forms
 {
@@ -34,7 +37,21 @@ namespace CustomerSegmentationML.Forms
 
         private void CheckDataFiles()
         {
-            var dataFiles = Directory.GetFiles("Data", "*.csv");
+            // Đường dẫn tuyệt đối đến thư mục Data trong dự án
+            string dataDir = @"D:\StudyPython\PhanCumkhachHang\CustomerSegmentationML\Data";
+
+            // Kiểm tra xem thư mục có tồn tại không
+            if (!Directory.Exists(dataDir))
+            {
+                cmbDataset.Items.Clear();
+                btnViewData.Enabled = false;
+                btnStartTraining.Enabled = false;
+                UpdateStatus("Không tìm thấy thư mục dữ liệu");
+                lblDatasetCount.Text = "Có 0 dataset";
+                return;
+            }
+
+            var dataFiles = Directory.GetFiles(dataDir, "*.csv");
             cmbDataset.Items.Clear();
 
             foreach (var file in dataFiles)
@@ -75,13 +92,26 @@ namespace CustomerSegmentationML.Forms
 
                     try
                     {
+                        string projectPath = @"D:\StudyPython\PhanCumkhachHang\CustomerSegmentationML";
+
+                        // Đảm bảo thư mục Data tồn tại
+                        string dataDir = Path.Combine(projectPath, "Data");
+                        if (!Directory.Exists(dataDir))
+                        {
+                            Directory.CreateDirectory(dataDir);
+                        }
+
+                        // Đường dẫn tuyệt đối đến các file dữ liệu
+                        string enhancedFilePath = Path.Combine(dataDir, "Enhanced_Customers.csv");
+                        string ecommFilePath = Path.Combine(dataDir, "Vietnam_Ecommerce.csv");
+
                         await Task.Run(() =>
                         {
                             ((IProgress<string>)progress).Report("Đang tạo Enhanced Dataset...");
-                            DatasetGenerator.GenerateEnhancedDataset("Data/Enhanced_Customers.csv", dialog.CustomerCount);
+                            DatasetGenerator.GenerateEnhancedDataset(enhancedFilePath, dialog.CustomerCount);
 
                             ((IProgress<string>)progress).Report("Đang tạo Vietnam E-commerce Data...");
-                            DatasetGenerator.GenerateVietnamEcommerceData("Data/Vietnam_Ecommerce.csv");
+                            DatasetGenerator.GenerateVietnamEcommerceData(ecommFilePath);
                         }).ConfigureAwait(false);
 
                         // UI updates must be on UI thread
@@ -89,8 +119,10 @@ namespace CustomerSegmentationML.Forms
                         {
                             CheckDataFiles();
                             UpdateStatus("Tạo dữ liệu thành công!");
-                            MessageBox.Show("Đã tạo thành công dữ liệu mới!", "Thành công",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Hiển thị đường dẫn file đầy đủ trong thông báo
+                            MessageBox.Show($"Đã tạo thành công dữ liệu mới tại:\n{enhancedFilePath}",
+                                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }));
                     }
                     catch (Exception ex)
@@ -117,18 +149,18 @@ namespace CustomerSegmentationML.Forms
             if (cmbDataset.SelectedItem == null) return;
 
             var fileName = cmbDataset.SelectedItem.ToString();
-            var filePath = Path.Combine("Data", fileName);
+            var filePath = Path.Combine(@"D:\StudyPython\PhanCumkhachHang\CustomerSegmentationML\Data", fileName);
 
             var dataForm = new DataViewForm(filePath);
             dataForm.ShowDialog();
         }
 
-        private async void btnStartTraining_Click(object sender, EventArgs e)
+        private void btnStartTraining_Click(object sender, EventArgs e)
         {
             if (cmbDataset.SelectedItem == null) return;
 
             var fileName = cmbDataset.SelectedItem.ToString();
-            _currentDataPath = Path.Combine("Data", fileName);
+            _currentDataPath = Path.Combine(@"D:\StudyPython\PhanCumkhachHang\CustomerSegmentationML\Data", fileName);
 
             var trainingForm = new TrainingForm(_currentDataPath, _autoTrainer);
             trainingForm.ShowDialog();
@@ -140,7 +172,7 @@ namespace CustomerSegmentationML.Forms
         private void btnViewResults_Click(object sender, EventArgs e)
         {
             var resultsForm = new ResultsForm();
-            resultsForm.ShowDialog();
+            resultsForm.Show();
         }
 
         private void btnPredictCustomer_Click(object sender, EventArgs e)
@@ -169,6 +201,33 @@ namespace CustomerSegmentationML.Forms
             // Show welcome message
             var welcome = new WelcomeDialog();
             welcome.ShowDialog();
+        }
+
+        private void InitializeModelTestButton()
+        {
+            var btnTestModel = new Button
+            {
+                Text = "🧪 Kiểm tra Mô hình",
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Location = new Point(500, 500),
+                Size = new Size(200, 50),
+                BackColor = Color.LightYellow
+            };
+
+            btnTestModel.Click += (sender, e) =>
+            {
+                var resultsForm = new ResultsForm();
+                resultsForm.ShowDialog();
+
+                // Automatically select the testing tab
+                var tabControl = resultsForm.Controls[0] as TabControl;
+                if (tabControl != null && tabControl.TabPages.Count >= 5)
+                {
+                    tabControl.SelectedIndex = 4; // Select the model testing tab
+                }
+            };
+
+            this.Controls.Add(btnTestModel);
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -222,6 +281,116 @@ FEATURES:
         private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private async Task<List<object>> GetSegmentDataFromModelAsync(string modelPath, string dataPath)
+        {
+            var segmentsData = new List<object>();
+
+            try
+            {
+                // Tạo và hiển thị ProgressDialog
+                ProgressDialog progressDialog = new ProgressDialog("Đang phân tích dữ liệu...");
+                // KHÔNG sử dụng "this" làm owner
+                progressDialog.Show(); // Không truyền owner
+
+                try
+                {
+                    await Task.Run(() =>
+                    {
+                        try
+                        {
+                            // Cập nhật message
+                            if (!progressDialog.IsDisposed)
+                            {
+                                this.Invoke(new Action(() =>
+                                {
+                                    if (!progressDialog.IsDisposed)
+                                        progressDialog.UpdateMessage("Đang tải mô hình...");
+                                }));
+                            }
+
+                            // Tạo instance của KMeansClusterer
+                            var clusterer = new KMeansClusterer();
+                            clusterer.LoadModel(modelPath);
+
+                            // Cập nhật message
+                            if (!progressDialog.IsDisposed)
+                            {
+                                this.Invoke(new Action(() =>
+                                {
+                                    if (!progressDialog.IsDisposed)
+                                        progressDialog.UpdateMessage("Đang phân tích dữ liệu...");
+                                }));
+                            }
+
+                            var segments = clusterer.AnalyzeSegmentsFromFile(dataPath, 500); // Giảm xuống 500 mẫu để cải thiện hiệu suất
+
+                            // Chuyển đổi Dictionary sang danh sách đối tượng
+                            foreach (var segment in segments)
+                            {
+                                segmentsData.Add(new
+                                {
+                                    SegmentID = segment.Key,
+                                    CustomerCount = segment.Value.CustomerCount,
+                                    Percentage = segment.Value.Percentage,
+                                    AvgAge = segment.Value.AverageFeatures["Age"],
+                                    AvgIncome = segment.Value.AverageFeatures["Income"],
+                                    AvgSpending = segment.Value.AverageFeatures["SpendingScore"],
+                                    Description = segment.Value.Description
+                                });
+                            }
+
+                            // Cập nhật message
+                            if (!progressDialog.IsDisposed)
+                            {
+                                this.Invoke(new Action(() =>
+                                {
+                                    if (!progressDialog.IsDisposed)
+                                        progressDialog.UpdateMessage("Đã hoàn tất phân tích!");
+                                }));
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Lỗi khi phân tích dữ liệu: {ex.Message}", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    });
+                }
+                finally
+                {
+                    // Đóng progress dialog khi đã xong
+                    if (!progressDialog.IsDisposed)
+                    {
+                        progressDialog.Invoke(new Action(() =>
+                        {
+                            if (!progressDialog.IsDisposed)
+                                progressDialog.Close();
+                        }));
+                    }
+                }
+
+                return segmentsData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi trích xuất dữ liệu từ mô hình: {ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return GetSampleSegmentData();
+            }
+        }
+        private List<object> GetSampleSegmentData()
+        {
+            // Sample data as fallback
+            return new List<object>
+    {
+        new { SegmentID = 0, CustomerCount = 45, Percentage = 22.5, AvgAge = 28.5, AvgIncome = 65.2, AvgSpending = 78.3, Description = "High-Value Young Customers" },
+        new { SegmentID = 1, CustomerCount = 38, Percentage = 19.0, AvgAge = 45.2, AvgIncome = 85.7, AvgSpending = 45.1, Description = "Conservative High-Income" },
+        new { SegmentID = 2, CustomerCount = 52, Percentage = 26.0, AvgAge = 35.8, AvgIncome = 42.3, AvgSpending = 55.9, Description = "Balanced Middle-Class" },
+        new { SegmentID = 3, CustomerCount = 33, Percentage = 16.5, AvgAge = 52.1, AvgIncome = 78.4, AvgSpending = 82.7, Description = "Premium Mature Customers" },
+        new { SegmentID = 4, CustomerCount = 32, Percentage = 16.0, AvgAge = 23.9, AvgIncome = 28.6, AvgSpending = 25.4, Description = "Young Budget-Conscious" }
+    };
         }
     }
 }

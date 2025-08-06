@@ -1,0 +1,301 @@
+CustomerID,Gender,Age,Income,SpendingScore,Segment,SegmentDescription
+1,Male,46,38,7,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+2,Male,50,36,29,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+3,Female,22,18,16,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+4,Female,67,22,12,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+5,Female,25,15,24,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+6,Male,18,16,40,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+7,Male,41,68,30,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+8,Female,27,36,50,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+9,Male,29,30,45,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+10,Female,68,50,14,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+11,Female,59,40,24,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+12,Female,46,40,36,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+13,Female,65,38,23,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+14,Male,38,66,44,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+15,Female,46,83,59,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+16,Male,24,19,33,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+17,Female,18,11,29,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+18,Female,49,59,46,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+19,Male,54,35,18,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+20,Male,62,42,21,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+21,Female,52,93,40,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+22,Female,29,27,48,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+23,Male,65,26,1,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+24,Female,22,16,27,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+25,Male,28,35,22,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+26,Female,59,26,34,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+27,Male,25,15,29,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+28,Male,42,44,49,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+29,Male,34,29,5,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+30,Female,58,47,9,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+31,Female,25,38,47,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+32,Female,64,44,10,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+33,Female,30,17,11,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+34,Male,48,46,37,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+35,Male,53,60,37,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+36,Male,29,32,28,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+37,Male,49,69,59,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+38,Female,48,42,44,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+39,Male,49,95,37,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+40,Male,27,22,34,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+41,Male,37,45,27,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+42,Male,53,60,43,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+43,Male,61,75,27,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+44,Female,32,24,35,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+45,Male,26,34,29,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+46,Female,18,18,21,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+47,Male,27,18,33,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+48,Male,27,23,31,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+49,Male,30,31,39,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+50,Male,38,30,26,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+51,Male,28,28,50,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+52,Female,31,15,21,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+53,Male,39,65,47,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+54,Male,40,40,17,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+55,Male,28,19,38,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+56,Female,46,60,22,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+57,Male,55,77,27,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+58,Female,26,39,49,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+59,Female,21,17,12,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+60,Female,31,20,35,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+61,Male,68,36,1,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+62,Male,65,36,16,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+63,Female,66,67,38,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+64,Male,58,30,33,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+65,Female,49,30,24,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+66,Male,66,63,34,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+67,Female,49,49,26,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+68,Female,68,51,31,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+69,Male,34,36,31,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+70,Female,19,15,28,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+71,Female,26,36,17,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+72,Male,19,12,16,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+73,Female,49,41,31,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+74,Male,48,43,30,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+75,Female,55,20,22,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+76,Female,67,43,16,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+77,Male,40,54,17,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+78,Male,30,30,20,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+79,Male,36,63,32,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+80,Female,66,38,13,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+81,Female,45,57,45,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+82,Female,55,34,24,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+83,Male,41,25,27,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+84,Male,46,54,23,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+85,Male,64,57,28,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+86,Male,58,44,6,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+87,Male,36,59,51,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+88,Male,26,23,21,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+89,Male,19,15,30,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+90,Female,66,26,1,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+91,Female,24,19,45,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+92,Male,56,32,3,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+93,Male,59,29,7,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+94,Male,39,60,20,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+95,Male,31,19,29,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+96,Male,53,55,44,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+97,Male,64,22,1,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+98,Female,19,18,33,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+99,Female,33,38,27,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+100,Male,35,42,49,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+101,Male,69,62,35,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+102,Female,33,34,17,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+103,Female,47,60,28,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+104,Female,63,32,21,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+105,Male,58,73,29,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+106,Male,25,27,42,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+107,Male,54,61,31,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+108,Male,21,12,21,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+109,Female,21,10,41,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+110,Male,21,12,48,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+111,Female,39,47,38,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+112,Male,28,25,27,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+113,Male,67,45,14,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+114,Female,65,69,37,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+115,Female,39,53,40,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+116,Female,42,48,22,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+117,Male,26,28,36,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+118,Female,24,9,40,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+119,Female,61,54,17,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+120,Male,56,62,29,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+121,Female,35,36,18,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+122,Female,44,44,21,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+123,Male,57,74,37,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+124,Male,30,19,8,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+125,Male,62,45,23,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+126,Male,33,19,5,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+127,Female,62,45,27,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+128,Female,56,52,29,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+129,Male,22,18,47,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+130,Female,59,51,34,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+131,Female,50,54,29,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+132,Female,46,84,36,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+133,Female,51,60,30,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+134,Female,54,68,26,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+135,Male,57,67,36,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+136,Female,21,10,32,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+137,Female,29,29,35,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+138,Male,33,21,11,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+139,Male,55,36,29,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+140,Male,26,24,35,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+141,Male,66,59,25,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+142,Male,64,78,24,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+143,Female,52,46,36,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+144,Female,50,64,43,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+145,Male,53,43,31,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+146,Female,37,44,33,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+147,Male,57,64,19,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+148,Female,43,25,2,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+149,Female,39,50,32,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+150,Female,40,56,54,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+151,Female,22,15,34,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+152,Male,25,38,54,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+153,Male,40,41,13,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+154,Female,63,62,24,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+155,Male,48,99,47,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+156,Female,65,76,25,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+157,Male,51,31,2,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+158,Female,34,24,26,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+159,Female,63,57,29,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+160,Female,31,30,22,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+161,Male,58,42,1,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+162,Male,45,42,34,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+163,Female,23,16,28,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+164,Male,68,28,3,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+165,Female,41,25,43,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+166,Male,64,52,36,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+167,Male,61,33,1,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+168,Female,20,18,20,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+169,Male,52,88,25,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+170,Male,49,36,36,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+171,Female,43,54,32,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+172,Male,27,21,29,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+173,Female,47,35,20,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+174,Female,59,66,48,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+175,Male,26,38,37,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+176,Female,55,26,18,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+177,Male,38,25,16,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+178,Female,41,39,25,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+179,Male,64,59,29,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+180,Female,34,27,24,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+181,Female,48,46,26,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+182,Male,58,77,44,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+183,Female,47,47,31,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+184,Male,66,52,24,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+185,Female,49,53,31,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+186,Male,47,56,34,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+187,Male,30,27,12,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+188,Female,21,8,25,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+189,Male,46,49,13,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+190,Male,44,26,5,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+191,Male,49,71,46,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+192,Male,20,10,15,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+193,Female,45,49,28,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+194,Female,56,36,37,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+195,Female,18,8,17,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+196,Male,20,15,13,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+197,Male,43,50,37,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+198,Female,69,34,30,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+199,Female,42,55,23,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+200,Male,47,51,14,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+201,Female,31,28,22,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+202,Male,32,27,31,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+203,Female,66,47,25,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+204,Male,21,19,32,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+205,Male,32,39,41,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+206,Male,62,21,21,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+207,Male,54,66,31,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+208,Male,33,39,28,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+209,Male,36,59,24,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+210,Male,41,27,29,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+211,Male,25,31,35,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+212,Female,62,68,33,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+213,Female,47,89,44,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+214,Female,48,72,47,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+215,Male,49,82,48,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+216,Male,65,71,38,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+217,Male,23,10,20,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+218,Male,48,99,69,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+219,Male,18,16,18,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+220,Female,57,23,27,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+221,Male,28,16,21,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+222,Female,58,35,31,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+223,Male,31,20,22,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+224,Male,67,42,11,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+225,Male,56,24,30,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+226,Male,46,41,50,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+227,Female,67,22,23,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+228,Male,54,93,43,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+229,Male,51,36,31,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+230,Female,64,76,33,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+231,Male,61,54,26,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+232,Male,60,36,4,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+233,Male,61,44,27,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+234,Male,22,9,42,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+235,Female,48,62,35,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+236,Male,53,45,25,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+237,Male,51,97,44,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+238,Male,37,49,30,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+239,Male,60,79,53,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+240,Female,54,37,4,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+241,Male,22,9,20,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+242,Female,54,75,51,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+243,Female,48,86,64,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+244,Female,20,18,33,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+245,Female,33,39,42,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+246,Male,66,64,42,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+247,Male,60,75,42,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+248,Male,58,54,10,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+249,Male,56,29,1,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+250,Male,23,10,39,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+251,Female,23,10,14,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+252,Male,44,25,33,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+253,Male,43,69,48,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+254,Female,64,53,23,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+255,Female,45,41,33,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+256,Male,24,19,22,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+257,Female,54,87,45,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+258,Male,56,56,22,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+259,Male,55,72,23,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+260,Male,58,51,33,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+261,Female,46,72,49,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+262,Male,23,19,36,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+263,Male,67,31,24,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+264,Female,69,79,57,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+265,Male,38,53,28,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+266,Male,60,46,18,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+267,Female,51,63,30,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+268,Female,37,35,7,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+269,Male,59,29,6,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+270,Male,61,72,45,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+271,Male,58,64,33,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+272,Female,22,12,30,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+273,Male,61,44,16,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+274,Female,26,19,42,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+275,Male,29,38,35,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+276,Female,39,65,40,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+277,Female,20,13,14,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+278,Female,62,72,43,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+279,Female,64,70,31,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+280,Male,36,52,39,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+281,Male,48,87,40,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+282,Male,19,19,17,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+283,Male,40,68,46,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+284,Male,25,28,25,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+285,Female,57,34,16,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+286,Male,69,26,1,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+287,Female,21,9,29,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+288,Male,65,50,18,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+289,Male,41,62,38,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+290,Male,28,23,31,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+291,Male,32,21,32,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+292,Male,50,98,41,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+293,Male,68,28,24,3,Premium Mature Customers: Thu nhập cao, chi tiêu cao, độ tuổi 45+.
+294,Male,44,30,29,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+295,Female,19,9,44,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+296,Female,19,10,43,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+297,Female,43,28,1,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+298,Female,32,35,16,1,Conservative High-Income: Thu nhập cao, chi tiêu thận trọng, độ tuổi 40+.
+299,Male,65,76,45,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.
+300,Male,41,52,28,2,Balanced Middle-Class: Thu nhập và chi tiêu trung bình, độ tuổi đa dạng.

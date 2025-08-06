@@ -39,5 +39,12 @@ namespace CustomerSegmentationML.Forms
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            // Show the new data generation test form
+            var testForm = new DataGenerationTestForm();
+            testForm.ShowDialog();
+        }
     }
 }

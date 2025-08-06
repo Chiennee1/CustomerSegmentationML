@@ -1,0 +1,1001 @@
+CustomerID,Gender,Age,AnnualIncome,SpendingScore,Education,Profession,WorkExperience,FamilySize,City,OnlineShoppingFreq,BrandLoyalty,SocialMediaUsage,PreferredChannel
+1,Male,52,39,23,Bachelor,Marketing,30,1,Others,4,3,4.04482841,Online
+2,Female,37,36,14,High School,Student,11,1,DaNang,16,6,0.3531771,Both
+3,Male,25,37,36,High School,Marketing,3,5,HaNoi,10,9,5.98687124,Offline
+4,Male,25,15,29,Bachelor,Entertainment,0,2,DaNang,2,1,4.83647442,Offline
+5,Male,20,13,11,High School,Entertainment,0,2,HaNoi,14,1,3.71274853,Online
+6,Female,59,46,1,High School,Marketing,37,1,DaNang,0,10,7.431766,Offline
+7,Male,37,52,41,Bachelor,Engineer,15,3,HCM,18,6,5.88084126,Online
+8,Male,63,77,31,Bachelor,Marketing,41,4,HaNoi,2,3,4.73329973,Offline
+9,Female,69,65,45,High School,Entertainment,46,1,HCM,18,1,1.757978,Online
+10,Male,20,10,22,High School,Marketing,0,1,HCM,6,8,6.606623,Online
+11,Female,20,18,28,High School,Entertainment,0,3,DaNang,12,2,2.37811327,Online
+12,Female,19,10,28,High School,Entertainment,0,1,HCM,11,6,5.69983673,Online
+13,Female,49,57,38,Master,Healthcare,26,5,Others,2,2,0.0227453858,Online
+14,Male,66,63,52,High School,Marketing,42,5,HaNoi,6,6,4.927452,Both
+15,Female,60,64,37,Bachelor,Engineer,36,4,HaNoi,5,3,6.66893864,Offline
+16,Female,22,13,32,High School,Entertainment,0,5,Others,3,6,1.68992019,Offline
+17,Female,44,56,33,Bachelor,Entertainment,21,3,Others,11,2,7.477954,Online
+18,Male,20,10,31,High School,Student,0,3,HCM,9,8,5.30053,Both
+19,Female,36,63,39,Bachelor,Healthcare,10,5,HaNoi,9,9,2.49922228,Both
+20,Male,63,73,40,Bachelor,Engineer,39,4,DaNang,19,3,7.524638,Both
+21,Female,19,12,21,High School,Marketing,0,2,HaNoi,12,7,4.843993,Online
+22,Female,52,36,1,Bachelor,Entertainment,29,3,HCM,3,2,5.151562,Online
+23,Female,67,30,17,High School,Student,42,4,HCM,8,2,6.32420254,Offline
+24,Female,45,77,36,High School,Marketing,19,3,Others,13,4,4.714109,Both
+25,Male,41,69,31,High School,Entertainment,19,3,HCM,0,10,3.69033337,Online
+26,Female,43,57,49,High School,Student,21,5,DaNang,4,10,7.063561,Offline
+27,Male,51,88,55,High School,Student,29,5,DaNang,3,4,1.07385385,Offline
+28,Female,23,8,39,High School,Student,0,2,DaNang,2,8,2.307561,Offline
+29,Female,20,8,29,High School,Marketing,0,4,Others,13,9,2.817887,Offline
+30,Female,62,67,32,Master,Marketing,36,5,Others,3,8,7.730531,Both
+31,Female,60,46,22,PhD,Doctor,37,5,Others,1,9,2.78010225,Both
+32,Male,38,29,18,PhD,Doctor,12,3,DaNang,6,2,1.59371793,Both
+33,Female,24,9,21,Bachelor,Engineer,0,5,HCM,12,6,0.351043969,Online
+34,Male,63,75,44,Master,Marketing,40,5,HaNoi,16,5,6.70329237,Both
+35,Female,64,35,23,Master,Engineer,39,3,DaNang,5,4,1.12226236,Online
+36,Female,23,13,22,Bachelor,Engineer,0,4,HCM,16,10,2.70763373,Online
+37,Female,32,25,26,High School,Student,10,4,HCM,18,5,6.589515,Online
+38,Male,42,34,27,High School,Entertainment,20,3,HCM,19,2,5.03587246,Online
+39,Male,42,48,19,Bachelor,Marketing,19,1,HaNoi,4,3,5.81838846,Offline
+40,Male,64,22,6,High School,Student,38,4,Others,17,1,4.50834274,Both
+41,Male,63,24,1,Bachelor,Entertainment,40,1,HaNoi,3,7,5.016774,Offline
+42,Male,22,14,26,High School,Entertainment,0,1,Others,5,6,0.867513239,Both
+43,Female,62,47,2,Master,Engineer,37,1,HaNoi,18,7,0.765326262,Both
+44,Female,63,31,3,Master,Engineer,39,1,Others,9,3,3.3251884,Offline
+45,Male,20,10,13,High School,Entertainment,0,4,HCM,18,1,0.365118951,Online
+46,Female,19,13,26,High School,Marketing,0,4,Others,1,1,1.37295723,Offline
+47,Male,39,56,40,Bachelor,Entertainment,14,1,Others,10,3,4.708192,Both
+48,Male,48,43,28,Master,Marketing,26,4,DaNang,0,6,7.57210636,Both
+49,Female,56,31,25,Bachelor,Marketing,32,2,DaNang,3,7,7.038652,Offline
+50,Male,19,15,14,High School,Entertainment,0,3,HaNoi,2,10,6.41500568,Both
+51,Male,67,79,24,High School,Entertainment,44,5,Others,18,7,7.6509614,Both
+52,Female,20,17,13,High School,Student,0,3,HaNoi,14,3,1.10127866,Offline
+53,Female,51,51,43,Bachelor,Healthcare,26,3,DaNang,16,10,1.40783691,Offline
+54,Male,36,34,18,Master,Engineer,14,4,Others,6,4,2.495706,Both
+55,Male,45,91,67,PhD,Engineer,23,4,DaNang,4,10,1.871223,Both
+56,Male,44,29,18,Bachelor,Entertainment,21,2,DaNang,3,8,5.31642962,Offline
+57,Female,54,38,22,High School,Marketing,30,4,HaNoi,16,2,5.459094,Offline
+58,Female,44,29,23,Master,Engineer,22,4,HCM,19,3,1.56498325,Online
+59,Male,49,50,28,High School,Marketing,26,1,Others,10,4,2.48145986,Both
+60,Male,36,28,18,Bachelor,Healthcare,13,5,Others,10,7,0.7249854,Online
+61,Male,41,36,17,Bachelor,Healthcare,16,5,HCM,15,6,4.231928,Both
+62,Female,20,19,21,High School,Marketing,0,4,HCM,15,10,0.891376436,Offline
+63,Male,39,45,28,Bachelor,Entertainment,14,4,HCM,7,8,1.18837643,Both
+64,Female,64,34,11,High School,Marketing,38,5,HCM,14,1,3.25083351,Online
+65,Female,61,71,22,High School,Student,37,3,DaNang,1,5,5.36543036,Both
+66,Female,31,26,12,Bachelor,Healthcare,7,4,HCM,1,6,6.47472143,Online
+67,Female,48,35,36,Bachelor,Marketing,23,5,HaNoi,3,6,1.09429026,Both
+68,Male,61,21,13,Bachelor,Engineer,35,1,DaNang,10,6,6.680845,Offline
+69,Female,21,11,19,High School,Student,0,2,HCM,8,9,7.05719042,Offline
+70,Female,34,29,20,Bachelor,Entertainment,8,4,Others,14,7,6.257174,Offline
+71,Female,28,15,44,Bachelor,Healthcare,6,4,HaNoi,4,9,6.13005638,Offline
+72,Female,43,50,45,PhD,Engineer,21,5,Others,12,8,3.936641,Both
+73,Female,33,24,10,Bachelor,Engineer,7,1,HCM,13,10,5.225556,Offline
+74,Female,67,28,1,High School,Student,45,5,HaNoi,13,3,6.390009,Offline
+75,Female,24,16,20,Bachelor,Engineer,0,4,Others,17,8,2.00038028,Online
+76,Male,46,75,61,PhD,Doctor,20,1,DaNang,14,7,7.401975,Online
+77,Female,42,34,15,High School,Entertainment,20,4,HaNoi,9,8,6.74225426,Both
+78,Female,44,60,36,Bachelor,Healthcare,19,2,DaNang,6,7,4.13174343,Offline
+79,Male,47,99,61,High School,Entertainment,21,2,HaNoi,11,5,7.81646633,Online
+80,Male,62,60,18,High School,Student,39,2,DaNang,19,1,3.365649,Online
+81,Female,66,22,25,High School,Marketing,43,3,DaNang,17,4,7.66838837,Online
+82,Male,46,35,28,High School,Student,20,5,HaNoi,6,4,1.01377428,Online
+83,Female,52,41,9,Master,Marketing,30,4,HaNoi,2,2,3.6023438,Online
+84,Male,24,19,26,Bachelor,Entertainment,2,5,Others,3,10,6.18035364,Online
+85,Female,21,10,12,High School,Student,0,2,Others,0,3,3.05172038,Offline
+86,Male,36,42,27,High School,Student,11,1,Others,7,2,7.906401,Offline
+87,Female,40,38,10,Bachelor,Marketing,18,3,Others,3,5,7.67809,Both
+88,Female,55,32,23,Bachelor,Marketing,29,2,DaNang,8,10,3.34468436,Both
+89,Female,20,11,40,High School,Entertainment,0,1,DaNang,6,2,4.615406,Offline
+90,Male,29,37,43,High School,Entertainment,6,5,DaNang,12,4,3.65858459,Online
+91,Male,47,30,8,Bachelor,Healthcare,25,2,Others,7,8,7.9079237,Online
+92,Male,51,64,38,Master,Lawyer,28,3,DaNang,2,10,7.920508,Online
+93,Female,31,27,2,Bachelor,Engineer,8,2,HaNoi,19,2,0.7045969,Online
+94,Male,54,83,27,High School,Marketing,32,5,HaNoi,2,4,7.76802444,Offline
+95,Male,43,54,48,Bachelor,Healthcare,20,5,Others,9,2,0.5867482,Offline
+96,Male,26,35,39,Bachelor,Healthcare,4,1,DaNang,17,8,7.523881,Both
+97,Female,53,38,25,Bachelor,Entertainment,27,1,Others,15,9,2.60779953,Both
+98,Female,67,54,6,Bachelor,Entertainment,45,3,HaNoi,7,10,2.70703745,Both
+99,Female,43,48,29,Bachelor,Marketing,20,4,DaNang,5,6,7.645707,Offline
+100,Male,59,68,42,Bachelor,Healthcare,34,3,Others,12,4,6.28091,Offline
+101,Female,51,40,12,High School,Entertainment,28,3,HaNoi,9,5,7.864267,Online
+102,Female,62,54,26,High School,Marketing,37,5,HaNoi,5,1,7.239021,Both
+103,Male,22,12,18,Master,Marketing,0,1,HCM,6,1,2.20998,Online
+104,Female,36,28,38,Master,Engineer,13,2,HaNoi,14,1,3.20919132,Both
+105,Male,33,24,6,High School,Student,7,2,HCM,6,7,1.70759463,Online
+106,Female,47,48,38,Bachelor,Marketing,23,3,HaNoi,15,4,1.57131553,Online
+107,Female,18,19,13,High School,Student,0,4,DaNang,3,2,0.009204816,Both
+108,Male,32,36,20,Bachelor,Entertainment,7,1,Others,4,7,3.82262659,Offline
+109,Male,44,69,23,High School,Marketing,19,2,HCM,6,7,1.09679151,Online
+110,Female,67,50,27,Bachelor,Engineer,43,1,HaNoi,2,1,6.04863644,Both
+111,Male,66,30,23,Bachelor,Engineer,42,1,Others,9,10,6.225556,Online
+112,Male,47,97,57,High School,Student,24,4,Others,5,5,5.07739353,Offline
+113,Male,59,45,2,Bachelor,Marketing,36,2,HaNoi,2,8,2.07210279,Online
+114,Female,35,35,15,Master,Healthcare,12,3,HaNoi,15,4,4.542663,Offline
+115,Male,43,34,40,Bachelor,Healthcare,18,4,Others,11,6,0.677753,Offline
+116,Male,54,67,24,Master,Healthcare,32,5,Others,5,9,1.80677319,Offline
+117,Female,62,28,2,Master,Marketing,37,5,HaNoi,18,1,3.91077352,Offline
+118,Female,49,34,13,Master,Lawyer,24,1,HCM,3,6,0.8444022,Online
+119,Male,36,36,34,Master,Marketing,10,1,DaNang,17,4,6.67573071,Offline
+120,Female,46,83,65,High School,Student,22,5,DaNang,2,4,0.6451327,Both
+121,Female,67,51,35,Master,Engineer,42,3,Others,3,3,5.59416437,Online
+122,Male,18,11,31,High School,Entertainment,0,3,Others,1,10,3.634891,Online
+123,Male,47,53,28,Bachelor,Entertainment,22,3,Others,14,7,2.25417447,Both
+124,Female,60,41,32,High School,Entertainment,37,4,Others,13,3,1.82883418,Online
+125,Male,45,82,39,Master,Engineer,22,2,HaNoi,10,1,4.85521841,Offline
+126,Female,43,48,24,Bachelor,Entertainment,18,2,HaNoi,13,6,4.3578496,Both
+127,Female,55,37,16,Bachelor,Engineer,29,1,DaNang,7,10,6.724577,Offline
+128,Male,21,13,11,High School,Marketing,0,1,Others,17,5,2.7577076,Offline
+129,Female,41,49,35,High School,Marketing,16,5,Others,3,2,6.57676744,Offline
+130,Male,55,50,5,High School,Marketing,29,4,Others,9,2,3.42819333,Offline
+131,Male,50,64,24,Bachelor,Entertainment,26,3,HaNoi,13,3,3.958202,Both
+132,Female,21,13,28,High School,Student,0,3,HCM,9,7,2.411158,Offline
+133,Male,41,59,32,Master,Marketing,17,3,DaNang,4,6,5.293857,Online
+134,Female,43,29,36,Bachelor,Marketing,18,2,DaNang,8,7,7.096994,Both
+135,Male,18,9,17,High School,Entertainment,0,3,DaNang,2,2,7.023912,Offline
+136,Female,53,70,22,Master,Marketing,29,3,HaNoi,15,1,6.02281046,Both
+137,Male,45,59,33,Bachelor,Marketing,19,2,Others,19,3,6.846475,Both
+138,Female,19,14,45,High School,Student,0,2,DaNang,10,10,6.186551,Offline
+139,Female,61,51,36,Bachelor,Healthcare,38,1,HaNoi,11,2,3.448897,Both
+140,Male,50,45,9,Master,Engineer,28,5,Others,2,4,6.772689,Both
+141,Male,27,36,29,High School,Marketing,5,2,Others,14,8,6.96837044,Offline
+142,Male,69,38,1,High School,Marketing,46,4,HCM,14,8,6.14933634,Both
+143,Male,47,45,19,Master,Marketing,22,3,Others,0,4,5.025138,Online
+144,Male,67,21,4,Bachelor,Engineer,45,2,DaNang,0,7,5.932467,Online
+145,Male,25,22,26,Master,Healthcare,2,5,Others,1,9,7.752128,Both
+146,Male,63,61,28,High School,Entertainment,39,2,HCM,12,6,6.032911,Both
+147,Male,67,30,1,Master,Engineer,44,1,DaNang,0,4,1.17058754,Both
+148,Male,22,13,32,Bachelor,Engineer,0,2,HaNoi,1,7,7.13370466,Offline
+149,Male,22,15,26,High School,Entertainment,0,5,HaNoi,11,7,6.09916544,Both
+150,Male,53,83,50,PhD,Doctor,27,5,HCM,5,6,1.14708149,Offline
+151,Female,62,69,21,PhD,Engineer,38,5,HCM,16,1,6.636284,Online
+152,Male,45,53,44,Master,Lawyer,21,1,Others,13,7,6.87680149,Offline
+153,Female,52,58,25,High School,Student,26,1,Others,4,2,5.854134,Online
+154,Male,63,59,25,High School,Entertainment,39,4,DaNang,0,2,4.100051,Online
+155,Female,51,35,21,PhD,Lawyer,26,4,Others,3,2,3.114596,Offline
+156,Female,30,34,30,Bachelor,Engineer,7,3,Others,4,6,0.9512446,Online
+157,Female,57,75,21,PhD,Lawyer,35,5,HCM,9,1,3.826801,Offline
+158,Female,66,56,35,High School,Student,40,1,DaNang,17,9,5.00144625,Online
+159,Female,50,44,34,High School,Student,26,5,HCM,19,8,7.69643641,Online
+160,Male,62,21,21,Master,Engineer,40,1,Others,13,4,5.71969843,Both
+161,Male,55,33,19,PhD,Doctor,29,5,HCM,9,8,5.49152851,Online
+162,Male,57,36,17,Bachelor,Healthcare,31,5,DaNang,14,4,4.29302073,Both
+163,Female,23,15,21,Bachelor,Healthcare,0,3,DaNang,15,7,6.719738,Online
+164,Male,27,28,34,High School,Marketing,3,4,DaNang,9,6,7.415123,Offline
+165,Female,35,38,21,High School,Marketing,9,4,HaNoi,15,9,0.5651132,Online
+166,Female,58,58,33,Bachelor,Healthcare,35,5,HCM,15,1,5.314978,Online
+167,Female,18,19,22,High School,Entertainment,0,2,HaNoi,2,9,1.62017608,Offline
+168,Male,69,66,27,High School,Marketing,44,5,HaNoi,5,4,0.500035942,Offline
+169,Female,69,45,9,Bachelor,Entertainment,44,4,HCM,8,1,4.500346,Both
+170,Male,47,69,35,Bachelor,Engineer,25,2,DaNang,1,8,5.913755,Online
+171,Female,19,17,29,High School,Marketing,0,4,Others,5,2,1.83559227,Online
+172,Female,59,79,28,Bachelor,Healthcare,34,3,Others,17,3,5.520208,Offline
+173,Male,40,29,7,High School,Entertainment,18,5,Others,6,3,5.009171,Offline
+174,Male,58,65,27,PhD,Doctor,32,2,DaNang,7,9,5.69545364,Both
+175,Male,49,87,64,High School,Entertainment,27,2,HCM,1,10,7.696264,Offline
+176,Male,18,8,28,High School,Entertainment,0,4,HaNoi,12,4,3.5265286,Offline
+177,Female,63,70,34,PhD,Engineer,41,1,HCM,10,2,2.08971667,Both
+178,Male,22,13,28,Bachelor,Healthcare,0,1,DaNang,18,8,2.48384953,Online
+179,Female,67,65,51,PhD,Engineer,42,2,Others,19,5,4.11275959,Online
+180,Female,62,60,22,Bachelor,Engineer,36,3,HCM,10,2,6.337288,Online
+181,Male,51,51,23,High School,Marketing,28,3,HaNoi,8,3,6.758388,Online
+182,Male,28,27,36,Bachelor,Engineer,3,2,DaNang,15,8,3.07607627,Both
+183,Female,28,28,42,Master,Lawyer,5,3,DaNang,5,1,3.621683,Offline
+184,Male,31,21,15,Master,Lawyer,6,2,HaNoi,7,3,5.093693,Online
+185,Female,68,78,42,High School,Marketing,46,2,Others,1,3,0.330769867,Online
+186,Male,20,15,13,High School,Student,0,1,DaNang,2,10,0.104920454,Both
+187,Female,24,12,31,High School,Student,0,3,Others,15,1,4.97390127,Online
+188,Male,38,27,12,Bachelor,Marketing,14,3,HaNoi,13,3,3.26008034,Both
+189,Male,65,41,11,High School,Marketing,43,3,Others,2,3,7.788849,Online
+190,Female,47,79,41,Bachelor,Marketing,23,3,DaNang,8,7,0.6928427,Online
+191,Male,56,58,7,High School,Entertainment,32,2,HaNoi,19,7,1.63958013,Both
+192,Male,46,48,43,High School,Student,23,4,Others,15,5,0.121233732,Both
+193,Female,57,22,26,Bachelor,Engineer,31,2,HCM,13,8,1.2574631,Offline
+194,Female,34,19,12,Master,Marketing,9,1,HaNoi,6,6,5.367067,Both
+195,Male,66,49,16,PhD,Doctor,44,1,DaNang,13,3,0.6471138,Both
+196,Female,68,22,13,High School,Marketing,45,2,Others,13,1,3.33461142,Offline
+197,Male,18,8,44,High School,Student,0,5,DaNang,10,7,7.694304,Online
+198,Female,67,27,13,Bachelor,Healthcare,43,5,HCM,15,3,5.42345238,Online
+199,Female,39,37,31,PhD,Engineer,17,5,DaNang,7,10,1.19435716,Both
+200,Female,26,27,32,Bachelor,Entertainment,3,1,Others,3,2,4.978838,Online
+201,Female,18,14,30,High School,Student,0,3,DaNang,1,5,1.46575618,Online
+202,Female,49,39,9,High School,Entertainment,25,3,HCM,15,9,6.27866936,Offline
+203,Male,18,10,27,High School,Student,0,2,HCM,5,3,3.03898382,Offline
+204,Male,30,30,13,Master,Engineer,6,2,HCM,0,7,2.660454,Offline
+205,Female,66,51,15,Bachelor,Engineer,44,2,HCM,16,4,0.216046542,Offline
+206,Male,30,33,33,Bachelor,Marketing,8,3,HCM,5,8,0.7092929,Offline
+207,Female,56,64,48,Bachelor,Marketing,31,2,Others,2,6,3.944193,Both
+208,Male,33,27,29,Bachelor,Healthcare,11,1,DaNang,10,1,6.247758,Offline
+209,Male,68,69,41,Bachelor,Engineer,43,2,HCM,13,5,4.168323,Offline
+210,Male,44,50,14,Bachelor,Marketing,19,2,HaNoi,11,8,6.7995677,Online
+211,Male,50,74,40,Bachelor,Marketing,25,3,DaNang,16,2,7.67951965,Both
+212,Male,29,36,29,Bachelor,Marketing,4,1,Others,5,8,1.16462779,Both
+213,Female,49,31,38,Master,Marketing,25,2,HaNoi,13,1,4.457643,Online
+214,Female,69,61,30,Master,Lawyer,47,4,Others,0,5,1.47647178,Online
+215,Female,44,28,30,Bachelor,Healthcare,21,4,Others,11,5,5.97196,Offline
+216,Female,51,59,26,Bachelor,Marketing,25,2,DaNang,11,7,1.218903,Online
+217,Female,31,16,1,Master,Engineer,8,4,DaNang,13,7,2.69963551,Offline
+218,Male,64,69,31,Bachelor,Marketing,39,5,HCM,13,3,4.390023,Online
+219,Male,62,66,35,High School,Entertainment,37,5,DaNang,0,9,3.35362554,Offline
+220,Male,59,48,20,Bachelor,Healthcare,35,3,Others,16,10,4.68270731,Both
+221,Male,30,31,30,Bachelor,Healthcare,7,1,Others,17,9,1.28933215,Online
+222,Male,62,50,20,High School,Entertainment,36,2,DaNang,14,5,4.378221,Offline
+223,Male,29,30,29,Master,Marketing,3,2,Others,10,4,1.51801813,Both
+224,Male,38,29,10,Bachelor,Marketing,12,2,Others,2,4,3.23737669,Both
+225,Female,42,62,42,Bachelor,Entertainment,18,1,HaNoi,18,9,5.039178,Offline
+226,Female,33,33,21,Bachelor,Engineer,11,2,Others,10,2,7.48819637,Online
+227,Female,39,69,46,Master,Lawyer,13,3,DaNang,16,4,2.31929612,Both
+228,Female,20,10,41,High School,Entertainment,0,3,DaNang,13,4,6.458549,Both
+229,Female,37,51,20,Bachelor,Engineer,14,1,HCM,7,9,0.08554599,Both
+230,Male,66,32,1,High School,Marketing,41,1,HaNoi,8,5,7.644615,Offline
+231,Female,67,45,29,Bachelor,Healthcare,45,1,HCM,9,5,6.4181,Both
+232,Male,68,70,33,High School,Student,43,5,HaNoi,14,5,7.465981,Online
+233,Male,45,49,29,PhD,Lawyer,19,2,HaNoi,14,4,1.89643741,Online
+234,Male,23,12,8,Bachelor,Healthcare,0,4,HaNoi,13,7,4.69505739,Both
+235,Male,46,33,31,High School,Marketing,21,2,DaNang,10,8,6.151163,Online
+236,Female,46,44,25,High School,Marketing,24,5,DaNang,19,8,1.87347889,Online
+237,Male,46,85,36,Bachelor,Engineer,22,4,HaNoi,12,1,7.002652,Online
+238,Female,68,61,33,High School,Entertainment,45,4,HCM,12,10,4.478731,Online
+239,Female,29,38,36,High School,Entertainment,3,2,HCM,4,4,1.43606663,Online
+240,Female,41,42,20,Master,Marketing,15,5,HaNoi,7,5,5.25852728,Online
+241,Male,25,39,38,High School,Marketing,0,3,DaNang,3,10,7.82680464,Offline
+242,Male,40,42,13,High School,Student,15,3,DaNang,2,7,3.6607964,Online
+243,Male,22,13,17,Bachelor,Engineer,0,4,DaNang,11,1,2.08589029,Offline
+244,Male,66,26,14,Master,Marketing,40,4,HCM,16,3,7.959402,Both
+245,Female,42,65,32,High School,Student,17,1,DaNang,12,8,7.39322853,Online
+246,Male,55,74,29,High School,Marketing,33,5,HaNoi,15,3,3.23922634,Offline
+247,Female,58,30,27,High School,Student,35,1,HCM,8,4,7.43213654,Both
+248,Male,18,8,31,High School,Student,0,4,Others,6,2,4.778083,Offline
+249,Female,22,19,12,Bachelor,Engineer,0,5,HaNoi,12,5,2.82219338,Offline
+250,Male,67,64,26,Bachelor,Healthcare,42,5,Others,11,1,7.20133972,Both
+251,Female,19,10,20,High School,Student,0,4,Others,19,1,6.36624861,Both
+252,Female,50,35,16,Bachelor,Marketing,25,5,Others,3,4,1.02890027,Online
+253,Female,54,40,6,Bachelor,Entertainment,31,4,Others,16,9,2.73699713,Both
+254,Female,27,35,37,Bachelor,Healthcare,1,5,HCM,18,2,6.423487,Online
+255,Male,19,12,47,High School,Student,0,4,DaNang,3,8,1.32738042,Offline
+256,Female,38,41,29,Bachelor,Entertainment,12,1,Others,2,5,3.933908,Online
+257,Female,39,39,12,Master,Marketing,16,2,DaNang,7,4,3.71082139,Both
+258,Male,47,43,41,Master,Healthcare,21,4,DaNang,1,6,3.39358354,Offline
+259,Female,63,52,21,PhD,Doctor,41,4,HCM,9,4,4.09512949,Online
+260,Male,19,14,14,High School,Marketing,0,5,Others,15,6,3.79090714,Both
+261,Male,42,57,34,Bachelor,Entertainment,17,5,DaNang,7,4,7.33981466,Online
+262,Male,31,26,28,High School,Entertainment,7,1,HaNoi,11,5,6.273119,Offline
+263,Female,64,55,20,Bachelor,Engineer,40,2,HCM,16,10,7.33896828,Both
+264,Male,29,36,43,Bachelor,Healthcare,7,2,Others,2,10,5.58850241,Offline
+265,Male,53,47,12,Bachelor,Healthcare,28,3,Others,14,3,0.566809,Both
+266,Female,21,9,26,High School,Student,0,1,HaNoi,7,3,2.47378278,Both
+267,Female,37,35,39,Bachelor,Engineer,13,1,HaNoi,12,4,6.434217,Offline
+268,Male,69,43,11,Bachelor,Engineer,43,2,Others,11,4,2.62216473,Both
+269,Male,45,43,36,Master,Marketing,22,1,DaNang,3,4,4.458149,Both
+270,Female,66,74,48,Bachelor,Healthcare,41,5,Others,8,10,4.851385,Both
+271,Female,69,47,33,Master,Engineer,45,2,Others,0,4,2.830159,Both
+272,Male,28,26,27,Bachelor,Marketing,2,3,HCM,11,4,1.59687388,Both
+273,Male,30,38,25,High School,Marketing,5,5,Others,15,10,3.20102024,Both
+274,Female,47,74,47,Bachelor,Engineer,22,4,Others,1,3,3.214874,Both
+275,Male,18,12,33,High School,Marketing,0,2,HCM,12,7,1.69067323,Both
+276,Female,43,49,42,Bachelor,Marketing,17,5,HaNoi,4,8,3.92868447,Online
+277,Female,57,38,21,High School,Marketing,33,3,HCM,10,6,6.30397272,Online
+278,Female,26,23,35,High School,Entertainment,3,2,HaNoi,3,4,7.022216,Both
+279,Male,28,21,25,Bachelor,Engineer,2,4,HCM,1,5,5.19155931,Both
+280,Male,19,19,26,High School,Student,0,3,DaNang,8,4,6.137105,Online
+281,Female,60,20,8,High School,Student,38,2,Others,1,6,2.97551775,Offline
+282,Female,21,15,11,High School,Marketing,0,5,HCM,18,8,1.64460123,Offline
+283,Male,33,33,9,Master,Marketing,11,1,HCM,1,10,4.86366558,Online
+284,Female,32,34,33,Bachelor,Healthcare,7,5,HaNoi,14,5,5.537085,Both
+285,Male,64,62,30,High School,Marketing,38,3,Others,0,5,0.5931916,Online
+286,Male,18,12,18,High School,Student,0,1,HCM,16,10,3.48751259,Both
+287,Male,57,75,27,High School,Student,32,2,Others,12,10,3.21553588,Online
+288,Female,45,50,36,Bachelor,Healthcare,22,3,Others,18,2,6.65202427,Both
+289,Male,56,45,28,High School,Marketing,32,5,DaNang,8,10,4.77612925,Online
+290,Female,51,72,45,High School,Entertainment,25,1,DaNang,12,8,1.75652027,Online
+291,Female,43,59,51,Bachelor,Engineer,18,1,HaNoi,8,1,5.548781,Both
+292,Female,40,41,46,High School,Marketing,18,2,HaNoi,4,1,2.41343951,Both
+293,Male,29,37,22,High School,Entertainment,7,2,Others,6,10,4.268998,Both
+294,Female,43,45,40,High School,Entertainment,21,1,HCM,12,7,2.73675251,Both
+295,Female,46,50,30,Bachelor,Marketing,23,2,DaNang,16,6,2.85768843,Online
+296,Male,69,61,33,Bachelor,Healthcare,47,3,HCM,19,5,3.633891,Offline
+297,Female,60,53,14,Bachelor,Marketing,34,4,DaNang,10,10,7.89014053,Online
+298,Male,22,18,31,Bachelor,Marketing,0,2,HCM,12,2,2.774809,Both
+299,Male,55,71,41,High School,Entertainment,33,3,HCM,14,7,6.20494,Both
+300,Male,66,38,28,High School,Student,43,2,HCM,0,4,4.474801,Offline
+301,Female,36,55,45,Master,Lawyer,13,1,DaNang,15,7,7.309514,Online
+302,Female,39,59,50,Master,Marketing,16,5,DaNang,18,4,1.15782213,Online
+303,Female,48,46,40,Master,Marketing,23,3,HaNoi,7,1,4.69313049,Online
+304,Male,28,39,35,Bachelor,Marketing,6,4,HCM,0,7,7.70458,Offline
+305,Male,62,42,28,Master,Marketing,38,5,Others,18,10,6.401777,Offline
+306,Male,35,57,53,Bachelor,Engineer,12,1,HCM,3,8,5.562294,Online
+307,Male,50,69,28,Master,Engineer,24,2,HCM,8,3,5.641932,Online
+308,Female,25,25,36,High School,Student,0,5,Others,6,6,5.93320131,Both
+309,Male,28,23,17,High School,Entertainment,3,1,Others,19,8,5.71232653,Online
+310,Male,36,69,55,Master,Engineer,11,4,HaNoi,2,1,7.49778461,Both
+311,Female,51,31,7,Master,Healthcare,28,3,DaNang,12,5,0.794594,Both
+312,Female,29,35,50,Bachelor,Entertainment,3,5,HCM,15,4,2.03237629,Offline
+313,Male,46,84,44,Master,Lawyer,23,1,DaNang,10,8,3.56125855,Online
+314,Female,38,37,42,High School,Student,15,5,HCM,1,1,1.74108887,Both
+315,Male,24,13,35,High School,Entertainment,0,5,Others,4,7,2.07423282,Online
+316,Male,56,59,32,Bachelor,Healthcare,32,5,DaNang,1,5,7.39047432,Offline
+317,Female,65,42,12,High School,Student,42,5,DaNang,1,1,6.409241,Offline
+318,Male,39,46,18,Bachelor,Marketing,15,1,Others,13,10,1.28868866,Offline
+319,Female,54,43,27,Master,Healthcare,30,3,Others,7,4,0.07720821,Online
+320,Female,62,61,18,Bachelor,Engineer,38,3,HCM,16,5,2.645849,Both
+321,Female,36,56,48,High School,Student,11,4,Others,11,9,5.573863,Both
+322,Male,21,8,9,High School,Student,0,2,Others,5,6,1.72241426,Online
+323,Female,37,58,19,Bachelor,Engineer,15,4,HCM,1,6,3.719141,Online
+324,Male,30,37,15,Bachelor,Entertainment,6,2,HaNoi,11,10,2.34723234,Offline
+325,Female,18,19,22,High School,Student,0,5,HCM,7,6,1.93954813,Offline
+326,Female,59,42,12,High School,Student,34,3,HCM,9,10,7.730003,Online
+327,Male,25,23,25,Bachelor,Entertainment,3,4,HaNoi,7,1,1.73437762,Both
+328,Female,38,47,43,Master,Engineer,15,4,Others,18,10,4.71001244,Online
+329,Male,47,61,36,Master,Lawyer,23,1,HCM,10,10,5.325428,Both
+330,Female,49,61,57,Master,Lawyer,24,3,HCM,13,3,4.31126261,Online
+331,Female,48,55,31,PhD,Doctor,23,2,DaNang,9,10,4.032292,Both
+332,Female,36,45,21,High School,Marketing,14,1,HCM,4,8,4.384145,Offline
+333,Male,64,49,40,Bachelor,Engineer,39,3,DaNang,3,1,1.06495059,Online
+334,Male,20,10,33,High School,Student,0,1,DaNang,5,2,5.905748,Online
+335,Male,31,23,26,Master,Marketing,5,5,DaNang,1,3,3.38003516,Both
+336,Female,48,95,59,Bachelor,Healthcare,22,5,HaNoi,8,4,5.83082247,Online
+337,Male,58,74,38,Master,Engineer,32,4,DaNang,3,1,1.710512,Both
+338,Female,25,28,14,Bachelor,Engineer,0,2,HaNoi,2,1,0.238803938,Both
+339,Female,41,52,52,High School,Marketing,18,5,Others,6,4,2.34065819,Online
+340,Male,25,27,19,Bachelor,Entertainment,1,1,Others,9,9,0.292458355,Offline
+341,Female,45,79,48,Bachelor,Entertainment,23,2,DaNang,14,4,1.8945291,Online
+342,Female,53,43,22,Bachelor,Marketing,29,1,HaNoi,12,10,6.76157236,Online
+343,Male,49,63,29,Bachelor,Engineer,23,5,HCM,5,6,1.1316601,Both
+344,Female,30,26,34,Bachelor,Healthcare,4,4,Others,6,2,4.568395,Offline
+345,Female,53,91,55,Bachelor,Healthcare,27,3,HCM,9,3,5.65061855,Offline
+346,Male,38,55,41,Bachelor,Entertainment,13,5,HCM,1,9,4.01501,Both
+347,Female,54,49,36,Bachelor,Marketing,30,1,HaNoi,14,3,3.09182119,Offline
+348,Male,18,18,18,High School,Marketing,0,1,DaNang,6,5,3.990864,Both
+349,Male,22,18,22,High School,Student,0,1,HaNoi,16,8,7.074964,Online
+350,Female,41,46,29,Bachelor,Healthcare,17,1,Others,8,7,3.04023385,Offline
+351,Female,49,79,33,Master,Engineer,23,3,HaNoi,15,10,4.88680363,Online
+352,Male,63,61,42,Master,Marketing,40,3,HaNoi,0,9,6.188779,Offline
+353,Male,58,74,33,High School,Marketing,32,3,DaNang,15,1,5.03021,Offline
+354,Male,20,19,42,High School,Marketing,0,3,HaNoi,10,3,2.31895185,Offline
+355,Male,18,11,27,High School,Marketing,0,2,DaNang,10,5,7.72981262,Online
+356,Male,61,46,24,Bachelor,Healthcare,39,3,HCM,13,6,5.906248,Both
+357,Female,59,41,28,Master,Engineer,37,1,Others,7,7,7.95152855,Both
+358,Female,23,14,9,Bachelor,Healthcare,0,1,Others,7,10,6.62788,Both
+359,Male,41,60,43,PhD,Lawyer,17,4,HCM,7,3,1.80346668,Offline
+360,Female,32,27,7,Master,Lawyer,9,1,DaNang,19,9,6.77732754,Offline
+361,Male,30,15,3,Master,Engineer,4,4,DaNang,4,9,5.098224,Online
+362,Female,61,23,23,High School,Student,36,5,Others,12,1,3.021566,Offline
+363,Female,59,41,27,Master,Lawyer,36,4,HaNoi,8,1,2.61165428,Both
+364,Male,56,34,23,Bachelor,Engineer,34,5,DaNang,4,2,4.52338028,Offline
+365,Female,22,19,26,Bachelor,Entertainment,0,5,DaNang,10,1,4.12184238,Online
+366,Male,39,45,45,Master,Lawyer,16,3,HaNoi,0,2,1.95277667,Both
+367,Male,39,26,30,Bachelor,Healthcare,13,4,DaNang,6,8,2.36307168,Offline
+368,Female,35,54,37,PhD,Doctor,10,5,DaNang,16,5,5.92475,Offline
+369,Female,40,42,50,Master,Lawyer,17,2,HCM,2,5,5.08563757,Both
+370,Male,57,28,21,Bachelor,Marketing,32,1,HaNoi,7,3,2.68566036,Both
+371,Male,24,15,16,Bachelor,Marketing,1,5,DaNang,7,6,2.88163614,Offline
+372,Female,32,31,37,Master,Healthcare,9,3,HaNoi,13,3,0.0375303365,Offline
+373,Male,32,33,37,Bachelor,Healthcare,8,5,DaNang,2,5,3.57841659,Offline
+374,Female,28,30,35,Bachelor,Healthcare,6,1,HaNoi,18,6,1.2353729,Offline
+375,Female,28,19,9,High School,Student,6,2,HCM,2,3,5.832392,Offline
+376,Male,52,49,34,Bachelor,Entertainment,29,5,HCM,1,2,0.33341074,Both
+377,Male,50,45,31,Bachelor,Entertainment,24,4,HaNoi,5,8,3.40323043,Online
+378,Male,31,15,32,Bachelor,Entertainment,9,5,HaNoi,3,9,6.358413,Offline
+379,Male,33,25,12,Bachelor,Healthcare,8,1,HCM,6,4,7.865323,Both
+380,Female,44,33,37,High School,Marketing,18,2,HaNoi,18,1,7.951507,Both
+381,Male,35,33,21,High School,Student,10,5,HaNoi,2,2,3.80887461,Online
+382,Female,66,69,36,High School,Entertainment,44,2,DaNang,19,3,6.761589,Offline
+383,Male,21,18,42,High School,Student,0,5,DaNang,5,8,6.58935356,Offline
+384,Male,26,20,41,Bachelor,Engineer,1,3,DaNang,2,10,0.470272839,Offline
+385,Male,51,87,27,Bachelor,Healthcare,28,1,HaNoi,10,10,5.790387,Online
+386,Male,20,10,15,High School,Student,0,3,Others,3,4,1.71955061,Offline
+387,Male,42,50,19,Bachelor,Healthcare,17,1,HCM,3,4,4.074973,Online
+388,Male,63,28,17,Bachelor,Entertainment,38,2,HCM,0,8,3.95585871,Online
+389,Female,26,37,46,Master,Marketing,4,5,HaNoi,18,8,3.667957,Online
+390,Male,69,64,22,Bachelor,Marketing,44,3,HCM,12,9,2.45513,Offline
+391,Female,32,38,9,PhD,Lawyer,7,3,HCM,5,7,5.20968962,Online
+392,Female,34,22,30,PhD,Lawyer,8,2,HCM,1,3,0.389067829,Both
+393,Male,35,54,46,Bachelor,Healthcare,11,1,HaNoi,2,6,1.167831,Both
+394,Male,26,32,18,Bachelor,Healthcare,1,2,DaNang,0,4,5.334295,Both
+395,Male,55,60,48,Master,Healthcare,29,2,HaNoi,0,6,5.584429,Offline
+396,Male,29,37,36,High School,Marketing,3,5,Others,11,10,6.291286,Online
+397,Female,36,45,22,Bachelor,Healthcare,13,2,DaNang,12,10,7.86736345,Online
+398,Female,38,42,18,Bachelor,Healthcare,14,5,DaNang,10,6,2.88251567,Online
+399,Female,58,66,44,Master,Marketing,34,5,Others,3,10,2.11991048,Both
+400,Male,47,43,23,Master,Marketing,25,5,DaNang,9,2,0.338612318,Both
+401,Female,48,68,47,High School,Entertainment,25,4,DaNang,10,3,5.67022038,Offline
+402,Male,47,50,45,Master,Healthcare,24,5,DaNang,9,3,0.367913216,Online
+403,Female,62,41,7,High School,Student,37,1,HCM,12,3,1.29162717,Online
+404,Female,42,26,34,Bachelor,Entertainment,18,4,HaNoi,17,8,1.02442014,Both
+405,Male,47,30,24,Bachelor,Healthcare,21,1,HCM,10,2,2.52684569,Online
+406,Female,28,26,39,High School,Student,6,2,DaNang,16,5,2.732417,Online
+407,Male,52,63,22,Bachelor,Entertainment,28,1,DaNang,7,9,2.91216588,Online
+408,Female,63,20,1,Bachelor,Engineer,40,1,Others,14,4,5.82543135,Offline
+409,Male,51,80,49,Bachelor,Engineer,29,5,DaNang,12,1,4.550493,Online
+410,Male,38,39,15,High School,Student,14,2,DaNang,3,7,6.471336,Offline
+411,Male,33,28,17,Bachelor,Healthcare,9,2,Others,15,10,2.999979,Online
+412,Male,20,16,34,High School,Marketing,0,5,HaNoi,8,10,4.901929,Offline
+413,Female,32,26,15,Master,Healthcare,9,3,HCM,10,5,4.071994,Both
+414,Male,21,8,39,High School,Entertainment,0,2,DaNang,18,10,4.636555,Offline
+415,Female,48,59,27,High School,Entertainment,25,5,DaNang,12,5,2.387316,Online
+416,Female,58,58,38,Bachelor,Healthcare,32,5,HCM,19,5,6.97840548,Both
+417,Male,68,74,55,Master,Healthcare,43,1,DaNang,5,5,0.276427954,Offline
+418,Female,27,27,30,Bachelor,Healthcare,5,2,Others,1,10,6.876806,Both
+419,Female,49,35,33,Master,Marketing,27,4,HCM,14,2,3.075784,Both
+420,Male,50,76,34,Master,Healthcare,26,1,Others,4,3,4.68950558,Online
+421,Female,54,31,24,Bachelor,Entertainment,31,5,HCM,7,3,2.67570662,Online
+422,Male,56,76,29,Bachelor,Healthcare,33,5,DaNang,8,8,1.583824,Online
+423,Female,66,70,37,High School,Entertainment,44,5,Others,17,5,3.39397335,Both
+424,Male,59,40,12,Bachelor,Engineer,34,4,HaNoi,19,3,2.061053,Online
+425,Male,22,14,21,Bachelor,Marketing,0,5,HCM,1,5,7.51039934,Both
+426,Male,67,40,27,Bachelor,Entertainment,41,4,HaNoi,19,9,5.72952652,Both
+427,Male,27,25,32,Master,Marketing,2,4,HCM,15,4,5.782853,Both
+428,Female,40,50,24,Bachelor,Engineer,16,1,HaNoi,7,10,2.878634,Offline
+429,Male,65,30,21,High School,Entertainment,42,3,HaNoi,16,8,2.49203062,Offline
+430,Female,55,66,13,Bachelor,Marketing,30,5,DaNang,7,2,3.683543,Both
+431,Male,36,59,36,High School,Entertainment,11,4,Others,19,5,7.472688,Both
+432,Male,18,8,30,High School,Marketing,0,2,HaNoi,16,4,2.9156425,Online
+433,Female,61,35,15,PhD,Engineer,38,4,DaNang,2,1,0.9807344,Online
+434,Male,32,39,11,Bachelor,Marketing,10,5,HaNoi,13,9,5.804332,Online
+435,Female,22,15,20,High School,Marketing,0,5,HCM,14,7,7.75580931,Both
+436,Female,29,26,22,Bachelor,Marketing,7,1,HCM,3,4,0.509369552,Both
+437,Female,39,63,22,Master,Healthcare,17,5,DaNang,11,3,2.9893024,Online
+438,Male,25,34,40,High School,Marketing,3,4,HaNoi,13,1,7.896338,Both
+439,Female,47,60,59,Bachelor,Healthcare,21,3,HCM,11,3,5.49872828,Online
+440,Male,48,75,30,Bachelor,Entertainment,25,3,DaNang,4,6,7.067845,Online
+441,Male,24,17,28,High School,Student,0,3,HCM,8,5,2.59361124,Online
+442,Female,34,26,14,Master,Marketing,8,5,Others,14,8,5.37651253,Offline
+443,Female,68,51,37,PhD,Doctor,46,4,DaNang,12,5,3.224493,Online
+444,Female,24,14,20,Bachelor,Entertainment,0,4,HCM,15,1,2.07650828,Online
+445,Male,59,77,22,Bachelor,Entertainment,35,3,HaNoi,8,7,2.41996717,Offline
+446,Female,61,42,26,Bachelor,Engineer,37,2,Others,17,8,3.46339822,Both
+447,Female,56,49,35,High School,Entertainment,32,1,DaNang,16,2,5.089397,Online
+448,Female,18,11,10,High School,Marketing,0,3,HaNoi,7,7,4.75427341,Online
+449,Female,38,55,30,High School,Student,12,1,DaNang,8,2,4.08101654,Both
+450,Male,27,19,32,Bachelor,Marketing,4,1,HCM,12,1,1.19567645,Both
+451,Female,34,21,33,Bachelor,Engineer,8,4,DaNang,18,3,0.871343851,Both
+452,Female,66,52,27,Bachelor,Healthcare,44,4,Others,5,6,2.2037375,Both
+453,Female,51,37,36,High School,Entertainment,26,4,HaNoi,5,9,2.15996528,Online
+454,Male,43,61,38,High School,Student,17,2,HCM,17,7,6.41530848,Online
+455,Male,44,37,26,Bachelor,Engineer,21,2,HaNoi,11,4,6.9675827,Online
+456,Female,66,77,55,Master,Healthcare,43,1,HCM,12,3,4.19724226,Online
+457,Female,55,77,29,PhD,Doctor,29,5,Others,8,8,6.77032,Both
+458,Male,46,68,41,High School,Marketing,24,4,DaNang,7,1,2.68217587,Offline
+459,Male,23,17,28,High School,Student,0,1,DaNang,8,1,6.335124,Offline
+460,Female,18,18,31,High School,Entertainment,0,4,Others,1,2,1.29313767,Offline
+461,Female,33,23,17,Bachelor,Marketing,7,1,HCM,5,9,5.43242264,Online
+462,Female,31,26,29,Master,Engineer,9,4,DaNang,17,1,3.95365167,Online
+463,Female,42,68,58,High School,Student,16,4,Others,10,5,0.38599202,Offline
+464,Female,62,53,8,High School,Marketing,39,5,Others,19,6,5.316227,Both
+465,Female,50,81,35,Master,Marketing,28,4,HCM,0,2,3.81124663,Online
+466,Female,59,25,3,High School,Entertainment,35,1,HaNoi,15,8,0.5817969,Online
+467,Female,18,14,25,High School,Student,0,5,Others,12,5,3.962094,Offline
+468,Male,53,85,43,Bachelor,Marketing,31,5,HCM,5,1,0.4058627,Online
+469,Male,41,53,25,High School,Student,18,2,HaNoi,16,3,6.126926,Online
+470,Male,62,27,16,PhD,Doctor,40,4,DaNang,12,4,2.193537,Both
+471,Male,25,19,29,High School,Student,0,2,DaNang,1,1,0.9462534,Offline
+472,Female,48,38,36,Master,Marketing,24,3,HaNoi,0,1,3.200672,Online
+473,Female,62,22,1,High School,Entertainment,39,3,DaNang,8,4,1.059592,Offline
+474,Male,57,48,34,Bachelor,Healthcare,31,4,Others,16,5,3.24050617,Offline
+475,Female,57,65,24,Bachelor,Entertainment,35,1,HaNoi,16,6,3.8284142,Offline
+476,Female,55,30,36,High School,Student,30,5,HaNoi,2,1,2.13993549,Online
+477,Female,34,33,25,Bachelor,Marketing,12,3,DaNang,6,4,1.00091243,Offline
+478,Male,41,26,33,Bachelor,Engineer,15,2,DaNang,16,5,3.3324604,Both
+479,Male,63,24,14,Master,Engineer,39,1,HaNoi,8,9,2.45891166,Online
+480,Female,50,86,52,Master,Healthcare,24,5,Others,2,1,1.82317138,Both
+481,Male,38,47,37,Master,Lawyer,15,5,HCM,15,9,3.66369152,Online
+482,Female,18,9,44,High School,Entertainment,0,3,Others,9,7,7.12971354,Offline
+483,Male,19,11,7,High School,Entertainment,0,5,DaNang,3,8,5.095883,Both
+484,Female,34,18,4,Master,Lawyer,10,5,DaNang,17,1,0.8370536,Offline
+485,Male,60,73,33,Master,Healthcare,38,2,Others,8,3,6.65214729,Online
+486,Male,31,27,33,PhD,Doctor,7,4,HaNoi,18,7,6.59065771,Online
+487,Female,27,28,17,Bachelor,Entertainment,4,4,DaNang,14,4,6.58445835,Offline
+488,Female,65,72,22,Bachelor,Healthcare,43,4,Others,12,1,6.274657,Online
+489,Male,31,28,29,High School,Marketing,7,5,DaNang,17,2,6.19084024,Online
+490,Female,53,47,37,High School,Student,30,1,DaNang,10,10,7.79979944,Both
+491,Male,60,36,15,Bachelor,Engineer,34,2,HCM,16,8,0.401566923,Online
+492,Female,66,52,28,Bachelor,Entertainment,44,2,DaNang,16,9,0.8880102,Offline
+493,Female,41,61,52,Master,Lawyer,19,2,DaNang,4,4,3.96081519,Offline
+494,Female,20,9,36,High School,Student,0,3,HCM,10,9,1.324834,Online
+495,Male,35,66,46,High School,Marketing,13,2,HCM,5,8,2.67771983,Offline
+496,Male,31,19,10,Master,Lawyer,6,2,HaNoi,8,9,3.56492615,Both
+497,Female,66,48,31,Bachelor,Marketing,40,4,HaNoi,3,1,1.90255845,Offline
+498,Male,52,77,34,PhD,Lawyer,28,3,Others,2,9,7.27958775,Both
+499,Female,53,61,49,Bachelor,Healthcare,27,1,DaNang,17,8,6.889977,Offline
+500,Female,44,57,44,High School,Entertainment,22,2,DaNang,5,2,0.9821088,Offline
+501,Female,65,52,8,High School,Student,40,1,Others,3,7,6.179201,Both
+502,Male,48,55,53,Master,Marketing,24,2,HCM,15,4,1.11459982,Online
+503,Male,29,23,41,Master,Lawyer,5,1,Others,2,3,3.78620267,Online
+504,Male,54,74,57,High School,Marketing,28,5,HCM,14,1,5.9273057,Online
+505,Female,34,16,13,Bachelor,Engineer,10,1,HCM,4,5,6.134763,Online
+506,Female,29,15,21,High School,Student,5,5,HCM,9,2,1.2706145,Offline
+507,Female,38,45,13,PhD,Engineer,14,3,Others,15,6,2.35009527,Online
+508,Female,49,38,44,Bachelor,Engineer,26,4,DaNang,10,2,7.48623371,Both
+509,Female,27,37,35,Master,Healthcare,2,3,Others,18,9,6.42835665,Online
+510,Male,41,67,59,Bachelor,Healthcare,18,1,HaNoi,17,3,5.36420965,Offline
+511,Male,54,60,41,Master,Healthcare,28,5,HCM,15,7,5.8919735,Online
+512,Male,52,56,36,High School,Marketing,30,1,DaNang,18,9,5.980215,Offline
+513,Female,57,62,23,High School,Marketing,31,1,DaNang,17,3,2.12820864,Both
+514,Male,20,19,25,High School,Student,0,4,DaNang,9,2,1.22870433,Online
+515,Female,64,35,26,Bachelor,Engineer,42,1,Others,4,7,7.527916,Online
+516,Male,52,55,37,Master,Lawyer,26,2,HCM,6,5,6.374105,Offline
+517,Female,69,78,55,PhD,Engineer,43,4,HaNoi,14,6,6.578409,Both
+518,Female,62,77,33,PhD,Lawyer,38,5,Others,5,10,2.60896063,Online
+519,Female,19,8,27,High School,Student,0,2,HaNoi,16,8,1.26968765,Online
+520,Male,65,59,47,High School,Entertainment,42,2,HCM,6,10,0.00267657638,Both
+521,Male,47,34,39,Bachelor,Healthcare,21,4,HaNoi,19,6,5.846112,Both
+522,Female,50,96,55,Bachelor,Healthcare,27,2,HaNoi,19,5,4.20642662,Online
+523,Male,57,61,15,Master,Lawyer,31,5,DaNang,16,8,2.63942051,Online
+524,Female,68,51,14,Master,Lawyer,43,1,HaNoi,13,4,3.20746374,Both
+525,Female,59,69,57,Bachelor,Engineer,33,2,HaNoi,12,6,5.07058048,Offline
+526,Male,68,49,36,Bachelor,Marketing,45,2,HCM,15,7,7.50431967,Offline
+527,Male,46,73,32,Bachelor,Marketing,21,3,HCM,15,8,1.85836828,Both
+528,Female,26,29,35,Bachelor,Healthcare,4,4,HaNoi,1,1,0.330865353,Online
+529,Male,42,65,47,High School,Student,17,1,HaNoi,15,2,1.02207887,Both
+530,Female,68,79,48,Master,Lawyer,46,1,DaNang,10,2,0.755197048,Both
+531,Male,62,76,45,High School,Entertainment,38,4,DaNang,0,8,4.21743631,Offline
+532,Female,38,29,35,Bachelor,Healthcare,13,2,DaNang,19,3,3.91647029,Both
+533,Female,57,22,11,Master,Lawyer,33,3,HaNoi,12,9,0.7869848,Offline
+534,Male,33,21,4,High School,Marketing,10,2,HCM,9,6,1.60025036,Online
+535,Male,50,99,60,Master,Engineer,24,5,HCM,6,10,4.05315638,Online
+536,Male,47,46,17,High School,Entertainment,23,5,DaNang,18,4,2.14438486,Both
+537,Female,56,37,20,Bachelor,Entertainment,33,2,HCM,0,1,4.063853,Offline
+538,Male,41,29,9,Bachelor,Engineer,16,1,DaNang,1,9,4.86248636,Offline
+539,Female,21,9,27,High School,Student,0,3,HCM,8,7,5.49447155,Offline
+540,Male,20,18,44,High School,Student,0,3,Others,10,7,5.3196516,Online
+541,Male,30,32,5,Bachelor,Engineer,5,3,HaNoi,2,6,2.40591168,Offline
+542,Female,58,76,39,Master,Lawyer,33,1,Others,16,8,0.5131429,Both
+543,Female,19,10,42,High School,Marketing,0,2,HaNoi,18,7,0.995876,Offline
+544,Male,44,51,20,High School,Entertainment,21,4,HaNoi,17,10,5.542292,Online
+545,Male,60,50,37,Bachelor,Marketing,38,2,DaNang,8,8,4.386499,Offline
+546,Male,47,80,54,Master,Marketing,23,3,HaNoi,11,7,4.908684,Both
+547,Male,38,29,21,Master,Lawyer,16,5,HCM,11,8,0.481305569,Offline
+548,Female,35,30,36,High School,Marketing,11,2,Others,6,2,0.654696047,Both
+549,Female,18,10,30,High School,Student,0,1,Others,14,7,0.672436535,Offline
+550,Male,62,68,36,High School,Marketing,36,2,DaNang,1,1,4.977427,Online
+551,Male,43,59,36,Master,Healthcare,17,4,HaNoi,2,10,3.2252357,Both
+552,Female,27,23,20,High School,Entertainment,3,4,HCM,9,8,3.253488,Offline
+553,Male,50,73,23,PhD,Engineer,28,5,HCM,14,8,2.16008544,Online
+554,Female,25,23,13,Bachelor,Entertainment,3,5,HaNoi,12,1,5.31236458,Offline
+555,Female,69,44,1,PhD,Doctor,43,2,DaNang,14,1,6.842135,Both
+556,Male,40,44,38,Bachelor,Entertainment,17,1,HCM,14,7,1.42902517,Offline
+557,Female,56,63,27,Master,Engineer,31,2,DaNang,14,7,0.8428061,Online
+558,Male,22,14,26,Bachelor,Healthcare,0,1,Others,13,3,3.75385642,Offline
+559,Male,30,26,19,Bachelor,Engineer,6,5,DaNang,6,2,3.430514,Both
+560,Female,22,15,26,Bachelor,Marketing,0,2,DaNang,15,7,7.81448174,Online
+561,Female,50,92,51,High School,Marketing,27,1,HCM,4,7,6.101078,Offline
+562,Female,50,80,35,High School,Entertainment,28,5,Others,17,7,1.21178281,Offline
+563,Female,30,33,20,High School,Entertainment,6,1,Others,19,6,5.63616657,Online
+564,Female,44,52,45,High School,Entertainment,22,1,HaNoi,12,4,7.840774,Online
+565,Female,20,14,32,High School,Marketing,0,2,Others,9,2,6.12236166,Offline
+566,Female,47,78,55,Master,Lawyer,23,2,HCM,3,6,2.550965,Both
+567,Male,56,62,21,Bachelor,Healthcare,34,3,HaNoi,7,9,0.977901757,Offline
+568,Male,24,16,34,Bachelor,Marketing,1,1,HCM,2,4,6.69155931,Online
+569,Female,60,25,25,High School,Student,37,3,HCM,18,8,6.95757532,Offline
+570,Female,30,32,34,Bachelor,Marketing,4,3,DaNang,3,2,2.41115665,Both
+571,Female,46,30,15,PhD,Lawyer,24,4,HCM,9,3,5.039745,Offline
+572,Female,25,32,35,High School,Marketing,2,1,DaNang,10,3,2.24116659,Online
+573,Female,51,92,38,PhD,Doctor,27,2,HaNoi,11,3,2.74436784,Both
+574,Male,67,24,17,Bachelor,Marketing,41,5,DaNang,16,5,2.699159,Online
+575,Female,69,48,38,Bachelor,Entertainment,46,2,HaNoi,13,7,2.59051919,Offline
+576,Female,36,48,47,Bachelor,Healthcare,12,2,Others,5,9,6.57714,Both
+577,Male,67,41,30,High School,Student,42,4,DaNang,17,4,0.9772871,Online
+578,Female,56,74,31,PhD,Engineer,34,3,DaNang,18,7,4.7539444,Online
+579,Female,22,12,47,High School,Marketing,0,4,DaNang,19,3,0.780866861,Offline
+580,Male,55,43,14,Bachelor,Healthcare,31,5,Others,15,1,3.91765141,Offline
+581,Male,60,63,33,Bachelor,Healthcare,36,5,HCM,4,3,1.865956,Both
+582,Female,24,12,19,Bachelor,Entertainment,0,3,Others,0,3,6.51735258,Offline
+583,Male,39,58,17,Master,Engineer,16,2,Others,17,6,5.68847275,Online
+584,Male,40,59,38,Master,Healthcare,18,3,Others,6,6,6.541382,Offline
+585,Male,27,24,32,Bachelor,Healthcare,2,4,HaNoi,18,9,4.87723064,Online
+586,Male,21,13,29,High School,Entertainment,0,4,Others,13,1,3.00024033,Online
+587,Female,62,29,25,Master,Marketing,37,5,Others,12,9,4.22740841,Offline
+588,Female,29,16,24,High School,Marketing,6,1,HaNoi,4,4,3.4621222,Both
+589,Female,38,44,10,Bachelor,Healthcare,15,5,HCM,2,4,0.8156754,Online
+590,Male,22,14,32,Bachelor,Healthcare,0,1,HCM,15,6,7.45348263,Offline
+591,Male,19,16,28,High School,Marketing,0,3,DaNang,10,6,4.62799168,Online
+592,Female,26,18,18,Bachelor,Engineer,0,3,DaNang,0,8,3.05296087,Offline
+593,Male,53,48,14,Bachelor,Engineer,28,2,Others,14,2,4.27986526,Both
+594,Female,47,98,56,Master,Lawyer,25,4,Others,16,9,6.4924655,Both
+595,Male,40,69,42,High School,Marketing,15,3,HaNoi,16,6,3.24538565,Online
+596,Male,66,52,35,High School,Entertainment,44,5,HCM,12,6,0.988986552,Online
+597,Female,43,29,17,High School,Entertainment,20,2,HaNoi,9,5,7.097081,Online
+598,Male,43,52,30,Master,Lawyer,19,3,HaNoi,12,4,0.7341262,Both
+599,Female,19,8,35,High School,Student,0,2,DaNang,16,4,4.420581,Offline
+600,Female,55,30,3,High School,Student,30,2,DaNang,2,1,7.47085857,Offline
+601,Female,30,32,21,High School,Student,4,2,HaNoi,4,5,1.64713717,Offline
+602,Female,24,19,24,Master,Engineer,0,5,DaNang,16,9,4.364028,Both
+603,Male,53,63,36,Master,Engineer,31,1,DaNang,10,8,5.923816,Offline
+604,Male,63,41,6,Bachelor,Engineer,40,4,Others,3,3,4.54389668,Online
+605,Male,54,81,48,High School,Entertainment,31,2,HaNoi,7,1,0.00195155293,Offline
+606,Male,58,47,19,High School,Student,32,4,HCM,10,6,5.318726,Online
+607,Male,63,76,45,PhD,Lawyer,38,1,DaNang,11,7,0.2700941,Online
+608,Female,25,39,30,Master,Healthcare,3,2,HaNoi,7,2,7.91562462,Online
+609,Male,22,19,30,Bachelor,Marketing,0,1,DaNang,7,7,3.490718,Online
+610,Male,40,29,28,High School,Student,17,3,HaNoi,10,1,5.615452,Both
+611,Female,50,91,28,High School,Marketing,27,1,Others,3,9,1.04029119,Both
+612,Male,60,44,17,PhD,Engineer,38,3,HaNoi,16,9,5.04322,Offline
+613,Male,42,38,24,Bachelor,Engineer,18,1,Others,5,6,7.59843063,Offline
+614,Female,20,15,39,High School,Student,0,1,HaNoi,2,10,3.287979,Both
+615,Male,39,39,39,Bachelor,Marketing,15,4,DaNang,15,4,7.30760765,Online
+616,Male,45,46,18,PhD,Doctor,20,5,Others,6,9,0.399373531,Offline
+617,Male,37,27,30,Bachelor,Engineer,15,5,HCM,16,3,7.95152569,Both
+618,Male,33,38,35,Bachelor,Healthcare,11,2,HaNoi,6,1,5.30764055,Online
+619,Male,39,42,29,Bachelor,Marketing,16,4,HCM,5,7,0.1651718,Offline
+620,Male,39,55,57,Bachelor,Engineer,16,4,HaNoi,15,8,1.59019542,Offline
+621,Female,60,78,37,Bachelor,Healthcare,36,5,HaNoi,1,6,5.09465265,Offline
+622,Female,32,39,28,Master,Healthcare,9,4,Others,14,2,3.05308533,Offline
+623,Female,57,29,26,Master,Lawyer,34,1,HCM,2,1,0.100197509,Both
+624,Male,54,35,24,Bachelor,Entertainment,28,2,HCM,7,5,0.530199647,Online
+625,Male,27,19,42,Bachelor,Engineer,3,2,DaNang,7,10,5.88040257,Offline
+626,Male,59,53,39,Bachelor,Engineer,34,4,Others,5,2,6.211686,Online
+627,Female,61,43,6,Bachelor,Entertainment,36,1,DaNang,9,10,2.40815377,Both
+628,Male,54,78,52,Bachelor,Entertainment,30,1,HaNoi,12,6,3.29146051,Offline
+629,Female,41,39,33,Bachelor,Engineer,18,3,DaNang,7,2,0.758202255,Both
+630,Female,46,64,17,Master,Marketing,24,3,HCM,11,7,2.392586,Online
+631,Male,29,39,45,Bachelor,Healthcare,7,4,HaNoi,12,8,6.86014748,Both
+632,Male,30,35,26,High School,Marketing,4,2,Others,8,5,3.51261139,Offline
+633,Female,57,66,37,PhD,Engineer,34,2,HCM,18,1,1.66484451,Both
+634,Male,64,66,45,Bachelor,Engineer,42,5,HaNoi,14,3,6.867207,Offline
+635,Male,51,57,46,High School,Entertainment,26,1,Others,10,10,7.54277945,Both
+636,Male,40,33,33,High School,Entertainment,14,3,HaNoi,5,2,5.09417057,Online
+637,Male,67,64,23,PhD,Lawyer,45,4,HaNoi,8,1,7.37081671,Online
+638,Male,53,46,22,PhD,Doctor,30,4,Others,8,5,5.930853,Online
+639,Female,61,55,29,High School,Marketing,37,1,DaNang,17,8,7.51922941,Offline
+640,Female,40,37,29,High School,Entertainment,16,1,HaNoi,15,7,5.710135,Offline
+641,Male,19,9,19,High School,Marketing,0,1,DaNang,19,6,0.07370905,Online
+642,Male,34,18,16,Bachelor,Engineer,9,3,HCM,12,1,0.0441075973,Online
+643,Male,45,64,36,High School,Entertainment,19,5,Others,5,3,1.42828536,Online
+644,Female,30,29,14,High School,Student,6,4,DaNang,2,6,6.601995,Online
+645,Female,49,90,62,PhD,Engineer,25,2,HCM,12,9,4.98543644,Online
+646,Female,28,26,51,Bachelor,Engineer,2,4,HCM,12,5,4.95646763,Offline
+647,Male,59,62,22,High School,Marketing,36,5,Others,14,7,4.880085,Offline
+648,Female,34,21,20,High School,Marketing,8,4,DaNang,13,2,1.61013663,Both
+649,Male,23,14,35,Master,Engineer,0,4,HCM,8,3,2.2350173,Online
+650,Male,43,38,29,Master,Healthcare,21,4,HaNoi,9,1,3.16578,Offline
+651,Male,21,19,52,High School,Entertainment,0,3,Others,13,7,2.702438,Both
+652,Male,57,54,40,Bachelor,Healthcare,32,2,Others,7,2,6.537536,Online
+653,Female,49,84,48,Master,Lawyer,23,4,DaNang,5,1,2.57552671,Online
+654,Female,21,13,37,High School,Student,0,5,HCM,16,8,6.17089367,Offline
+655,Male,62,63,31,Bachelor,Engineer,40,4,HaNoi,2,8,3.69057131,Offline
+656,Female,31,35,36,High School,Entertainment,6,5,Others,14,5,0.8217049,Offline
+657,Male,52,51,32,Bachelor,Entertainment,30,4,HCM,4,7,4.90166569,Both
+658,Male,40,44,19,PhD,Lawyer,17,4,Others,1,9,6.18615532,Online
+659,Male,59,32,14,High School,Marketing,36,5,HCM,12,2,7.23444748,Offline
+660,Male,24,12,19,High School,Student,1,5,Others,4,8,7.982689,Offline
+661,Male,44,31,33,Master,Healthcare,20,4,DaNang,6,4,0.168188781,Online
+662,Male,42,54,43,Bachelor,Healthcare,18,1,Others,9,8,7.786183,Online
+663,Male,38,61,54,Bachelor,Marketing,15,4,HCM,10,7,3.95758677,Offline
+664,Male,53,34,1,Master,Marketing,27,3,HaNoi,6,10,4.71235466,Online
+665,Female,68,62,34,Master,Marketing,45,2,Others,3,9,2.40299249,Both
+666,Female,19,8,28,High School,Marketing,0,1,HCM,10,8,6.96702862,Online
+667,Female,29,22,44,Bachelor,Healthcare,6,5,HCM,14,4,6.680128,Offline
+668,Female,58,64,17,PhD,Lawyer,36,3,DaNang,9,5,1.87987363,Offline
+669,Male,61,46,32,Bachelor,Healthcare,37,1,DaNang,18,4,4.595182,Both
+670,Female,24,15,32,Master,Healthcare,0,2,DaNang,12,1,7.65336752,Online
+671,Male,60,61,37,Master,Marketing,37,1,DaNang,18,5,5.078442,Online
+672,Male,51,53,27,Master,Marketing,28,4,HaNoi,14,5,3.10719466,Offline
+673,Female,23,15,29,Bachelor,Engineer,0,5,HaNoi,0,2,6.84656858,Offline
+674,Female,45,46,22,High School,Student,23,5,Others,16,5,0.6147052,Both
+675,Female,19,16,23,High School,Student,0,3,HaNoi,11,1,6.66871643,Offline
+676,Female,29,27,24,High School,Entertainment,7,3,HCM,10,3,4.9192977,Both
+677,Female,22,16,30,Bachelor,Marketing,0,1,HaNoi,1,3,2.64230514,Online
+678,Male,22,8,24,Master,Engineer,0,2,HaNoi,16,9,5.833547,Offline
+679,Female,49,45,33,High School,Entertainment,26,4,HaNoi,2,2,4.65911,Both
+680,Male,36,52,27,High School,Entertainment,13,3,HCM,16,3,1.60376,Offline
+681,Male,44,49,51,Master,Engineer,18,3,HCM,16,6,0.124951608,Offline
+682,Female,39,65,38,Bachelor,Engineer,14,2,Others,9,7,2.4762702,Online
+683,Female,54,39,1,Master,Engineer,29,2,Others,2,4,0.597429335,Offline
+684,Male,19,11,47,High School,Entertainment,0,4,HCM,11,5,4.243754,Offline
+685,Female,64,31,6,Master,Lawyer,41,3,DaNang,14,10,2.36935258,Online
+686,Female,35,49,40,Bachelor,Healthcare,11,1,Others,13,7,3.0849,Online
+687,Male,23,17,35,Bachelor,Marketing,1,4,HCM,15,4,4.0967083,Online
+688,Female,49,86,41,Bachelor,Entertainment,24,2,HCM,0,10,5.54177666,Offline
+689,Male,25,32,32,Master,Lawyer,1,2,HaNoi,16,10,6.381449,Offline
+690,Male,65,61,30,Bachelor,Healthcare,43,4,Others,18,6,4.644094,Online
+691,Female,39,62,57,High School,Student,14,2,HaNoi,16,2,1.368662,Both
+692,Male,48,43,27,Bachelor,Entertainment,26,1,Others,17,3,2.920187,Both
+693,Male,69,27,4,Master,Marketing,44,3,DaNang,6,9,5.90138626,Both
+694,Male,33,20,22,Bachelor,Entertainment,10,4,HaNoi,11,5,7.25019073,Both
+695,Female,56,56,28,Bachelor,Engineer,31,2,Others,8,2,5.330322,Online
+696,Male,55,41,27,High School,Student,31,4,Others,19,4,2.286078,Offline
+697,Male,36,53,49,Bachelor,Engineer,14,3,Others,3,10,0.338598222,Online
+698,Male,63,40,23,High School,Student,40,4,HCM,19,8,3.369821,Both
+699,Male,61,40,33,High School,Student,37,3,HaNoi,19,2,4.581029,Both
+700,Male,67,47,29,Bachelor,Marketing,45,3,Others,18,9,5.142107,Both
+701,Female,65,20,1,Bachelor,Engineer,43,3,Others,8,6,1.1747067,Online
+702,Female,63,46,15,Bachelor,Healthcare,37,2,HCM,12,2,6.972614,Offline
+703,Female,65,53,30,Bachelor,Marketing,39,4,DaNang,2,9,6.53606653,Both
+704,Female,63,28,1,Bachelor,Marketing,41,4,DaNang,19,7,3.67916465,Offline
+705,Female,51,95,53,Master,Marketing,25,3,Others,14,2,3.05092931,Offline
+706,Female,58,52,14,Bachelor,Healthcare,36,2,HaNoi,19,1,6.797622,Both
+707,Male,63,58,41,High School,Student,39,5,HaNoi,18,2,5.955269,Both
+708,Male,51,52,9,Master,Marketing,27,4,Others,10,9,2.13681722,Offline
+709,Male,47,79,51,PhD,Lawyer,22,1,DaNang,13,3,4.44017935,Online
+710,Male,54,93,33,Bachelor,Entertainment,28,2,Others,12,7,5.42854929,Both
+711,Male,68,63,12,High School,Marketing,42,1,HaNoi,8,6,6.09796572,Both
+712,Male,30,21,25,Bachelor,Healthcare,5,4,DaNang,0,8,6.63671255,Offline
+713,Male,42,25,25,Bachelor,Healthcare,18,5,HaNoi,7,2,7.02455568,Offline
+714,Female,56,25,32,High School,Marketing,31,4,HCM,1,6,2.36051178,Online
+715,Female,65,25,5,High School,Student,41,5,HCM,18,4,7.10394526,Both
+716,Female,35,35,23,Master,Healthcare,12,1,DaNang,0,1,5.625387,Offline
+717,Female,34,36,37,Bachelor,Healthcare,12,3,HCM,10,3,7.48783159,Offline
+718,Female,32,19,20,Bachelor,Engineer,6,3,DaNang,4,5,1.771393,Online
+719,Female,20,18,31,High School,Student,0,5,HCM,17,3,1.86790431,Offline
+720,Female,44,58,35,High School,Entertainment,22,5,HCM,13,2,5.977351,Both
+721,Male,61,36,20,High School,Entertainment,36,3,HaNoi,19,3,6.288086,Both
+722,Female,34,36,26,High School,Student,9,1,DaNang,2,6,6.15888643,Both
+723,Male,27,30,30,Bachelor,Engineer,4,5,HaNoi,12,9,1.21102464,Both
+724,Female,27,24,38,Master,Marketing,5,4,DaNang,8,2,6.020923,Online
+725,Male,32,35,42,Master,Engineer,7,4,HCM,1,6,5.400985,Offline
+726,Male,68,51,29,High School,Entertainment,44,4,HCM,8,1,5.460393,Online
+727,Female,61,70,20,Bachelor,Healthcare,37,2,DaNang,2,7,0.9659619,Online
+728,Male,47,65,23,Master,Lawyer,25,1,DaNang,15,4,4.65434361,Offline
+729,Male,26,25,37,High School,Marketing,1,3,HaNoi,19,8,1.95154369,Both
+730,Male,31,39,9,Master,Lawyer,8,3,Others,18,3,1.26160645,Offline
+731,Female,55,50,43,Bachelor,Healthcare,32,4,HCM,18,8,0.55045563,Offline
+732,Male,20,16,34,High School,Marketing,0,1,Others,1,1,1.93824112,Offline
+733,Female,19,17,23,High School,Entertainment,0,2,Others,16,9,3.62486267,Offline
+734,Female,68,45,15,Bachelor,Engineer,42,1,Others,3,7,0.20316574,Online
+735,Male,52,71,40,Master,Engineer,30,1,Others,15,4,3.689449,Offline
+736,Female,38,30,19,Master,Marketing,12,5,DaNang,5,6,7.77259445,Online
+737,Male,67,74,48,Master,Engineer,43,2,DaNang,14,4,1.87424576,Online
+738,Female,38,38,34,High School,Marketing,16,1,HCM,15,3,6.5651145,Online
+739,Male,50,42,17,PhD,Engineer,28,1,DaNang,16,3,5.58085442,Both
+740,Male,64,30,12,Bachelor,Engineer,40,1,Others,7,3,0.216971591,Both
+741,Female,60,46,1,Bachelor,Healthcare,36,4,HaNoi,5,2,1.0473789,Online
+742,Male,27,33,39,High School,Entertainment,5,2,HCM,15,8,7.767921,Both
+743,Female,24,9,23,Bachelor,Entertainment,2,3,DaNang,15,10,5.82427454,Both
+744,Female,39,69,37,Bachelor,Engineer,13,1,DaNang,4,8,7.13587761,Both
+745,Male,29,39,51,Bachelor,Marketing,4,5,HCM,19,2,7.85424948,Offline
+746,Male,35,26,13,Bachelor,Healthcare,11,1,HCM,14,2,3.59586668,Both
+747,Male,67,61,26,High School,Marketing,45,1,HaNoi,3,7,7.31675243,Both
+748,Female,21,17,51,High School,Marketing,0,1,HCM,3,2,5.21916437,Offline
+749,Female,69,72,33,Bachelor,Entertainment,44,2,Others,11,1,4.819452,Online
+750,Male,64,75,30,Bachelor,Entertainment,38,2,Others,18,3,3.90546513,Both
+751,Female,61,36,17,High School,Student,37,1,HaNoi,10,1,6.37739563,Online
+752,Female,61,78,20,Master,Lawyer,38,3,HCM,3,4,5.798627,Both
+753,Male,47,40,50,Bachelor,Engineer,25,2,HCM,13,7,5.094037,Online
+754,Female,65,75,27,Bachelor,Entertainment,41,1,HaNoi,18,7,6.132189,Offline
+755,Female,62,28,33,Bachelor,Healthcare,39,1,HaNoi,17,6,2.172428,Both
+756,Female,50,64,26,Bachelor,Marketing,27,5,HaNoi,15,2,4.264422,Online
+757,Male,19,18,10,High School,Marketing,0,2,HaNoi,11,5,0.306508869,Offline
+758,Male,21,18,23,High School,Student,0,4,DaNang,2,4,2.941597,Online
+759,Male,37,42,29,Bachelor,Entertainment,14,5,HaNoi,11,4,0.107376516,Online
+760,Male,57,43,10,Bachelor,Marketing,34,3,DaNang,3,8,6.3898077,Online
+761,Male,45,56,50,Master,Engineer,23,1,HCM,5,4,7.78340244,Offline
+762,Male,30,35,24,Master,Marketing,4,2,DaNang,2,2,4.937714,Online
+763,Female,60,53,18,Master,Lawyer,37,2,HCM,3,6,2.30451322,Online
+764,Female,37,67,60,Bachelor,Entertainment,14,5,HCM,16,6,3.20621753,Online
+765,Female,19,10,39,High School,Student,0,3,DaNang,15,1,7.943456,Offline
+766,Female,58,49,39,Bachelor,Marketing,34,3,HCM,4,10,6.39041853,Online
+767,Female,20,15,13,High School,Student,0,3,HaNoi,5,2,5.26494837,Offline
+768,Male,25,37,27,Bachelor,Engineer,0,2,DaNang,15,4,4.88966036,Both
+769,Male,31,29,32,Master,Marketing,9,5,HCM,1,3,3.30972719,Offline
+770,Male,36,43,17,Bachelor,Engineer,10,1,Others,7,7,2.73407722,Online
+771,Female,58,23,25,High School,Marketing,36,2,HCM,1,6,1.83330584,Online
+772,Male,22,8,40,Bachelor,Marketing,0,3,HCM,10,4,2.03217244,Online
+773,Male,43,68,43,High School,Marketing,18,4,DaNang,3,6,4.56226063,Offline
+774,Male,26,30,31,Bachelor,Healthcare,4,3,Others,17,3,1.31210387,Both
+775,Female,45,45,21,Master,Marketing,21,5,DaNang,17,9,1.442522,Online
+776,Male,32,32,41,Bachelor,Healthcare,8,5,HCM,5,1,2.04602957,Offline
+777,Male,44,52,30,High School,Marketing,21,5,HCM,0,1,1.51375091,Both
+778,Female,51,78,52,Bachelor,Engineer,29,3,DaNang,13,9,1.63508236,Offline
+779,Female,33,28,25,High School,Marketing,10,1,HCM,10,10,0.513438463,Both
+780,Female,62,22,1,Bachelor,Marketing,40,5,HaNoi,19,7,4.69939852,Both
+781,Female,26,36,26,High School,Marketing,0,5,HCM,14,3,0.996120453,Online
+782,Male,44,25,26,Master,Engineer,20,3,HaNoi,14,4,3.01590776,Online
+783,Male,47,68,32,High School,Entertainment,24,3,HaNoi,0,5,4.125411,Offline
+784,Female,29,32,53,High School,Entertainment,4,2,Others,0,6,6.91596842,Both
+785,Male,39,55,34,High School,Marketing,16,5,HaNoi,18,2,0.370552063,Online
+786,Male,42,51,34,Bachelor,Healthcare,18,2,Others,14,4,2.68562269,Offline
+787,Male,31,31,43,High School,Entertainment,9,3,HCM,4,4,6.144306,Both
+788,Female,60,68,38,PhD,Engineer,34,5,Others,19,5,4.47035742,Both
+789,Male,36,62,22,Master,Marketing,10,2,HaNoi,19,6,2.1952703,Offline
+790,Male,25,30,43,Master,Engineer,1,5,HaNoi,8,8,1.2843262,Offline
+791,Male,59,66,35,Master,Lawyer,33,3,HCM,10,7,7.66459036,Offline
+792,Female,42,64,35,High School,Marketing,19,5,Others,17,4,6.381237,Both
+793,Male,66,65,31,High School,Student,40,2,HCM,13,1,1.16450572,Offline
+794,Male,21,14,9,High School,Entertainment,0,1,DaNang,0,6,2.55861282,Online
+795,Male,45,84,59,Bachelor,Marketing,21,4,Others,9,7,4.1860323,Online
+796,Female,64,59,29,Bachelor,Marketing,41,3,HaNoi,18,1,3.8261807,Both
+797,Male,65,34,33,Bachelor,Marketing,40,1,DaNang,1,7,4.07099628,Both
+798,Male,32,29,11,Bachelor,Engineer,7,2,HCM,6,7,0.278010726,Online
+799,Female,33,16,24,Master,Lawyer,7,3,Others,0,2,1.941613,Online
+800,Male,46,79,69,High School,Marketing,24,5,DaNang,6,4,5.180912,Offline
+801,Female,69,22,1,Bachelor,Healthcare,46,4,DaNang,14,7,0.748384356,Both
+802,Male,69,36,25,Bachelor,Marketing,43,4,Others,8,10,3.06493783,Offline
+803,Male,28,18,31,Bachelor,Marketing,6,4,HaNoi,14,7,5.12482738,Offline
+804,Male,66,21,20,Master,Lawyer,44,3,DaNang,7,7,5.8374033,Offline
+805,Male,34,26,33,High School,Marketing,11,2,HaNoi,9,9,1.39900827,Offline
+806,Male,46,46,39,Master,Healthcare,23,5,Others,17,2,3.68594265,Offline
+807,Male,56,49,11,Bachelor,Marketing,32,3,HCM,8,6,5.12236547,Online
+808,Male,50,77,18,Bachelor,Healthcare,28,5,HaNoi,4,5,6.94934225,Offline
+809,Male,41,54,56,High School,Student,16,5,Others,7,1,1.760667,Online
+810,Male,60,55,12,Master,Marketing,35,5,DaNang,2,10,4.9877367,Offline
+811,Female,52,38,33,Bachelor,Healthcare,29,4,HCM,18,5,3.49118781,Both
+812,Female,58,28,2,Master,Marketing,35,2,HCM,14,6,4.402059,Online
+813,Male,58,74,38,Master,Lawyer,34,3,HCM,17,7,3.565418,Online
+814,Male,65,44,29,PhD,Doctor,39,5,HaNoi,14,9,1.4940201,Offline
+815,Female,61,77,55,Bachelor,Marketing,39,3,HCM,16,2,3.86600518,Online
+816,Male,47,67,50,Bachelor,Marketing,24,3,HCM,15,3,4.945157,Online
+817,Male,19,16,46,High School,Entertainment,0,4,Others,4,6,6.113492,Online
+818,Female,24,18,17,High School,Marketing,0,2,HaNoi,1,6,6.86504555,Online
+819,Male,68,49,39,Master,Marketing,42,5,HCM,2,10,5.41456032,Online
+820,Male,68,56,35,Master,Engineer,44,4,HaNoi,0,4,0.9456727,Both
+821,Female,53,71,32,Master,Engineer,30,1,HCM,13,8,0.853019655,Offline
+822,Male,20,11,12,High School,Student,0,4,HCM,19,1,4.668416,Both
+823,Female,68,61,8,Master,Marketing,44,2,DaNang,19,7,7.86103344,Online
+824,Male,62,52,45,High School,Marketing,36,3,DaNang,5,2,5.833403,Both
+825,Female,66,40,26,Master,Engineer,41,2,DaNang,3,8,0.260795832,Online
+826,Male,60,67,19,Bachelor,Healthcare,38,4,DaNang,4,5,0.629951537,Online
+827,Male,28,17,31,Bachelor,Engineer,5,4,Others,19,3,1.39086676,Offline
+828,Female,32,37,26,Bachelor,Healthcare,10,2,HaNoi,19,5,2.64607167,Both
+829,Female,46,54,21,Master,Healthcare,21,1,Others,10,7,1.16845548,Both
+830,Female,25,25,51,Bachelor,Entertainment,3,2,HaNoi,5,6,7.02500343,Offline
+831,Male,53,55,16,Bachelor,Marketing,31,1,DaNang,9,3,1.66802251,Online
+832,Male,64,42,36,High School,Marketing,40,1,HaNoi,8,5,6.68674374,Offline
+833,Female,23,16,31,Bachelor,Healthcare,1,3,Others,11,8,4.57232952,Both
+834,Female,35,44,52,High School,Entertainment,10,4,Others,2,7,7.511966,Both
+835,Female,33,22,11,Bachelor,Marketing,9,4,HCM,2,5,5.00487041,Online
+836,Female,60,62,37,PhD,Engineer,35,3,DaNang,14,1,5.381017,Online
+837,Female,20,10,25,High School,Student,0,2,DaNang,18,2,7.13168335,Offline
+838,Male,66,64,23,Bachelor,Marketing,43,5,Others,9,1,1.7910521,Online
+839,Male,52,86,47,High School,Entertainment,28,3,HCM,13,8,6.916175,Both
+840,Male,47,41,45,Bachelor,Engineer,22,2,Others,9,9,7.35121059,Online
+841,Female,25,24,33,Bachelor,Engineer,1,5,Others,13,9,5.532626,Offline
+842,Female,33,37,34,Bachelor,Marketing,10,5,HaNoi,5,2,3.04254723,Both
+843,Female,42,62,22,High School,Marketing,20,4,HCM,3,2,1.543663,Online
+844,Male,32,16,17,Master,Marketing,9,4,Others,10,1,5.437982,Offline
+845,Female,46,68,39,Bachelor,Engineer,23,3,HaNoi,15,9,2.95724773,Online
+846,Male,27,35,44,Bachelor,Healthcare,2,2,HCM,15,3,1.35721326,Online
+847,Male,20,13,32,High School,Student,0,1,HaNoi,15,9,2.13250875,Online
+848,Female,30,28,14,Master,Engineer,6,5,DaNang,8,4,2.48706365,Both
+849,Female,58,37,41,Master,Lawyer,36,1,Others,15,8,4.39280748,Both
+850,Male,18,16,13,High School,Marketing,0,2,HCM,6,4,3.93437219,Both
+851,Female,56,25,27,Master,Lawyer,31,5,HCM,3,9,4.0785675,Online
+852,Male,31,28,19,Master,Healthcare,6,2,HaNoi,4,10,0.6630088,Both
+853,Female,46,86,59,High School,Student,22,1,HaNoi,2,10,5.162308,Both
+854,Male,25,25,47,Bachelor,Engineer,0,4,Others,12,3,0.85526,Offline
+855,Male,62,68,13,High School,Entertainment,37,5,Others,6,6,7.65458059,Offline
+856,Female,36,55,38,Bachelor,Marketing,12,4,Others,1,1,5.733515,Both
+857,Female,28,26,19,High School,Student,2,4,HCM,5,5,6.006062,Online
+858,Female,47,65,51,Bachelor,Engineer,25,4,Others,14,4,2.98532915,Online
+859,Male,27,31,37,High School,Entertainment,3,2,HaNoi,13,3,2.4031167,Both
+860,Male,68,68,17,High School,Student,42,4,DaNang,18,1,4.051902,Online
+861,Male,54,79,18,High School,Marketing,31,5,DaNang,18,5,1.77823246,Online
+862,Male,29,15,50,High School,Entertainment,6,3,DaNang,7,4,6.144536,Online
+863,Female,64,73,41,Master,Healthcare,38,3,HaNoi,17,3,6.525442,Both
+864,Female,18,18,31,High School,Student,0,4,HaNoi,1,8,1.30385351,Online
+865,Male,55,34,1,PhD,Doctor,33,5,Others,10,6,5.05042028,Offline
+866,Female,51,68,38,High School,Student,29,3,HCM,16,6,5.78005171,Online
+867,Male,26,36,41,High School,Marketing,1,3,HaNoi,16,1,5.40576458,Both
+868,Male,22,9,9,High School,Student,0,3,HaNoi,14,7,2.19460535,Both
+869,Male,53,71,30,Bachelor,Engineer,29,1,Others,17,4,4.85809755,Online
+870,Female,20,12,31,High School,Student,0,3,DaNang,15,4,1.77315927,Both
+871,Male,69,35,14,High School,Entertainment,47,5,Others,7,5,5.30534029,Both
+872,Female,19,19,50,High School,Entertainment,0,1,HaNoi,18,7,6.26440525,Online
+873,Male,63,32,23,Master,Lawyer,41,4,HCM,0,9,2.68619919,Offline
+874,Male,51,38,27,High School,Entertainment,27,3,Others,12,6,2.62436438,Both
+875,Female,61,23,5,Master,Engineer,38,1,HCM,4,2,4.00953531,Both
+876,Male,29,26,14,High School,Student,5,4,HaNoi,2,6,4.82759476,Online
+877,Male,54,94,46,Master,Lawyer,28,4,Others,11,4,0.8298308,Online
+878,Female,21,11,30,High School,Marketing,0,1,HaNoi,6,1,6.84515667,Offline
+879,Male,60,46,26,High School,Student,35,1,HCM,11,2,1.73078775,Both
+880,Male,43,55,42,PhD,Lawyer,21,2,DaNang,13,10,0.02559461,Offline
+881,Female,52,78,29,High School,Marketing,30,1,DaNang,18,10,6.389142,Offline
+882,Female,67,71,22,PhD,Doctor,43,2,DaNang,17,5,3.33658624,Both
+883,Female,22,8,13,Bachelor,Entertainment,0,5,Others,0,5,2.88530421,Online
+884,Female,43,34,16,Master,Engineer,19,3,HCM,8,1,1.985014,Online
+885,Male,39,68,26,Master,Lawyer,16,2,HaNoi,12,9,2.67376161,Offline
+886,Female,69,20,4,Bachelor,Entertainment,45,4,DaNang,18,8,6.849689,Offline
+887,Female,44,26,25,Bachelor,Engineer,19,2,HCM,3,10,7.78712654,Offline
+888,Male,66,61,30,High School,Entertainment,43,1,HCM,10,4,3.49392319,Online
+889,Female,28,15,21,High School,Marketing,3,5,HCM,4,6,3.93841243,Online
+890,Male,57,73,15,Master,Lawyer,31,1,HaNoi,7,4,0.5941523,Both
+891,Female,65,72,31,Master,Healthcare,42,4,DaNang,6,4,6.099182,Both
+892,Male,63,33,13,High School,Entertainment,41,4,Others,6,10,1.48378789,Online
+893,Female,62,50,34,Bachelor,Healthcare,38,3,Others,3,8,2.84666038,Offline
+894,Male,31,21,26,Bachelor,Marketing,6,4,DaNang,7,7,1.79223192,Offline
+895,Female,31,36,13,Bachelor,Engineer,7,2,HaNoi,15,2,2.918235,Both
+896,Male,52,75,41,High School,Student,30,3,DaNang,4,8,7.47493935,Both
+897,Female,58,63,39,Master,Marketing,35,5,DaNang,5,8,1.39901543,Online
+898,Male,66,37,1,Master,Lawyer,44,5,HaNoi,10,1,5.4112196,Both
+899,Male,35,39,29,Bachelor,Entertainment,10,1,Others,14,7,2.04636526,Both
+900,Female,62,75,27,PhD,Doctor,40,5,DaNang,13,7,5.184616,Both
+901,Female,62,63,27,Bachelor,Engineer,36,3,DaNang,2,8,6.089028,Online
+902,Male,23,19,36,High School,Marketing,1,2,HaNoi,19,9,3.7600944,Online
+903,Female,42,51,38,Bachelor,Entertainment,17,3,HCM,14,5,4.872077,Offline
+904,Male,38,43,33,Bachelor,Engineer,16,4,HCM,13,4,3.64151645,Both
+905,Male,43,31,28,High School,Student,20,3,HaNoi,18,1,4.587691,Offline
+906,Female,45,63,51,High School,Marketing,20,1,DaNang,13,4,7.82486629,Offline
+907,Female,59,69,37,Bachelor,Engineer,36,5,DaNang,3,4,2.891285,Offline
+908,Female,18,8,17,High School,Marketing,0,2,DaNang,2,7,4.719436,Offline
+909,Male,52,36,4,Master,Healthcare,26,3,Others,9,9,5.895818,Both
+910,Male,28,28,35,Bachelor,Engineer,5,1,HCM,13,9,3.96105027,Online
+911,Male,44,34,15,Bachelor,Entertainment,19,1,HaNoi,4,1,7.760836,Online
+912,Female,39,34,26,Master,Engineer,14,3,Others,5,1,2.03068376,Both
+913,Female,21,14,23,High School,Entertainment,0,2,DaNang,12,3,2.10562253,Offline
+914,Female,67,45,25,Bachelor,Healthcare,44,5,HCM,10,1,5.514946,Online
+915,Male,57,64,21,High School,Marketing,33,4,HaNoi,2,4,6.93532848,Offline
+916,Female,20,14,15,High School,Student,0,2,HCM,12,1,4.41868067,Offline
+917,Male,41,36,47,Bachelor,Engineer,19,4,HaNoi,1,8,0.346110284,Both
+918,Female,58,69,21,Master,Engineer,32,2,HaNoi,13,6,2.0798955,Both
+919,Female,39,42,33,Master,Healthcare,13,3,Others,1,3,7.34375238,Both
+920,Male,40,40,28,Bachelor,Healthcare,16,3,DaNang,2,9,2.49457526,Online
+921,Female,69,27,3,High School,Marketing,43,3,DaNang,14,3,7.3628583,Both
+922,Male,39,65,61,Master,Lawyer,14,5,HCM,0,8,4.46125937,Both
+923,Female,65,31,16,Bachelor,Healthcare,41,2,DaNang,8,10,2.52887034,Online
+924,Female,67,54,21,High School,Student,43,4,HCM,2,10,1.27581716,Online
+925,Female,30,17,5,High School,Student,6,2,DaNang,16,1,7.31993532,Online
+926,Female,44,44,35,Bachelor,Entertainment,22,1,Others,3,10,6.434011,Online
+927,Female,45,92,38,PhD,Engineer,20,1,HCM,10,8,7.018288,Both
+928,Female,35,61,23,Bachelor,Marketing,10,2,HCM,18,5,1.16586411,Both
+929,Female,22,16,26,Master,Healthcare,0,4,HCM,5,1,0.5634332,Online
+930,Male,39,65,42,Bachelor,Engineer,13,3,DaNang,6,9,1.97196889,Online
+931,Male,53,74,24,High School,Student,28,3,HaNoi,0,9,0.369132251,Both
+932,Female,25,17,28,Bachelor,Marketing,0,1,DaNang,11,10,7.799025,Both
+933,Male,32,22,9,Bachelor,Entertainment,7,4,Others,7,10,0.695092857,Online
+934,Female,40,34,12,Bachelor,Entertainment,18,2,Others,17,5,3.82078028,Offline
+935,Male,49,97,37,Master,Marketing,27,5,HaNoi,2,7,2.53213716,Online
+936,Female,37,42,47,Bachelor,Entertainment,12,2,DaNang,14,10,6.18878269,Both
+937,Female,19,11,18,High School,Student,0,4,HaNoi,12,9,6.0781374,Online
+938,Female,32,20,42,Bachelor,Entertainment,8,5,DaNang,18,8,6.074039,Offline
+939,Female,58,55,6,Bachelor,Healthcare,36,4,HaNoi,16,8,7.97460747,Both
+940,Female,49,46,38,High School,Student,23,1,DaNang,4,4,6.556688,Both
+941,Female,25,33,29,Bachelor,Marketing,3,5,DaNang,14,3,7.70307446,Online
+942,Male,46,39,29,Bachelor,Entertainment,21,1,Others,15,1,6.641052,Online
+943,Male,38,45,54,Master,Marketing,13,5,HaNoi,11,2,0.3677008,Offline
+944,Male,32,37,5,Bachelor,Entertainment,7,4,HCM,13,6,5.135731,Offline
+945,Male,52,50,30,Master,Engineer,30,5,Others,9,9,1.30825639,Offline
+946,Female,28,35,23,Bachelor,Marketing,5,2,HaNoi,8,4,0.7234393,Offline
+947,Male,58,39,18,Bachelor,Healthcare,34,2,DaNang,1,6,5.41795063,Both
+948,Male,21,14,36,High School,Student,0,5,HCM,2,4,5.95746374,Online
+949,Male,44,65,46,Master,Lawyer,19,3,Others,6,4,5.6387167,Online
+950,Male,46,61,28,High School,Marketing,21,5,DaNang,11,1,5.04777527,Offline
+951,Male,66,22,23,PhD,Lawyer,41,3,Others,8,2,2.0636363,Online
+952,Male,46,81,41,PhD,Engineer,21,4,DaNang,13,6,4.480769,Offline
+953,Female,18,9,40,High School,Student,0,3,Others,9,7,3.218648,Offline
+954,Female,59,75,38,Master,Engineer,35,1,DaNang,2,5,4.02130461,Online
+955,Female,46,58,43,Bachelor,Healthcare,24,3,Others,14,4,2.76639342,Online
+956,Female,22,19,27,Bachelor,Entertainment,0,5,DaNang,3,6,0.06557108,Both
+957,Female,63,42,1,PhD,Doctor,40,3,HCM,9,7,1.62558055,Online
+958,Male,44,67,31,Bachelor,Healthcare,19,2,HCM,3,10,5.88474464,Online
+959,Male,44,52,29,PhD,Engineer,19,5,HCM,2,7,0.0876031741,Online
+960,Male,41,31,47,Bachelor,Marketing,18,3,HaNoi,18,8,3.555485,Both
+961,Male,25,32,48,Bachelor,Engineer,0,3,Others,18,8,1.47595751,Offline
+962,Male,24,17,20,Bachelor,Entertainment,1,5,DaNang,11,4,0.7578907,Offline
+963,Male,28,37,33,High School,Student,6,3,Others,13,9,3.93100786,Offline
+964,Male,55,50,34,High School,Marketing,32,1,Others,8,1,7.63166857,Online
+965,Female,55,45,26,Master,Lawyer,33,1,Others,14,1,4.59631968,Both
+966,Male,36,36,23,Bachelor,Engineer,10,1,Others,1,6,5.761664,Offline
+967,Female,62,62,14,High School,Entertainment,39,1,HaNoi,14,6,6.77222967,Online
+968,Female,37,57,41,Master,Engineer,11,4,Others,2,8,5.18224239,Online
+969,Male,38,62,41,High School,Marketing,15,2,DaNang,15,8,4.68952751,Offline
+970,Male,30,20,4,Master,Healthcare,7,1,Others,13,9,2.6146462,Online
+971,Male,69,56,19,Master,Healthcare,46,3,HCM,4,8,3.76705527,Both
+972,Female,39,34,27,High School,Student,16,2,DaNang,8,5,1.51088369,Online
+973,Female,61,66,36,Master,Healthcare,36,5,HCM,10,5,5.79020071,Online
+974,Male,57,47,38,Bachelor,Marketing,32,2,HCM,12,5,4.2064395,Offline
+975,Male,35,31,26,Bachelor,Entertainment,9,3,Others,18,9,3.973642,Both
+976,Male,36,31,39,High School,Entertainment,14,3,Others,13,1,1.85438812,Online
+977,Female,40,42,34,Master,Healthcare,18,2,DaNang,9,3,5.980835,Online
+978,Female,19,12,17,High School,Marketing,0,2,Others,16,3,0.565139949,Both
+979,Male,45,72,33,Bachelor,Healthcare,19,1,HaNoi,11,8,4.14509249,Offline
+980,Female,50,91,56,PhD,Doctor,24,1,HaNoi,15,5,0.5109189,Offline
+981,Male,29,30,29,Master,Engineer,7,1,DaNang,11,10,3.60086465,Both
+982,Female,69,35,17,Bachelor,Healthcare,47,4,DaNang,4,4,0.236897379,Both
+983,Female,39,28,11,Bachelor,Engineer,16,1,HCM,13,3,4.18915558,Offline
+984,Female,61,40,37,Master,Engineer,38,1,DaNang,6,3,6.154486,Both
+985,Male,61,46,39,PhD,Lawyer,38,2,HaNoi,14,8,6.21031427,Offline
+986,Male,24,16,26,Bachelor,Entertainment,1,4,HaNoi,2,2,7.527562,Offline
+987,Female,19,17,21,High School,Student,0,4,HCM,0,1,3.38887954,Both
+988,Male,62,23,13,High School,Student,38,2,HaNoi,8,10,3.78977633,Offline
+989,Male,38,54,43,Master,Lawyer,16,3,Others,15,9,5.02415657,Online
+990,Male,40,37,26,High School,Entertainment,14,1,Others,11,1,5.91745663,Both
+991,Female,52,79,18,Master,Marketing,28,4,HCM,18,3,5.154583,Both
+992,Male,47,75,31,High School,Entertainment,23,3,DaNang,2,1,6.01377,Online
+993,Male,41,62,44,PhD,Doctor,17,2,Others,6,9,6.89670229,Offline
+994,Female,48,33,33,PhD,Engineer,22,3,Others,12,6,2.63369322,Offline
+995,Male,25,18,40,Master,Healthcare,3,3,Others,16,2,5.138134,Both
+996,Female,41,55,37,Bachelor,Marketing,18,4,DaNang,3,1,1.442283,Both
+997,Female,37,29,13,Bachelor,Entertainment,15,5,Others,17,8,6.279716,Both
+998,Male,48,97,56,Master,Lawyer,26,3,HaNoi,5,4,0.661104262,Offline
+999,Female,42,42,25,Bachelor,Entertainment,16,3,Others,19,10,0.9326642,Offline
+1000,Female,57,50,39,Master,Lawyer,34,4,DaNang,19,2,6.549214,Offline

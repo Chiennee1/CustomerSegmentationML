@@ -81,9 +81,9 @@ namespace CustomerSegmentationML.ML.DataPreprocessing
             double baseScore = (income / 100.0) * 50; // Income factor
 
             // Age factor
-            if (age < 30) baseScore += _random.Next(10, 30); // Young people spend more
-            else if (age < 50) baseScore += _random.Next(0, 20); // Middle age varies
-            else baseScore += _random.Next(-10, 10); // Older people more conservative
+            if (age < 30) baseScore += _random.Next(10, 30); 
+            else if (age < 50) baseScore += _random.Next(0, 20); 
+            else baseScore += _random.Next(-10, 10);
 
             return Math.Max(1, Math.Min(100, (int)baseScore + _random.Next(-15, 15)));
         }

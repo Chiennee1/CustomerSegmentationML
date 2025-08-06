@@ -5,9 +5,6 @@ namespace CustomerSegmentationML.Forms
     partial class MainForm
     {
         private System.ComponentModel.IContainer components = null;
-        private MenuStrip menuStrip;
-        private ToolStripMenuItem fileMenu;
-        private ToolStripMenuItem helpMenu;
         private StatusStrip statusStrip;
         private ToolStripStatusLabel lblStatus;
         private ToolStripStatusLabel lblDatasetCount;
@@ -42,9 +39,6 @@ namespace CustomerSegmentationML.Forms
 
         private void InitializeComponent()
         {
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDatasetCount = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,7 +56,6 @@ namespace CustomerSegmentationML.Forms
             this.grpSettings = new System.Windows.Forms.GroupBox();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.mainLayout.SuspendLayout();
             this.grpDataset.SuspendLayout();
@@ -70,32 +63,6 @@ namespace CustomerSegmentationML.Forms
             this.grpResults.SuspendLayout();
             this.grpSettings.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenu,
-            this.helpMenu});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1350, 33);
-            this.menuStrip.TabIndex = 1;
-            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
-            // 
-            // fileMenu
-            // 
-            this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(54, 29);
-            this.fileMenu.Text = "&File";
-            // 
-            // helpMenu
-            // 
-            this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(65, 29);
-            this.helpMenu.Text = "&Help";
             // 
             // statusStrip
             // 
@@ -107,7 +74,7 @@ namespace CustomerSegmentationML.Forms
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus,
             this.lblDatasetCount});
-            this.statusStrip.Location = new System.Drawing.Point(0, 0);
+            this.statusStrip.Location = new System.Drawing.Point(22, 147);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
             this.statusStrip.Size = new System.Drawing.Size(196, 32);
@@ -148,6 +115,7 @@ namespace CustomerSegmentationML.Forms
             // 
             // grpDataset
             // 
+            this.grpDataset.Controls.Add(this.statusStrip);
             this.grpDataset.Controls.Add(this.cmbDataset);
             this.grpDataset.Controls.Add(this.btnGenerateData);
             this.grpDataset.Controls.Add(this.btnViewData);
@@ -317,25 +285,20 @@ namespace CustomerSegmentationML.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 1000);
-            this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.mainLayout);
-            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1122, 736);
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load_1);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.mainLayout.ResumeLayout(false);
             this.grpDataset.ResumeLayout(false);
+            this.grpDataset.PerformLayout();
             this.grpTraining.ResumeLayout(false);
             this.grpResults.ResumeLayout(false);
             this.grpSettings.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
     }

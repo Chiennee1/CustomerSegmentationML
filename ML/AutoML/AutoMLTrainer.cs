@@ -160,5 +160,135 @@ namespace CustomerSegmentationML.ML.AutoML
                    (daviesBouldinWeight * normalizedDaviesBouldin) +
                    (averageDistanceWeight * normalizedDistance);
         }
+
+        // Thêm phương thức đơn giản hóa này vào AutoMLTrainer
+        public async Task<AutoMLResult> FindBestModelSimplifiedAsync(IDataView trainData, IDataView validationData,
+            IProgress<AutoMLProgress> progress = null)
+        {
+            try
+            {
+                // Báo cáo tiến độ
+                progress?.Report(new AutoMLProgress
+                {
+                    CurrentAlgorithm = "K-Means",
+                    Message = "Đang khởi tạo quá trình AutoML đơn giản hóa",
+                    AlgorithmProgress = 0,
+                    OverallProgress = 0
+                });
+
+                // Chỉ thử với K-Means đơn giản và đặt rõ số lượng clusters = 5
+                var kMeans = new KMeansClusterer();
+                kMeans.Parameters["NumberOfClusters"] = 5; // Đảm bảo có 5 clusters
+                kMeans.Parameters["MaxIterations"] = 200; // Tăng số lần lặp để có kết quả tốt hơn
+
+                // Báo cáo tiến độ
+                progress?.Report(new AutoMLProgress
+                {
+                    CurrentAlgorithm = "K-Means",
+                    Message = "Đang training K-Means với 5 clusters",
+                    AlgorithmProgress = 25,
+                    OverallProgress = 25
+                });
+
+                // Kiểm tra xem dữ liệu đầu vào có hợp lệ không
+                var preview = _mlContext.Data.CreateEnumerable<EnhancedCustomerData>(trainData, reuseRowObject: false).Take(5).ToList();
+                if (preview.Count == 0)
+                {
+                    throw new InvalidOperationException("Dataset trống, không có dữ liệu để huấn luyện");
+                }
+
+                progress?.Report(new AutoMLProgress
+                {
+                    CurrentAlgorithm = "K-Means",
+                    Message = "Dữ liệu hợp lệ, bắt đầu huấn luyện...",
+                    AlgorithmProgress = 30,
+                    OverallProgress = 30
+                });
+
+                // Thực hiện huấn luyện
+                var startTime = DateTime.Now;
+                var result = await kMeans.TrainAsync(trainData,
+                    new Progress<string>(s => progress?.Report(new AutoMLProgress
+                    {
+                        CurrentAlgorithm = "K-Means",
+                        Message = s,
+                        AlgorithmProgress = 60,
+                        OverallProgress = 60
+                    })));
+                var trainingDuration = DateTime.Now - startTime;
+
+                progress?.Report(new AutoMLProgress
+                {
+                    CurrentAlgorithm = "K-Means",
+                    Message = "Huấn luyện xong, đang đánh giá...",
+                    AlgorithmProgress = 75,
+                    OverallProgress = 75
+                });
+
+                // Đánh giá
+                var metrics = kMeans.Evaluate(validationData);
+                
+                // Đảm bảo metrics không null và hợp lệ
+                if (metrics == null)
+                {
+                    throw new InvalidOperationException("Không thể đánh giá mô hình, metrics là null");
+                }
+
+                // Báo cáo kết quả
+                progress?.Report(new AutoMLProgress
+                {
+                    CurrentAlgorithm = "K-Means",
+                    Message = $"Silhouette: {metrics.SilhouetteScore:F3}, DBI: {metrics.DaviesBouldinIndex:F3}, Clusters: {metrics.NumberOfClusters}",
+                    AlgorithmProgress = 90,
+                    OverallProgress = 90
+                });
+
+                // Tạo kết quả
+                var algorithmResult = new AlgorithmResult
+                {
+                    AlgorithmName = kMeans.Name,
+                    Parameters = new Dictionary<string, object>(kMeans.Parameters),
+                    Metrics = metrics,
+                    TrainingDuration = trainingDuration,
+                    Model = result.Model
+                };
+
+                progress?.Report(new AutoMLProgress
+                {
+                    CurrentAlgorithm = "K-Means",
+                    Message = "Hoàn thành AutoML đơn giản hóa",
+                    AlgorithmProgress = 100,
+                    OverallProgress = 100
+                });
+
+                // Trả về kết quả AutoML
+                return new AutoMLResult
+                {
+                    BestResult = algorithmResult,
+                    AllResults = new List<AlgorithmResult> { algorithmResult },
+                    TotalTimeSpent = trainingDuration.TotalSeconds,
+                    TotalAlgorithmsTested = 1
+                };
+            }
+            catch (Exception ex)
+            {
+                progress?.Report(new AutoMLProgress
+                {
+                    CurrentAlgorithm = "Error",
+                    Message = $"Lỗi trong FindBestModelSimplifiedAsync: {ex.Message}",
+                    HasError = true
+                });
+                
+                // Log chi tiết hơn
+                System.Diagnostics.Debug.WriteLine($"ERROR: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"STACK: {ex.StackTrace}");
+                if (ex.InnerException != null)
+                {
+                    System.Diagnostics.Debug.WriteLine($"INNER: {ex.InnerException.Message}");
+                }
+                
+                throw;
+            }
+        }
     }
 }

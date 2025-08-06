@@ -6,6 +6,9 @@ using Microsoft.ML;
 using CustomerSegmentationML.Models;
 using CsvHelper;
 using System.Globalization;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace CustomerSegmentationML.Utils
 {
@@ -19,7 +22,6 @@ namespace CustomerSegmentationML.Utils
         }
 
         /// <summary>
-        /// Load và split dữ liệu enhanced với preprocessing
         /// </summary>
         public (IDataView trainData, IDataView testData) LoadAndSplitEnhancedData(string dataPath, float testRatio = 0.2f)
         {
@@ -45,7 +47,7 @@ namespace CustomerSegmentationML.Utils
             using (var reader = new StringReader(File.ReadAllText(csvPath)))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                var records = csv.GetRecords<CustomerCSVEnhanced>().ToList();
+                List<CustomerCSVEnhanced> records = csv.GetRecords<CustomerCSVEnhanced>().ToList();
 
                 foreach (var record in records)
                 {
@@ -285,6 +287,226 @@ namespace CustomerSegmentationML.Utils
                 csv.WriteRecords(results);
                 File.WriteAllText(outputPath, writer.ToString());
             }
+        }
+
+        /// <summary>
+        /// Load và split dữ liệu enhanced với preprocessing (Bất đồng bộ)
+        /// </summary>
+        public async Task<(IDataView trainData, IDataView testData)> LoadAndSplitEnhancedDataAsync(string dataPath, float testRatio = 0.2f)
+        {
+            // Đọc file CSV và convert sang Enhanced format
+            var enhancedData = await LoadEnhancedDataFromCSVAsync(dataPath);
+
+            // Tạo IDataView từ enhanced data
+            var dataView = _mlContext.Data.LoadFromEnumerable(enhancedData);
+
+            // Split data
+            var split = _mlContext.Data.TrainTestSplit(dataView, testFraction: testRatio, seed: 0);
+
+            return (split.TrainSet, split.TestSet);
+        }
+
+        private async Task<List<EnhancedCustomerData>> LoadEnhancedDataFromCSVAsync(
+    string csvPath, 
+    IProgress<int> progress = null)
+{
+    var result = new List<EnhancedCustomerData>();
+
+    string fileContent = await Task.Run(() => File.ReadAllText(csvPath));
+    
+    return await Task.Run(() => {
+        using (var reader = new StringReader(fileContent))
+        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        {
+            // Đếm tổng số dòng (tùy chọn)
+            int totalRows = 0;
+            if (progress != null)
+            {
+                // Đếm tổng số dòng để báo cáo tiến trình
+                var lineCount = fileContent.Split('\n').Length - 1;
+                totalRows = lineCount;
+            }
+            
+            List<CustomerCSVEnhanced> records = csv.GetRecords<CustomerCSVEnhanced>().ToList();
+            
+            int processed = 0;
+            foreach (var record in records)
+            {
+                result.Add(ConvertToEnhancedData(record));
+                
+                // Báo cáo tiến trình
+                processed++;
+                if (progress != null && totalRows > 0)
+                {
+                    var percentComplete = (int)((processed / (double)totalRows) * 100);
+                    progress.Report(percentComplete);
+                }
+            }
+        }
+        return result;
+    });
+}
+
+        /// <summary>
+        /// Validate dữ liệu CSV trước khi load (Bất đồng bộ)
+        /// </summary>
+        public async Task<DataValidationResult> ValidateCSVFileAsync(string csvPath)
+        {
+            var result = new DataValidationResult
+            {
+                IsValid = true,
+                Errors = new List<string>(),
+                Warnings = new List<string>()
+            };
+
+            try
+            {
+                if (!File.Exists(csvPath))
+                {
+                    result.IsValid = false;
+                    result.Errors.Add("File không tồn tại");
+                    return result;
+                }
+
+                var fileInfo = new FileInfo(csvPath);
+                if (fileInfo.Length == 0)
+                {
+                    result.IsValid = false;
+                    result.Errors.Add("File rỗng");
+                    return result;
+                }
+
+                // Đọc file bất đồng bộ
+                string fileContent = await Task.Run(() => File.ReadAllText(csvPath));
+                
+                // Xử lý trên Task riêng để không block UI thread
+                return await Task.Run(() => {
+                    using (var reader = new StringReader(fileContent))
+                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                    {
+                        // Đọc và validate headers
+                        csv.Read();
+                        csv.ReadHeader();
+                        var headers = csv.HeaderRecord;
+
+                        var requiredHeaders = new[]
+                        {
+                            "CustomerID", "Gender", "Age", "AnnualIncome", "SpendingScore",
+                            "Education", "Profession", "WorkExperience", "FamilySize",
+                            "City", "OnlineShoppingFreq", "BrandLoyalty",
+                            "SocialMediaUsage", "PreferredChannel"
+                        };
+
+                        var missingHeaders = requiredHeaders.Where(h => !headers.Contains(h)).ToList();
+                        if (missingHeaders.Any())
+                        {
+                            result.IsValid = false;
+                            result.Errors.Add($"Thiếu các cột: {string.Join(", ", missingHeaders)}");
+                        }
+
+                        // Đếm số dòng dữ liệu
+                        int rowCount = 0;
+                        while (csv.Read())
+                        {
+                            rowCount++;
+                        }
+
+                        result.RowCount = rowCount;
+
+                        if (rowCount < 10)
+                        {
+                            result.Warnings.Add("Dữ liệu có ít hơn 10 dòng, có thể không đủ để training");
+                        }
+                        else if (rowCount > 100000)
+                        {
+                            result.Warnings.Add("Dữ liệu lớn, quá trình training có thể mất nhiều thời gian");
+                        }
+                    }
+                    return result;
+                });
+            }
+            catch (Exception ex)
+            {
+                result.IsValid = false;
+                result.Errors.Add($"Lỗi đọc file: {ex.Message}");
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Get thông tin tổng quan về dataset (Bất đồng bộ)
+        /// </summary>
+        public async Task<DatasetSummary> GetDatasetSummaryAsync(string csvPath)
+        {
+            var summary = new DatasetSummary();
+
+            try
+            {
+                // Đọc file bất đồng bộ
+                string fileContent = await Task.Run(() => File.ReadAllText(csvPath));
+                
+                return await Task.Run(() => {
+                    using (var reader = new StringReader(fileContent))
+                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                    {
+                        var records = csv.GetRecords<CustomerCSVEnhanced>().ToList();
+
+                        summary.TotalRecords = records.Count;
+                        summary.AverageAge = records.Average(r => r.Age);
+                        summary.AverageIncome = records.Average(r => r.AnnualIncome);
+                        summary.AverageSpendingScore = records.Average(r => r.SpendingScore);
+
+                        summary.GenderDistribution = records
+                            .GroupBy(r => r.Gender)
+                            .ToDictionary(g => g.Key, g => (double)g.Count() / records.Count * 100);
+
+                        summary.EducationDistribution = records
+                            .GroupBy(r => r.Education)
+                            .ToDictionary(g => g.Key, g => (double)g.Count() / records.Count * 100);
+
+                        summary.CityDistribution = records
+                            .GroupBy(r => r.City)
+                            .ToDictionary(g => g.Key, g => (double)g.Count() / records.Count * 100);
+
+                        summary.ProfessionDistribution = records
+                            .GroupBy(r => r.Profession)
+                            .ToDictionary(g => g.Key, g => (double)g.Count() / records.Count * 100);
+                    }
+                    return summary;
+                });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi khi phân tích dataset: {ex.Message}");
+            }
+
+            return summary;
+        }
+
+        /// <summary>
+        /// Export predictions ra file CSV (Bất đồng bộ)
+        /// </summary>
+        public async Task ExportPredictionsAsync(List<EnhancedCustomerData> customers,
+            List<CustomerPrediction> predictions, string outputPath)
+        {
+            var results = customers.Select((customer, index) => new
+            {
+                CustomerID = (int)customer.CustomerID,
+                Age = (int)customer.Age,
+                AnnualIncome = (int)customer.AnnualIncome,
+                SpendingScore = (int)customer.SpendingScore,
+                PredictedSegment = predictions[index].PredictedClusterId,
+                DistanceToCluster = predictions[index].Distances?[0] ?? 0f
+            }).ToList();
+
+            await Task.Run(() => {
+                using (var writer = new StringWriter())
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteRecords(results);
+                    File.WriteAllText(outputPath, writer.ToString());
+                }
+            });
         }
     }
 

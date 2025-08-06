@@ -1,15 +1,17 @@
-﻿using System;
+﻿using CustomerSegmentationML.ML.Algorithms;
+using CustomerSegmentationML.Models;
+using CustomerSegmentationML.Utils;
+using Microsoft.ML;
+using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using CustomerSegmentationML.Models;
-using CustomerSegmentationML.ML.Algorithms;
-using CustomerSegmentationML.Utils;
-using Microsoft.ML;
 
 namespace CustomerSegmentationML.Forms
 {
@@ -45,6 +47,9 @@ namespace CustomerSegmentationML.Forms
         private Dictionary<string, object> _currentResults;
         private List<string> _availableModels;
 
+        private MLContext _mlContext = new MLContext(seed: 0);
+        private ITransformer _model;
+
         public ResultsForm()
         {
             InitializeComponent();
@@ -69,6 +74,7 @@ namespace CustomerSegmentationML.Forms
             CreateSegmentsTab();
             CreateChartsTab();
             CreateComparisonTab();
+            CreateModelTestingTab(); 
 
             tabControl.SelectedIndex = 0;
         }
@@ -167,8 +173,66 @@ namespace CustomerSegmentationML.Forms
             grpDistribution.Tag = chartDistribution;
 
             tabSegments.Controls.AddRange(new Control[] { dgvSegments, grpSegmentDetails, grpDistribution });
-        }
 
+            // Thêm nút để tái huấn luyện mô hình với các tham số khác
+    var btnRetrainModel = new Button
+    {
+        Text = "🔄 Tái huấn luyện mô hình",
+        Font = new Font("Segoe UI", 9, FontStyle.Bold),
+        BackColor = Color.LightYellow,
+        Location = new Point(20, 650),
+        Size = new Size(180, 30)
+    };
+    btnRetrainModel.Click += BtnRetrainModel_Click;
+    
+    tabSegments.Controls.Add(btnRetrainModel);
+}
+
+private void BtnRetrainModel_Click(object sender, EventArgs e)
+{
+    // Hiển thị form cấu hình để điều chỉnh tham số
+    var configDialog = new NumericInputDialog("Số lượng Segments (K)", "Nhập số lượng segments (clusters) bạn muốn phân chia:", 5, 2, 10);
+    
+    if (configDialog.ShowDialog() == DialogResult.OK)
+    {
+        int k = configDialog.Value;
+        
+        try
+        {
+            // Tìm file dữ liệu mới nhất
+            var dataDir = @"D:\StudyPython\PhanCumkhachHang\CustomerSegmentationML\Data";
+            if (!Directory.Exists(dataDir))
+            {
+                MessageBox.Show("Không tìm thấy thư mục dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            var dataFiles = Directory.GetFiles(dataDir, "*.csv");
+            if (dataFiles.Length == 0)
+            {
+                MessageBox.Show("Không tìm thấy file dữ liệu CSV.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            var latestDataFile = dataFiles.OrderByDescending(f => File.GetCreationTime(f)).First();
+            
+            // Hiển thị TrainingForm với tham số K
+            var clusterer = new KMeansClusterer();
+            clusterer.Parameters["NumberOfClusters"] = k;
+            
+            var trainingForm = new TrainingForm(latestDataFile, null, clusterer);
+            trainingForm.ShowDialog();
+            
+            // Sau khi training xong, tải lại kết quả
+            LoadResults();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Lỗi khi khởi động lại huấn luyện: {ex.Message}", "Lỗi", 
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+}
         private void CreateChartsTab()
         {
             tabCharts = new TabPage("📈 Biểu đồ & Trực quan hóa");
@@ -397,7 +461,300 @@ Hướng dẫn:
 
             return modelInfo;
         }
+        private void CreateModelTestingTab()
+        {
+            // Create a new tab for model testing
+            var tabModelTesting = new TabPage("🧪 Test Mô hình");
+            tabControl.TabPages.Add(tabModelTesting);
 
+            // Customer input panel
+            var grpInput = new GroupBox
+            {
+                Text = "📝 Nhập thông tin khách hàng để kiểm tra",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Location = new Point(20, 20),
+                Size = new Size(550, 450)
+            };
+
+            // Customer test result panel
+            var grpResult = new GroupBox
+            {
+                Text = "🎯 Kết quả phân cụm",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Location = new Point(590, 20),
+                Size = new Size(550, 450)
+            };
+
+            // Create input controls
+            var y = 30;
+            int labelWidth = 120;
+            int controlWidth = 200;
+            int spacing = 35;
+
+            // Gender
+            var lblGender = new Label { Text = "Giới tính:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var cmbGender = new ComboBox { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), DropDownStyle = ComboBoxStyle.DropDownList };
+            cmbGender.Items.AddRange(new[] { "Female", "Male" });
+            cmbGender.SelectedIndex = 0;
+
+            // Age
+            y += spacing;
+            var lblAge = new Label { Text = "Tuổi:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numAge = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 18, Maximum = 70, Value = 30 };
+
+            // Annual Income
+            y += spacing;
+            var lblIncome = new Label { Text = "Thu nhập (k$):", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numIncome = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 5, Maximum = 150, Value = 50 };
+
+            // Spending Score
+            y += spacing;
+            var lblSpending = new Label { Text = "Điểm chi tiêu:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numSpending = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 1, Maximum = 100, Value = 50 };
+
+            // Education
+            y += spacing;
+            var lblEducation = new Label { Text = "Trình độ học vấn:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var cmbEducation = new ComboBox { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), DropDownStyle = ComboBoxStyle.DropDownList };
+            cmbEducation.Items.AddRange(new[] { "High School", "Bachelor", "Master", "PhD" });
+            cmbEducation.SelectedIndex = 1;
+
+            // Work Experience
+            y += spacing;
+            var lblWorkExp = new Label { Text = "Kinh nghiệm:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numWorkExp = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 0, Maximum = 40, Value = 5 };
+
+            // Family Size
+            y += spacing;
+            var lblFamilySize = new Label { Text = "Quy mô gia đình:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numFamilySize = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 1, Maximum = 10, Value = 3 };
+
+            // Online Shopping Frequency
+            y += spacing;
+            var lblShoppingFreq = new Label { Text = "Mua sắm online:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numShoppingFreq = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 0, Maximum = 30, Value = 5 };
+
+            // Brand Loyalty
+            y += spacing;
+            var lblBrandLoyalty = new Label { Text = "Lòng trung thành:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numBrandLoyalty = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 1, Maximum = 10, Value = 5 };
+
+            // Social Media Usage
+            y += spacing;
+            var lblSocialMedia = new Label { Text = "Mạng xã hội:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var numSocialMedia = new NumericUpDown { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), Minimum = 0, Maximum = 24, Value = 2, DecimalPlaces = 1 };
+
+            // City selection
+            y += spacing;
+            var lblCity = new Label { Text = "Thành phố:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var cmbCity = new ComboBox { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), DropDownStyle = ComboBoxStyle.DropDownList };
+            cmbCity.Items.AddRange(new[] { "HaNoi", "HCM", "DaNang", "Others" });
+            cmbCity.SelectedIndex = 0;
+
+            // Profession selection
+            y += spacing;
+            var lblProfession = new Label { Text = "Nghề nghiệp:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var cmbProfession = new ComboBox { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), DropDownStyle = ComboBoxStyle.DropDownList };
+            cmbProfession.Items.AddRange(new[] { "Student", "Healthcare", "Engineer", "Artist", "Lawyer", "Doctor", "Marketing", "Entertainment" });
+            cmbProfession.SelectedIndex = 2;  // Default to Engineer
+
+            // Preferred Channel
+            y += spacing;
+            var lblChannel = new Label { Text = "Kênh mua sắm:", Location = new Point(15, y), Size = new Size(labelWidth, 23), Font = new Font("Segoe UI", 9) };
+            var cmbChannel = new ComboBox { Location = new Point(15 + labelWidth + 10, y), Size = new Size(controlWidth, 23), DropDownStyle = ComboBoxStyle.DropDownList };
+            cmbChannel.Items.AddRange(new[] { "Online", "Offline", "Both" });
+            cmbChannel.SelectedIndex = 2;
+
+            // Test button
+            var btnTestModel = new Button
+            {
+                Text = "🧪 Kiểm tra phân cụm",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                BackColor = Color.LightGreen,
+                Location = new Point(20, 480),
+                Size = new Size(200, 40)
+            };
+
+            // Result textbox
+            var rtbTestResult = new RichTextBox
+            {
+                Location = new Point(15, 25),
+                Size = new Size(520, 410),
+                Font = new Font("Segoe UI", 9),
+                ReadOnly = true
+            };
+
+            // Add controls to group boxes
+            grpInput.Controls.AddRange(new Control[] {
+        lblGender, cmbGender,
+        lblAge, numAge,
+        lblIncome, numIncome,
+        lblSpending, numSpending,
+        lblEducation, cmbEducation,
+        lblWorkExp, numWorkExp,
+        lblFamilySize, numFamilySize,
+        lblShoppingFreq, numShoppingFreq,
+        lblBrandLoyalty, numBrandLoyalty,
+        lblSocialMedia, numSocialMedia,
+        lblCity, cmbCity,
+        lblProfession, cmbProfession,
+        lblChannel, cmbChannel
+    });
+
+            grpResult.Controls.Add(rtbTestResult);
+
+            // Add test button click handler
+            btnTestModel.Click += (sender, e) =>
+            {
+                try
+                {
+                    // Check if model is available
+                    var resultsDir = "Results";
+                    if (!Directory.Exists(resultsDir))
+                    {
+                        rtbTestResult.Text = "❌ Không tìm thấy thư mục kết quả. Vui lòng huấn luyện mô hình trước.";
+                        return;
+                    }
+
+                    var modelFiles = Directory.GetFiles(resultsDir, "*.zip");
+                    if (modelFiles.Length == 0)
+                    {
+                        rtbTestResult.Text = "❌ Không tìm thấy file mô hình đã lưu. Vui lòng huấn luyện mô hình trước.";
+                        return;
+                    }
+
+                    // Get most recent model
+                    var latestModel = modelFiles.OrderByDescending(f => File.GetCreationTime(f)).First();
+
+                    rtbTestResult.Text = "⏳ Đang tải mô hình và dự đoán...";
+                    Application.DoEvents(); // Force UI update
+
+                    // Create customer data from input
+                    var customer = new EnhancedCustomerData
+                    {
+                        CustomerID = DateTime.Now.Ticks,
+                        Gender = cmbGender.SelectedItem.ToString() == "Female" ? 0f : 1f,
+                        Age = (float)numAge.Value,
+                        AnnualIncome = (float)numIncome.Value,
+                        SpendingScore = (float)numSpending.Value,
+                        Education = cmbEducation.SelectedIndex,
+                        Profession = cmbProfession.SelectedIndex,
+                        WorkExperience = (float)numWorkExp.Value,
+                        FamilySize = (float)numFamilySize.Value,
+                        City = cmbCity.SelectedIndex,
+                        OnlineShoppingFreq = (float)numShoppingFreq.Value,
+                        BrandLoyalty = (float)numBrandLoyalty.Value,
+                        SocialMediaUsage = (float)numSocialMedia.Value,
+                        PreferredChannel = cmbChannel.SelectedIndex
+                    };
+
+                    rtbTestResult.Text = "⏳ Tạo dữ liệu khách hàng thành công. Đang tải mô hình...";
+                    Application.DoEvents(); // Force UI update
+
+                    // Load model and predict - wrap in a timeout
+                    KMeansClusterer clusterer = null;
+                    try
+                    {
+                        clusterer = new KMeansClusterer();
+                        rtbTestResult.Text = "⏳ Đang tải mô hình...";
+                        Application.DoEvents();
+                        
+                        // Load model with a timeout
+                        var loadTask = Task.Run(() => clusterer.LoadModel(latestModel));
+                        if (!loadTask.Wait(TimeSpan.FromSeconds(10)))
+                        {
+                            rtbTestResult.Text = "❌ Quá thời gian tải mô hình. Có thể file mô hình bị hỏng.";
+                            return;
+                        }
+                        
+                        rtbTestResult.Text = "⏳ Đang dự đoán phân cụm...";
+                        Application.DoEvents();
+                        
+                        // Predict with a timeout
+                        var predictionTask = Task.Run(() => clusterer.PredictAsync(customer));
+                        if (!predictionTask.Wait(TimeSpan.FromSeconds(10)))
+                        {
+                            rtbTestResult.Text = "❌ Quá thời gian dự đoán. Có thể mô hình không tương thích với dữ liệu.";
+                            return;
+                        }
+                        
+                        var prediction = predictionTask.Result;
+
+                        // Display prediction result
+                        string segmentDescription = GetSegmentDescription(prediction.PredictedClusterId);
+
+                        var resultText = $@"
+🎯 KẾT QUẢ KIỂM TRA MÔ HÌNH
+===========================
+
+✅ Mô hình đã tải: {Path.GetFileName(latestModel)}
+
+👤 THÔNG TIN KHÁCH HÀNG:
+• Giới tính: {(customer.Gender == 0 ? "Nữ" : "Nam")}
+• Tuổi: {customer.Age}
+• Thu nhập: ${customer.AnnualIncome}k
+• Điểm chi tiêu: {customer.SpendingScore}/100
+• Trình độ: {cmbEducation.SelectedItem}
+• Nghề nghiệp: {cmbProfession.SelectedItem}
+• Kinh nghiệm: {customer.WorkExperience} năm
+• Quy mô gia đình: {customer.FamilySize} người
+• Thành phố: {cmbCity.SelectedItem}
+
+🏷️ KẾT QUẢ PHÂN CỤM:
+• Thuộc segment: {prediction.PredictedClusterId}
+• Mô tả: {segmentDescription}
+
+💡 GHI CHÚ:
+Đây là kết quả dựa trên mô hình đã huấn luyện.
+Bạn có thể dùng chức năng 'Dự đoán' để phân tích chi tiết hơn.
+";
+
+                        rtbTestResult.Text = resultText;
+                    }
+                    catch (InvalidOperationException ex) when (ex.Message.Contains("Model chưa được huấn luyện"))
+                    {
+                        rtbTestResult.Text = "❌ Lỗi: Mô hình chưa được huấn luyện đúng cách.\n\n" +
+                            "Vui lòng thử huấn luyện lại mô hình.";
+                    }
+                    catch (Exception ex)
+                    {
+                        rtbTestResult.Text = $"❌ Lỗi khi kiểm tra mô hình: {ex.Message}\n\n" + 
+                            $"Chi tiết lỗi:\n{ex.StackTrace}\n\n" +
+                            "Vui lòng thử các bước sau:\n" +
+                            "1. Huấn luyện lại mô hình\n" +
+                            "2. Kiểm tra xem mô hình có lưu đúng không\n" +
+                            "3. Đảm bảo dữ liệu nhập đúng định dạng";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    rtbTestResult.Text = $"❌ Lỗi hệ thống: {ex.Message}\n\n{ex.StackTrace}";
+                }
+            };
+
+            // Add controls to tab
+            tabModelTesting.Controls.AddRange(new Control[] { grpInput, grpResult, btnTestModel });
+        }
+
+        private string GetSegmentDescription(uint segmentId)
+        {
+            // Sample descriptions based on segment ID
+            switch (segmentId)
+            {
+                case 0:
+                    return "High-Value Young Customers";
+                case 1:
+                    return "Conservative High-Income";
+                case 2:
+                    return "Balanced Middle-Class";
+                case 3:
+                    return "Premium Mature Customers";
+                case 4:
+                    return "Young Budget-Conscious";
+                default:
+                    return "Unknown Segment Type";
+            }
+        }
         private string ExtractMetrics(string reportContent)
         {
             var lines = reportContent.Split('\n');
@@ -413,7 +770,7 @@ Hướng dẫn:
                 else if (line.Contains("Average Distance:"))
                     metrics += $"📐 Average Distance: {line.Split(':')[1].Trim()}\n";
                 else if (line.Contains("Number of Clusters:"))
-                    metrics += $"🔢 Số cụm: {line.Split(':')[1].Trim()}\n";
+                    metrics += $"🔢 Số cấu hình: {line.Split(':')[1].Trim()}\n";
                 else if (line.Contains("Overall Score:"))
                     metrics += $"⭐ Điểm tổng thể: {line.Split(':')[1].Trim()}\n";
             }
@@ -463,61 +820,181 @@ Hướng dẫn:
             // For now, just update the file path info
         }
 
-        private void LoadSegmentsData()
+        private async void LoadSegmentsData()
         {
-            // This would load actual segment data from the trained model
-            // For now, create sample data
-            var segmentsData = new List<object>
+            try
             {
-                new { SegmentID = 0, CustomerCount = 45, Percentage = 22.5, AvgAge = 28.5, AvgIncome = 65.2, AvgSpending = 78.3, Description = "High-Value Young Customers" },
-                new { SegmentID = 1, CustomerCount = 38, Percentage = 19.0, AvgAge = 45.2, AvgIncome = 85.7, AvgSpending = 45.1, Description = "Conservative High-Income" },
-                new { SegmentID = 2, CustomerCount = 52, Percentage = 26.0, AvgAge = 35.8, AvgIncome = 42.3, AvgSpending = 55.9, Description = "Balanced Middle-Class" },
-                new { SegmentID = 3, CustomerCount = 33, Percentage = 16.5, AvgAge = 52.1, AvgIncome = 78.4, AvgSpending = 82.7, Description = "Premium Mature Customers" },
-                new { SegmentID = 4, CustomerCount = 32, Percentage = 16.0, AvgAge = 23.9, AvgIncome = 28.6, AvgSpending = 25.4, Description = "Young Budget-Conscious" }
-            };
+                System.Windows.Forms.Cursor.Current = Cursors.WaitCursor;
+                UpdateStatus("Đang tải dữ liệu phân cụm...");
+                
+                var resultsDir = "Results";
+                if (!Directory.Exists(resultsDir))
+                {
+                    ShowNoResultsMessage();
+                    return;
+                }
 
-            dgvSegments.DataSource = segmentsData;
+                // Tìm model mới nhất
+                var modelFiles = Directory.GetFiles(resultsDir, "*.zip");
+                if (modelFiles.Length == 0)
+                {
+                    ShowNoResultsMessage();
+                    return;
+                }
 
-            // Create pie chart for distribution
-            CreateSegmentDistributionChart(segmentsData);
+                var latestModel = modelFiles.OrderByDescending(f => File.GetCreationTime(f)).First();
+                var segmentJsonFile = Path.ChangeExtension(latestModel, ".segments.json");
+                var segmentsData = new List<object>();
+                
+                // Ghi log
+                if (File.Exists(segmentJsonFile))
+                {
+                    var fileInfo = new FileInfo(segmentJsonFile);
+                    System.Diagnostics.Debug.WriteLine($"Segment JSON file found: {segmentJsonFile}, Size: {fileInfo.Length} bytes, Created: {fileInfo.CreationTime}");
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine($"Segment JSON file not found: {segmentJsonFile}");
+                }
+                
+                // Nếu file JSON tồn tại, đọc từ đó trước
+                if (File.Exists(segmentJsonFile))
+                {
+                    try
+                    {
+                        var json = File.ReadAllText(segmentJsonFile);
+                        System.Diagnostics.Debug.WriteLine($"JSON Content length: {json.Length}");
+                        System.Diagnostics.Debug.WriteLine($"Sample JSON content: {json.Substring(0, Math.Min(200, json.Length))}");
+                        
+                        var segments = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<uint, SegmentAnalysis>>(json);
+                        
+                        // Log để debug
+                        int totalCustomers = segments.Values.Sum(s => s.CustomerCount);
+                        System.Diagnostics.Debug.WriteLine($"Deserialized {segments.Count} segments with total {totalCustomers} customers");
+                        
+                        foreach (var segment in segments.OrderBy(s => s.Key))
+                        {
+                            segmentsData.Add(new
+                            {
+                                SegmentID = segment.Key,
+                                CustomerCount = segment.Value.CustomerCount,
+                                Percentage = segment.Value.Percentage,
+                                AvgAge = segment.Value.AverageFeatures["Age"],
+                                AvgIncome = segment.Value.AverageFeatures["Income"],
+                                AvgSpending = segment.Value.AverageFeatures["SpendingScore"],
+                                Description = segment.Value.Description
+                            });
+                            
+                            System.Diagnostics.Debug.WriteLine($"Added segment {segment.Key}: {segment.Value.CustomerCount} customers ({segment.Value.Percentage:F2}%)");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Error parsing JSON: {ex.Message}");
+                        MessageBox.Show($"Lỗi khi đọc file segment JSON: {ex.Message}", "Cảnh báo", 
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        segmentsData.Clear();
+                    }
+                }
+                
+                // Nếu không có dữ liệu từ file JSON, phân tích lại từ dữ liệu gốc
+                if (segmentsData.Count == 0)
+                {
+                    var dataDir = @"D:\StudyPython\PhanCumkhachHang\CustomerSegmentationML\Data";
+                    if (!Directory.Exists(dataDir))
+                    {
+                        MessageBox.Show("Không tìm thấy thư mục dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+            
+                    var dataFiles = Directory.GetFiles(dataDir, "*.csv");
+                    if (dataFiles.Length == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy file dữ liệu CSV.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+            
+                    var latestDataFile = dataFiles.OrderByDescending(f => File.GetCreationTime(f)).First();
+                    System.Diagnostics.Debug.WriteLine($"Using data file: {latestDataFile}");
+            
+                    // Tải model và tạo clusterer
+                    var clusterer = new KMeansClusterer();
+                    await Task.Run(() => clusterer.LoadModel(latestModel));
+            
+                    // Lấy toàn bộ dữ liệu
+                    var segments = await Task.Run(() => clusterer.AnalyzeSegmentsFromFile(latestDataFile, -1));
+            
+                    foreach (var segment in segments.OrderBy(s => s.Key))
+                    {
+                        segmentsData.Add(new
+                        {
+                            SegmentID = segment.Key,
+                            CustomerCount = segment.Value.CustomerCount,
+                            Percentage = segment.Value.Percentage,
+                            AvgAge = segment.Value.AverageFeatures["Age"],
+                            AvgIncome = segment.Value.AverageFeatures["Income"],
+                            AvgSpending = segment.Value.AverageFeatures["SpendingScore"],
+                            Description = segment.Value.Description
+                        });
+                        
+                        System.Diagnostics.Debug.WriteLine($"Analyzed segment {segment.Key}: {segment.Value.CustomerCount} customers ({segment.Value.Percentage:F2}%)");
+                    }
+            
+                    // Sau khi phân tích, lưu kết quả để lần sau dùng lại
+                    try
+                    {
+                        var json = Newtonsoft.Json.JsonConvert.SerializeObject(segments);
+                        File.WriteAllText(segmentJsonFile, json);
+                        System.Diagnostics.Debug.WriteLine($"Saved segment data to {segmentJsonFile}");
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Error saving segment data: {ex.Message}");
+                    }
+                }
+
+                // Hiển thị kết quả
+                if (segmentsData.Count == 0)
+                {
+                    segmentsData = GetSampleSegmentData();
+                    MessageBox.Show("Không thể phân tích dữ liệu segment. Hiển thị dữ liệu mẫu.", "Cảnh báo", 
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
+                // Đặt lại DataSource
+                dgvSegments.DataSource = null;
+                dgvSegments.DataSource = segmentsData;
+                CreateSegmentDistributionChart(segmentsData);
+        
+                UpdateStatus("Đã tải xong dữ liệu phân cụm.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu segment: {ex.Message}\n\nStackTrace: {ex.StackTrace}", "Lỗi",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+        
+                // Fallback to sample data
+                var sampleData = GetSampleSegmentData();
+                dgvSegments.DataSource = sampleData;
+                CreateSegmentDistributionChart(sampleData);
+            }
+            finally
+            {
+                System.Windows.Forms.Cursor.Current = Cursors.Default;
+            }
         }
 
-        private void CreateSegmentDistributionChart(List<object> segmentsData)
+        private void UpdateStatus(string message)
         {
-            var chart = (Chart)((GroupBox)tabSegments.Controls.Cast<Control>()
-                .First(c => c is GroupBox && c.Text.Contains("Phân bố"))).Tag;
-
-            chart.Series.Clear();
-            chart.ChartAreas.Clear();
-
-            var chartArea = new ChartArea("MainArea");
-            chart.ChartAreas.Add(chartArea);
-
-            var series = new Series("Segments");
-            series.ChartType = SeriesChartType.Pie;
-            series.IsValueShownAsLabel = true;
-            series.LabelFormat = "{0:F1}%";
-
-            var colors = new Color[] { Color.LightBlue, Color.LightGreen, Color.Orange, Color.Pink, Color.Yellow };
-
-            for (int i = 0; i < segmentsData.Count; i++)
+            if (InvokeRequired)
             {
-                dynamic segment = segmentsData[i];
-                var point = new DataPoint();
-                point.SetValueXY($"Segment {segment.SegmentID}", segment.Percentage);
-                point.Color = colors[i % colors.Length];
-                point.LegendText = $"Segment {segment.SegmentID} ({segment.CustomerCount})";
-                series.Points.Add(point);
+                Invoke(new Action<string>(UpdateStatus), message);
+                return;
             }
-
-            chart.Series.Add(series);
-
-            var legend = new Legend("MainLegend");
-            legend.Docking = Docking.Right;
-            chart.Legends.Add(legend);
-
-            chart.Titles.Add(new Title("Customer Segment Distribution",
-                Docking.Top, new Font("Segoe UI", 14, FontStyle.Bold), Color.Black));
+            
+            // Cập nhật tiêu đề form
+            this.Text = $"📊 Kết quả phân tích & Đánh giá mô hình - {message}";
+            Application.DoEvents();
         }
 
         private void DgvSegments_SelectionChanged(object sender, EventArgs e)
@@ -626,5 +1103,149 @@ Hướng dẫn:
     // Placeholder logic for generating a chart
     MessageBox.Show("Chart generation logic is not implemented yet.", "Generate Chart", MessageBoxButtons.OK, MessageBoxIcon.Information);
 }
+
+        private void ResultsForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private async Task<List<object>> GetSegmentDataFromModelAsync(string modelPath, string dataPath)
+{
+    var segmentsData = new List<object>();
+    
+    try
+    {
+        // Hiển thị thanh tiến trình
+        using (var progressDialog = new ProgressDialog("Đang phân tích dữ liệu..."))
+        {
+            progressDialog.Show(this);
+            
+            await Task.Run(() =>
+            {
+                try
+                {
+                    // Cập nhật message
+                    this.Invoke(new Action(() => {
+                        progressDialog.UpdateMessage("Đang tải mô hình...");
+                    }));
+                    
+                    // Tạo instance của KMeansClusterer
+                    var clusterer = new KMeansClusterer();
+                    clusterer.LoadModel(modelPath);
+                    
+                    // Cập nhật message
+                    this.Invoke(new Action(() => {
+                        progressDialog.UpdateMessage("Đang phân tích dữ liệu...");
+                    }));
+                    
+                    var segments = clusterer.AnalyzeSegmentsFromFile(dataPath, 1000);
+                    
+                    // Chuyển đổi Dictionary sang danh sách đối tượng
+                    foreach (var segment in segments)
+                    {
+                        segmentsData.Add(new 
+                        {
+                            SegmentID = segment.Key,
+                            CustomerCount = segment.Value.CustomerCount,
+                            Percentage = segment.Value.Percentage,
+                            AvgAge = segment.Value.AverageFeatures["Age"],
+                            AvgIncome = segment.Value.AverageFeatures["Income"],
+                            AvgSpending = segment.Value.AverageFeatures["SpendingScore"],
+                            Description = segment.Value.Description
+                        });
+                    }
+                    
+                    // Cập nhật message
+                    this.Invoke(new Action(() => {
+                        progressDialog.UpdateMessage("Đã hoàn tất phân tích!");
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi phân tích dữ liệu: {ex.Message}", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            });
+            
+            progressDialog.Close();
+        }
+        
+        return segmentsData;
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Lỗi khi trích xuất dữ liệu từ mô hình: {ex.Message}", "Lỗi",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
+        return GetSampleSegmentData();
     }
 }
+
+private List<object> GetSampleSegmentData()
+{
+    // Sample data as fallback
+    return new List<object>
+    {
+        new { SegmentID = 0, CustomerCount = 45, Percentage = 22.5, AvgAge = 28.5, AvgIncome = 65.2, AvgSpending = 78.3, Description = "High-Value Young Customers" },
+        new { SegmentID = 1, CustomerCount = 38, Percentage = 19.0, AvgAge = 45.2, AvgIncome = 85.7, AvgSpending = 45.1, Description = "Conservative High-Income" },
+        new { SegmentID = 2, CustomerCount = 52, Percentage = 26.0, AvgAge = 35.8, AvgIncome = 42.3, AvgSpending = 55.9, Description = "Balanced Middle-Class" },
+        new { SegmentID = 3, CustomerCount = 33, Percentage = 16.5, AvgAge = 52.1, AvgIncome = 78.4, AvgSpending = 82.7, Description = "Premium Mature Customers" },
+        new { SegmentID = 4, CustomerCount = 32, Percentage = 16.0, AvgAge = 23.9, AvgIncome = 28.6, AvgSpending = 25.4, Description = "Young Budget-Conscious" }
+    };
+}
+
+        private void CreateSegmentDistributionChart(List<object> segmentsData)
+        {
+            // Tìm Chart trong GroupBox có text chứa "Phân bố"
+            var chartBox = tabSegments.Controls.Cast<Control>()
+                .FirstOrDefault(c => c is GroupBox && c.Text.Contains("Phân bố")) as GroupBox;
+            
+            if (chartBox == null || chartBox.Tag == null)
+            {
+                MessageBox.Show("Không tìm thấy biểu đồ phân bố.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            var chart = chartBox.Tag as Chart;
+            if (chart == null)
+            {
+                MessageBox.Show("Chart không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            chart.Series.Clear();
+            chart.ChartAreas.Clear();
+            chart.Legends.Clear();
+            chart.Titles.Clear();
+
+            var chartArea = new ChartArea("MainArea");
+            chart.ChartAreas.Add(chartArea);
+
+            var series = new Series("Segments");
+            series.ChartType = SeriesChartType.Pie;
+            series.IsValueShownAsLabel = true;
+            series.LabelFormat = "{0:F1}%";
+
+            var colors = new Color[] { Color.LightBlue, Color.LightGreen, Color.Orange, Color.Pink, Color.Yellow };
+
+            for (int i = 0; i < segmentsData.Count; i++)
+            {
+                dynamic segment = segmentsData[i];
+                var point = new DataPoint();
+                point.SetValueXY($"Segment {segment.SegmentID}", segment.Percentage);
+                point.Color = colors[i % colors.Length];
+                point.LegendText = $"Segment {segment.SegmentID} ({segment.CustomerCount})";
+                series.Points.Add(point);
+            }
+
+            chart.Series.Add(series);
+
+            var legend = new Legend("MainLegend");
+            legend.Docking = Docking.Right;
+            chart.Legends.Add(legend);
+
+            chart.Titles.Add(new Title("Customer Segment Distribution",
+                Docking.Top, new Font("Segoe UI", 14, FontStyle.Bold), Color.Black));
+        }
+    }
+}
+

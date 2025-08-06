@@ -19,6 +19,7 @@ namespace CustomerSegmentationML.Forms
         private readonly AutoMLTrainer _autoTrainer;
         private readonly MLContext _mlContext;
         private bool _isTraining = false;
+        private IClusteringAlgorithm _predefinedAlgorithm;
 
         public TrainingForm(string dataPath, AutoMLTrainer autoTrainer)
         {
@@ -28,6 +29,39 @@ namespace CustomerSegmentationML.Forms
             _mlContext = new MLContext(seed: 0);
 
             InitializeUI();
+        }
+
+        // Thêm constructor mới
+        public TrainingForm(string dataPath, AutoMLTrainer autoTrainer = null, IClusteringAlgorithm predefinedAlgorithm = null)
+        {
+            InitializeComponent();
+            _dataPath = dataPath;
+            _mlContext = new MLContext(seed: 0);
+            
+            // Đảm bảo autoTrainer không bị null
+            _autoTrainer = autoTrainer ?? new AutoMLTrainer();
+            _predefinedAlgorithm = predefinedAlgorithm;
+
+            InitializeUI();
+
+            // Tự động bắt đầu training nếu có thuật toán được định nghĩa trước
+            if (_predefinedAlgorithm != null)
+            {
+                this.BeginInvoke(new Action(() => {
+                    // Chọn thuật toán phù hợp trong combobox nếu có
+                    for (int i = 0; i < cmbAlgorithm.Items.Count; i++)
+                    {
+                        if (cmbAlgorithm.Items[i].ToString() == _predefinedAlgorithm.Name)
+                        {
+                            cmbAlgorithm.SelectedIndex = i;
+                            break;
+                        }
+                    }
+            
+                    // Giả lập click nút Start Training
+                    btnStartTraining_Click(this, EventArgs.Empty);
+                }));
+            }
         }
 
         private void InitializeUI()
@@ -70,7 +104,18 @@ namespace CustomerSegmentationML.Forms
 
                 if (cmbAlgorithm.SelectedItem.ToString().StartsWith("AutoML"))
                 {
-                    await RunAutoML(trainData, testData);
+                    // Kiểm tra xem _autoTrainer có null không
+                    if (_autoTrainer == null)
+                    {
+                        // Tạo một instance mới nếu nó null
+                        UpdateStatus("Khởi tạo AutoML Trainer...");
+                        var tempAutoTrainer = new AutoMLTrainer();
+                        await RunAutoML(trainData, testData, tempAutoTrainer);
+                    }
+                    else
+                    {
+                        await RunAutoML(trainData, testData, _autoTrainer);
+                    }
                 }
                 else
                 {
@@ -85,7 +130,7 @@ namespace CustomerSegmentationML.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi trong quá trình training: {ex.Message}", "Lỗi",
+                MessageBox.Show($"Lỗi trong quá trình training: {ex.Message}\n\nStack Trace: {ex.StackTrace}", "Lỗi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UpdateStatus("Training thất bại");
             }
@@ -99,45 +144,87 @@ namespace CustomerSegmentationML.Forms
 
         private async Task<(IDataView trainData, IDataView testData)> LoadAndSplitData()
         {
-            return await Task.Run(() =>
+            try
             {
-                var dataHelper = new CustomerSegmentationML.Utils.DataHelper()  ;
-                return dataHelper.LoadAndSplitEnhancedData(_dataPath, 0.2f);
-            });
+                UpdateStatus("Đang tải dữ liệu từ: " + _dataPath);
+                
+                return await Task.Run(() =>
+                {
+                    var dataHelper = new CustomerSegmentationML.Utils.DataHelper();
+                    var result = dataHelper.LoadAndSplitEnhancedData(_dataPath, 0.2f);
+                    UpdateStatus($"Đã tải dữ liệu: {result.Item1.GetRowCount()} dòng training, {result.Item2.GetRowCount()} dòng test");
+                    return result;
+                });
+            }
+            catch (Exception ex)
+            {
+                UpdateStatus("Lỗi khi tải dữ liệu: " + ex.Message);
+                throw; // Ném lại ngoại lệ để xử lý ở phương thức gọi
+            }
         }
 
-        private async Task RunAutoML(IDataView trainData, IDataView testData)
+        // Sửa phương thức RunAutoML để nhận tham số autoTrainer
+        private async Task RunAutoML(IDataView trainData, IDataView testData, AutoMLTrainer autoTrainer)
         {
             var progress = new Progress<AutoMLProgress>(UpdateAutoMLProgress);
 
             UpdateStatus("Đang chạy AutoML...");
-            var result = await _autoTrainer.FindBestModelAsync(trainData, testData, progress);
-
-            // Display results
-            DisplayAutoMLResults(result);
-
-            // Save best model
-            var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            var modelPath = $"Results/AutoML_BestModel_{timestamp}.zip";
-            Directory.CreateDirectory("Results");
-
-            _mlContext.Model.Save(result.BestResult.Model, trainData.Schema, modelPath);
-
-            // Save detailed report
-            SaveAutoMLReport(result, modelPath);
+            
+            try
+            {
+                // Sử dụng phương thức đơn giản hóa để tránh lỗi trong quá trình AutoML phức tạp
+                UpdateStatus("Sử dụng phương thức đơn giản hóa...");
+                
+                var result = await autoTrainer.FindBestModelSimplifiedAsync(trainData, testData, progress);
+                
+                // Hiển thị và lưu kết quả
+                DisplayAutoMLResults(result);
+                
+                var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                var modelPath = $"Results/AutoML_BestModel_{timestamp}.zip";
+                Directory.CreateDirectory("Results");
+                
+                _mlContext.Model.Save(result.BestResult.Model, trainData.Schema, modelPath);
+                SaveAutoMLReport(result, modelPath);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi và ghi log
+                string errorMsg = $"Lỗi khi chạy AutoML: {ex.Message}\n\n";
+                errorMsg += $"Stack Trace: {ex.StackTrace}\n\n";
+                
+                if (ex.InnerException != null)
+                {
+                    errorMsg += $"Inner Exception: {ex.InnerException.Message}\n";
+                    errorMsg += $"Inner Stack Trace: {ex.InnerException.StackTrace}";
+                }
+                
+                UpdateStatus("Lỗi khi chạy AutoML, chuyển sang K-Means");
+                rtbLog.AppendText("=== ERROR DETAILS ===\n" + errorMsg + "\n==================\n");
+                rtbLog.ScrollToCaret();
+                
+                // Chạy K-Means như một fallback
+                var kMeans = new KMeansClusterer();
+                kMeans.Parameters["NumberOfClusters"] = 5;
+                await RunSingleAlgorithm(trainData, testData, kMeans);
+            }
         }
 
-        private async Task RunSingleAlgorithm(IDataView trainData, IDataView testData)
+        private async Task RunSingleAlgorithm(IDataView trainData, IDataView testData, IClusteringAlgorithm customAlgorithm = null)
         {
-                IClusteringAlgorithm algorithm;
-            switch (cmbAlgorithm.SelectedItem.ToString())
+            IClusteringAlgorithm algorithm = customAlgorithm;
+
+            if (algorithm == null)
             {
-                case "K-Means":
-                    algorithm = new KMeansClusterer();
-                    break;
-                default:
-                    algorithm = new KMeansClusterer(); // Default fallback
-                    break;
+                switch (cmbAlgorithm.SelectedItem.ToString())
+                {
+                    case "K-Means":
+                        algorithm = new KMeansClusterer();
+                        break;
+                    default:
+                        algorithm = new KMeansClusterer(); 
+                        break;
+                }
             }
 
             var progress = new Progress<string>(msg => UpdateStatus(msg));
@@ -151,7 +238,20 @@ namespace CustomerSegmentationML.Forms
             var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             var modelPath = $"Results/{algorithm.Name}_Model_{timestamp}.zip";
             Directory.CreateDirectory("Results");
-            algorithm.SaveModel(modelPath);
+            
+            // Lưu mô hình cùng với dữ liệu training để đảm bảo lưu đúng phân cụm
+            if (algorithm is KMeansClusterer kMeansClusterer)
+            {
+                // Sử dụng SaveModel với dữ liệu training để lưu kết quả phân cụm chính xác
+                kMeansClusterer.SaveModel(modelPath, trainData);
+                
+                // Lưu báo cáo phân cụm riêng
+                SaveSegmentReport(result, modelPath);
+            }
+            else
+            {
+                algorithm.SaveModel(modelPath);
+            }
         }
 
         private void UpdateAutoMLProgress(AutoMLProgress progress)
@@ -311,6 +411,38 @@ PARAMETERS:
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void SaveSegmentReport(ClusteringResult result, string modelPath)
+        {
+            var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            var reportPath = $"Results/Segments_Report_{timestamp}.txt";
+            
+            var report = $@"SEGMENT ANALYSIS REPORT
+=====================
+Timestamp: {DateTime.Now}
+Model Path: {modelPath}
+
+SEGMENTS DISTRIBUTION:
+";
+
+            foreach (var segment in result.Segments.OrderBy(s => s.Key))
+            {
+                report += $"Segment {segment.Key}: {segment.Value.CustomerCount} customers ({segment.Value.Percentage:F1}%)\n";
+                report += $"  Description: {segment.Value.Description}\n";
+                report += $"  Business Insight: {segment.Value.BusinessInsight}\n";
+                report += $"  Average Features:\n";
+                
+                foreach (var feature in segment.Value.AverageFeatures)
+                {
+                    report += $"    {feature.Key}: {feature.Value:F2}\n";
+                }
+                
+                report += "\n";
+            }
+            
+            File.WriteAllText(reportPath, report);
+            UpdateStatus($"Đã lưu báo cáo phân cụm: {reportPath}");
         }
     }
 }
